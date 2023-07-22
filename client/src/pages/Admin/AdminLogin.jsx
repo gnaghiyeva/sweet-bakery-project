@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { signIn } from '../../api/requests';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
-import { Button, TextField } from '@mui/material';
+import { Alert, Button, TextField } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import { useAdminContext } from '../../context/AdminContext';
 
 const AdminLogin = () => {
-  const [admin, setAdmin] = useAdminContext(); // user dəyişənini istifadə etmirik
+  const [admin, setAdmin] = useAdminContext(); 
   const navigate = useNavigate();
 
   const handleSubmit = async (values, actions) => {
@@ -18,7 +18,7 @@ const AdminLogin = () => {
     });
 
     if (response.auth) {
-      localStorage.setItem('adminToken', response.token); // adminToken qeyd etmək kifayət edir
+      localStorage.setItem('adminToken', response.token); 
       localStorage.setItem('admin', JSON.stringify(response.user));
       setAdmin(response.user);
 
@@ -31,6 +31,8 @@ const AdminLogin = () => {
       });
 
       actions.resetForm();
+
+      
       navigate('/admin');
     }
   };

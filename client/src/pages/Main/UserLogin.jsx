@@ -8,7 +8,7 @@ import { signIn } from '../../api/requests';
 import Swal from 'sweetalert2';
 
 const UserLogin = () => {
-    const [user, setUser] = useUserContext(); // user dəyişənini istifadə etmirik
+    const [user, setUser] = useUserContext(); 
   const navigate = useNavigate();
 
   const handleSubmit = async (values, actions) => {
@@ -18,7 +18,7 @@ const UserLogin = () => {
     });
 
     if (response.auth) {
-      localStorage.setItem('userToken', response.token); // adminToken qeyd etmək kifayət edir
+      localStorage.setItem('userToken', response.token); 
       localStorage.setItem('user', JSON.stringify(response.user));
       setUser(response.user);
 
