@@ -1,0 +1,64 @@
+.main_nav{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+.main_nav_left{
+   display: flex;
+   list-style: none;
+   justify-content: center;
+  
+}
+
+.main_nav_item{
+   margin-right: 30px;
+   border-top: 1px dashed gray;
+   border-bottom: 1px dashed gray;
+   padding: 20px 0px;
+   color: #666666;
+   font-family: 'Lobster';
+   font-size: 20px;
+   text-shadow: 2px 2px 0 rgba(223, 223, 223, 0.9);
+}
+
+.main_nav_logo{
+   width: 80%;
+}
+
+.hamburger_menu{
+   display: none;
+}
+
+.logo_title{
+   display: none;
+}
+@media(max-width:992px){
+   .main_nav_logo{
+      display: none;
+   }
+
+   .hamburger_menu{
+      display: block;
+   }
+
+   .logo_title{
+      display: block;
+      font-size: 60px;
+      font-family: 'Lobster';
+      color: hotpink;
+   }
+
+   .main_nav_item{
+      display: none;
+   }
+}
+
+@media(max-width:640px){
+   .logo_title{
+      display: block;
+      font-size: 30px;
+      font-family: 'Lobster';
+      color: hotpink;
+   }
+}

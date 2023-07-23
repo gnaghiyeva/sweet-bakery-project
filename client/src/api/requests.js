@@ -24,3 +24,48 @@ export const getUsers = async(token)=>{
     })
     return users;
 }
+
+//************************************************************************ */
+
+//logo
+export const getAllLogo = async(title)=>{
+    let URL
+    let globalData
+
+    if(!title){
+        URL = BASE_URL+ "/logo"
+    }
+    else{
+        URL = BASE_URL + "/logo/"+`?logo=${title}`
+    }
+
+    await axios.get(URL).then((res)=>{
+        globalData=res.data
+    })
+
+    return globalData
+}
+
+export const getLogoById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/logo/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deleteSlider = async(id)=>{
+   let deletedLogo
+    await axios.delete(`${BASE_URL}/logo/${id}`).then((res)=>{
+        deletedLogo=res.data
+    })
+    return deletedLogo
+}
+
+export const editLogo = (id,updatedLogo)=>{
+   axios.put(`${BASE_URL}/logo/${id}`,updatedLogo)
+}
+
+export const postLogo = (newLogo)=>{
+    axios.post(`${BASE_URL}/logo`,newLogo)
+}

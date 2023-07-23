@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
 const admin_router = require('./routes/admin.routes')
-
+const logo_router = require('./routes/navLogo.routes')
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
@@ -20,7 +20,7 @@ app.get('/api', (req, res) => {
     res.send('Hello World!')
   })
 
-  
+  app.use('/api/logo', logo_router)  
 
 DB_CONNECTION = process.env.DB_CONNECTION
 DB_PASSWORD = process.env.DB_PASSWORD
