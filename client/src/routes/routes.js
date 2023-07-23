@@ -1,6 +1,8 @@
 import AdminLogin from "../pages/Admin/AdminLogin";
 import AdminRoot from "../pages/Admin/AdminRoot";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
+import AdminLogos from "../pages/Admin/Logo/AdminLogos";
+import EditLogo from "../pages/Admin/Logo/EditLogo";
 
 import Home from "../pages/Main/Home/Home";
 import MainRoot from "../pages/Main/MainRoot";
@@ -40,6 +42,14 @@ export const ROUTES = [
                 path:'login',
                 element:<AdminLogin/>
             },
+            {
+                path:'logo',
+                element:<AdminLogos/>
+            },
+            {
+                path:'logo/edit/:id',
+                element:<EditLogo/>
+            }
             ]
     }
 ]

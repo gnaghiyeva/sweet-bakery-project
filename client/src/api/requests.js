@@ -54,7 +54,7 @@ export const getLogoById = async(id)=>{
         return globalData
 }
 
-export const deleteSlider = async(id)=>{
+export const deleteLogo = async(id)=>{
    let deletedLogo
     await axios.delete(`${BASE_URL}/logo/${id}`).then((res)=>{
         deletedLogo=res.data
