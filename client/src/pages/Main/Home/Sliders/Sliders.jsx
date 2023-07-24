@@ -27,7 +27,7 @@ const Sliders = () => {
   >
     {sliders && sliders.map((slider)=>(
 
-    <SwiperSlide key={slider._id} style={{ backgroundImage: `url(${slider.image})`, backgroundSize: 'cover', backgroundPosition: 'center', padding:'200px 0', width:'100%' }}>
+    <SwiperSlide key={slider._id} style={{ backgroundImage: `url(${slider.image})`, backgroundSize: 'cover', backgroundPosition: 'center', padding:'250px 0', width:'100%' }}>
       <article className={textStyle.slider_text}>
       <Bounce>
         <h1 className={textStyle.slider_text_h1}>{slider.title}</h1>

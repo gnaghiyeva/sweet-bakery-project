@@ -14,6 +14,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import WebStoriesIcon from '@mui/icons-material/WebStories';
+import RoomServiceIcon from '@mui/icons-material/RoomService';
+
 const Navbarr = () => {
   const [state, setState] = React.useState({
     left: false,
@@ -35,7 +37,7 @@ const Navbarr = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Logo', 'Sliders', 'pricingStrategy','Films', 'Contact', 'Services', 'Streamings', 'blogs','contactUsers'].map((text, index) => (
+        {['Logo', 'Sliders', 'Services',].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -43,13 +45,8 @@ const Navbarr = () => {
                
                 {text === 'Logo' ? <Link to='logo'><CameraAltIcon/></Link> : ''}
                 {text === 'Sliders' ? <Link to='sliders'><WebStoriesIcon/></Link> : ''}
-                {text === 'pricingStrategy' ? <Link to='pricingStrategy'></Link> : ''}
-                {text === 'Films' ? <Link to='films'></Link> : ''}
-                {text === 'Contact' ? <Link to='contact'></Link> : ''}
-                {text === 'Services' ? <Link to='services'></Link> : ''}
-                {text === 'Streamings' ? <Link to='streamings'></Link> : ''}
-                {text === 'blogs' ? <Link to='blogs'></Link> : ''}
-                {text === 'contactUsers' ? <Link to='contactUsers'></Link> : ''}
+                {text === 'Services' ? <Link to='services'><RoomServiceIcon/></Link> : ''}
+               
 
               </ListItemIcon>
               <ListItemText primary={text} />

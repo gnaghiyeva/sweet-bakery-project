@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const admin_router = require('./routes/admin.routes')
 const logo_router = require('./routes/navLogo.routes');
 const slider_router = require('./routes/slider.routes');
+const service_router = require('./routes/services.routes');
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
@@ -24,6 +25,8 @@ app.get('/api', (req, res) => {
 app.use('/api/logo', logo_router)  
 
 app.use('/api/sliders', slider_router)  
+
+app.use('/api/services', service_router)  
 
 DB_CONNECTION = process.env.DB_CONNECTION
 DB_PASSWORD = process.env.DB_PASSWORD

@@ -8,6 +8,7 @@ import { AdminContextProvider } from './context/AdminContext';
 import { UserContextProvider } from './context/UserContext';
 import { LogoContextProvider } from './context/LogoContext';
 import { SliderContextProvider } from './context/SliderContext';
+import { ServiceContextProvider } from './context/ServiceContext';
 function App() {
   const routes = createBrowserRouter(ROUTES)
   return (
@@ -18,9 +19,13 @@ function App() {
         <UserContextProvider>
           <LogoContextProvider>
             <SliderContextProvider>
-              <RouterProvider router={routes}>
+              <ServiceContextProvider>
 
-              </RouterProvider>
+
+                <RouterProvider router={routes}>
+
+                </RouterProvider>
+              </ServiceContextProvider>
             </SliderContextProvider>
           </LogoContextProvider>
         </UserContextProvider>

@@ -1,0 +1,39 @@
+.service_container{
+    padding-top: 50px;
+    width: 100%;
+}
+
+.service_title{
+    font-family: 'Lobster';
+    color: #7e7e7e;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+.service_img_container{
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    padding: 25px 150px;
+    
+}
+
+.service_img{
+    width: 600px;
+}
+
+
+.service_card_title{
+    font-family: 'Lobster';
+    color: #7e7e7e;
+}
+
+.service_card_description{
+    color: #7e7e7e;
+}
+
+@media(max-width:992px){
+    .service_img{
+        width: 300px;
+    }
+}
