@@ -15,6 +15,7 @@ import ListItemText from '@mui/material/ListItemText';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import WebStoriesIcon from '@mui/icons-material/WebStories';
 import RoomServiceIcon from '@mui/icons-material/RoomService';
+import CategoryIcon from '@mui/icons-material/Category';
 
 const Navbarr = () => {
   const [state, setState] = React.useState({
@@ -37,7 +38,7 @@ const Navbarr = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Logo', 'Sliders', 'Services',].map((text, index) => (
+        {['Logo', 'Sliders', 'Services','Categories'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -46,6 +47,7 @@ const Navbarr = () => {
                 {text === 'Logo' ? <Link to='logo'><CameraAltIcon/></Link> : ''}
                 {text === 'Sliders' ? <Link to='sliders'><WebStoriesIcon/></Link> : ''}
                 {text === 'Services' ? <Link to='services'><RoomServiceIcon/></Link> : ''}
+                {text === 'Categories' ? <Link to='categories'><CategoryIcon/></Link> : ''}
                
 
               </ListItemIcon>

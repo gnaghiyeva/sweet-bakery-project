@@ -1,5 +1,8 @@
 import AdminLogin from "../pages/Admin/AdminLogin";
 import AdminRoot from "../pages/Admin/AdminRoot";
+import AddCategory from "../pages/Admin/Counts/AddCategory";
+import AdminCategories from "../pages/Admin/Counts/AdminCategories";
+import EditCategory from "../pages/Admin/Counts/EditCategory";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 import AdminLogos from "../pages/Admin/Logo/AdminLogos";
 import EditLogo from "../pages/Admin/Logo/EditLogo";
@@ -79,6 +82,18 @@ export const ROUTES = [
             {
                 path:'add-service',
                 element:<AddServices/>
+            },
+            {
+                path:'categories',
+                element:<AdminCategories/>
+            },
+            {
+                path:'category/edit/:id',
+                element:<EditCategory/>
+            },
+            {
+                path:'add-category',
+                element:<AddCategory/>
             }
 
 

@@ -1,0 +1,14 @@
+.counts_container{
+    background-image: url('../assets/pink-bg.png');
+    padding: 80px 0
+}
+
+.counts_text{
+    color: white;
+    font-family: 'Old Standard TT';
+    
+}
+
+.counts_button{
+    font-family: 'Lobster' !important;
+}

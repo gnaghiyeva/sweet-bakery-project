@@ -9,6 +9,7 @@ const admin_router = require('./routes/admin.routes')
 const logo_router = require('./routes/navLogo.routes');
 const slider_router = require('./routes/slider.routes');
 const service_router = require('./routes/services.routes');
+const category_router = require('./routes/categories.routes');
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
@@ -27,6 +28,9 @@ app.use('/api/logo', logo_router)
 app.use('/api/sliders', slider_router)  
 
 app.use('/api/services', service_router)  
+
+app.use('/api/categories', category_router)  
+
 
 DB_CONNECTION = process.env.DB_CONNECTION
 DB_PASSWORD = process.env.DB_PASSWORD

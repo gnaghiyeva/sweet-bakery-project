@@ -9,6 +9,7 @@ import { UserContextProvider } from './context/UserContext';
 import { LogoContextProvider } from './context/LogoContext';
 import { SliderContextProvider } from './context/SliderContext';
 import { ServiceContextProvider } from './context/ServiceContext';
+import { CategoryContextProvider } from './context/CategoryContext';
 function App() {
   const routes = createBrowserRouter(ROUTES)
   return (
@@ -20,11 +21,12 @@ function App() {
           <LogoContextProvider>
             <SliderContextProvider>
               <ServiceContextProvider>
+                <CategoryContextProvider>
 
+                  <RouterProvider router={routes}>
 
-                <RouterProvider router={routes}>
-
-                </RouterProvider>
+                  </RouterProvider>
+                </CategoryContextProvider>
               </ServiceContextProvider>
             </SliderContextProvider>
           </LogoContextProvider>
