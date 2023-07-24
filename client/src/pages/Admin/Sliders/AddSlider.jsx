@@ -4,8 +4,10 @@ import Swal from "sweetalert2";
 import { useFormik } from 'formik';
 import { sliderSchema } from '../../../validation/sliderSchema';
 import { Button, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const AddSlider = () => {
+    const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)
     const buttonRef = useRef()
 
@@ -28,6 +30,7 @@ const AddSlider = () => {
 
         setSelectedImages(null)
         actions.resetForm()
+        navigate('/admin/sliders')
     }
     const formik = useFormik({
         initialValues: {

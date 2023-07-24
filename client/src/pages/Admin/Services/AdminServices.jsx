@@ -29,7 +29,7 @@ const AdminServices = () => {
                     <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-service'>Add Service</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} style={{width:'60%', margin:'0 auto'}}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>

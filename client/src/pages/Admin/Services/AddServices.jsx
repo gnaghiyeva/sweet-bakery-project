@@ -4,8 +4,10 @@ import Swal from "sweetalert2";
 import { useFormik } from 'formik';
 import { serviceSchema } from '../../../validation/serviceSchema';
 import { Button, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const AddServices = () => {
+    const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)
     const buttonRef = useRef()
 
@@ -29,6 +31,7 @@ const AddServices = () => {
 
         setSelectedImages(null)
         actions.resetForm()
+        navigate('/admin/services')
     }
     const formik = useFormik({
         initialValues: {
