@@ -3,6 +3,9 @@ import AdminRoot from "../pages/Admin/AdminRoot";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 import AdminLogos from "../pages/Admin/Logo/AdminLogos";
 import EditLogo from "../pages/Admin/Logo/EditLogo";
+import AddSlider from "../pages/Admin/Sliders/AddSlider";
+import AdminSliders from "../pages/Admin/Sliders/AdminSliders";
+import EditSlider from "../pages/Admin/Sliders/EditSlider";
 
 import Home from "../pages/Main/Home/Home";
 import MainRoot from "../pages/Main/MainRoot";
@@ -49,7 +52,21 @@ export const ROUTES = [
             {
                 path:'logo/edit/:id',
                 element:<EditLogo/>
+            },
+            {
+                path:'sliders',
+                element:<AdminSliders/>
+            },
+            {
+                path:'slider/edit/:id',
+                element:<EditSlider/>
+            },
+            {
+                path:'add-slider',
+                element:<AddSlider/>
             }
+
+
             ]
     }
 ]

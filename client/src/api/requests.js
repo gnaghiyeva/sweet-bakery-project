@@ -69,3 +69,49 @@ export const editLogo = (id,updatedLogo)=>{
 export const postLogo = (newLogo)=>{
     axios.post(`${BASE_URL}/logo`,newLogo)
 }
+
+// ********************************
+
+
+export const getAllSliders = async(title)=>{
+    let URL
+    let globalData
+
+    if(!title){
+        URL = BASE_URL+ "/sliders"
+    }
+    else{
+        URL = BASE_URL + "/sliders/"+`?title=${title}`
+    }
+
+    await axios.get(URL).then((res)=>{
+        globalData=res.data
+    })
+
+    return globalData
+}
+
+
+export const getSliderById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/sliders/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deleteSlider = async(id)=>{
+   let deletedSlider
+    await axios.delete(`${BASE_URL}/sliders/${id}`).then((res)=>{
+        deletedSlider=res.data
+    })
+    return deletedSlider
+}
+
+export const editSlider = (id,updatedSlider)=>{
+   axios.put(`${BASE_URL}/sliders/${id}`,updatedSlider)
+}
+
+export const postSlider = (newSlider)=>{
+    axios.post(`${BASE_URL}/sliders`,newSlider)
+}

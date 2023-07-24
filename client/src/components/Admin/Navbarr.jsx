@@ -13,7 +13,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
-
+import WebStoriesIcon from '@mui/icons-material/WebStories';
 const Navbarr = () => {
   const [state, setState] = React.useState({
     left: false,
@@ -35,14 +35,14 @@ const Navbarr = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Logo', 'pricingSliders', 'pricingStrategy','Films', 'Contact', 'Services', 'Streamings', 'blogs','contactUsers'].map((text, index) => (
+        {['Logo', 'Sliders', 'pricingStrategy','Films', 'Contact', 'Services', 'Streamings', 'blogs','contactUsers'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
 
                
                 {text === 'Logo' ? <Link to='logo'><CameraAltIcon/></Link> : ''}
-                {text === 'pricingSliders' ? <Link to='pricingSliders'></Link> : ''}
+                {text === 'Sliders' ? <Link to='sliders'><WebStoriesIcon/></Link> : ''}
                 {text === 'pricingStrategy' ? <Link to='pricingStrategy'></Link> : ''}
                 {text === 'Films' ? <Link to='films'></Link> : ''}
                 {text === 'Contact' ? <Link to='contact'></Link> : ''}
