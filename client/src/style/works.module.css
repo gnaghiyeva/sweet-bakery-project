@@ -1,0 +1,61 @@
+.works_container {
+    padding-top: 50px;
+    width: 100%;
+}
+
+.works_title {
+    font-family: 'Lobster';
+    color: #7e7e7e;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+
+.works_img_container {
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    padding: 25px 150px;
+
+}
+
+.works_img {
+    width: 600px;
+}
+
+.works_card {
+    overflow: hidden;
+    
+}
+
+.card_image {
+    object-fit: cover;
+    transition: all 2500ms ease-in-out;
+    position: relative;    
+}
+
+
+.works_card:hover .card_image {
+    transform: scale(1.1) rotate(3deg);
+    transition: all 2500ms ease-in-out;
+    overflow: hidden;
+    
+
+}
+
+.works_card_title {
+    font-family: 'Lobster';
+    color: #7e7e7e;
+    text-align: center;
+}
+
+.works_card_description {
+    color: #7e7e7e;
+    text-align: center;
+}
+
+@media(max-width:992px) {
+    .works_img {
+        width: 300px;
+    }
+}

@@ -208,4 +208,48 @@ export const postCategory = (newCategory)=>{
 }
 
 
+/******************************************* */
+//categories
+export const getAllWorks = async(title)=>{
+    let URL
+    let globalData
+
+    if(!title){
+        URL = BASE_URL+ "/works"
+    }
+    else{
+        URL = BASE_URL + "/works/"+`?title=${title}`
+    }
+
+    await axios.get(URL).then((res)=>{
+        globalData=res.data
+    })
+
+    return globalData
+}
+
+
+export const getWorkById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/works/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deleteWork = async(id)=>{
+   let deletedWork
+    await axios.delete(`${BASE_URL}/works/${id}`).then((res)=>{
+        deletedWork=res.data
+    })
+    return deletedWork
+}
+
+export const editWork = (id,updatedWork)=>{
+   axios.put(`${BASE_URL}/works/${id}`,updatedWork)
+}
+
+export const postWork = (newWork)=>{
+    axios.post(`${BASE_URL}/works`,newWork)
+}
 
