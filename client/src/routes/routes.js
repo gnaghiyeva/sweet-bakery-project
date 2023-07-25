@@ -12,6 +12,9 @@ import EditService from "../pages/Admin/Services/EditService";
 import AddSlider from "../pages/Admin/Sliders/AddSlider";
 import AdminSliders from "../pages/Admin/Sliders/AdminSliders";
 import EditSlider from "../pages/Admin/Sliders/EditSlider";
+import AddWork from "../pages/Admin/Works/AddWork";
+import AdminWorks from "../pages/Admin/Works/AdminWorks";
+import EditWork from "../pages/Admin/Works/EditWork";
 
 import Home from "../pages/Main/Home/Home";
 import MainRoot from "../pages/Main/MainRoot";
@@ -94,6 +97,18 @@ export const ROUTES = [
             {
                 path:'add-category',
                 element:<AddCategory/>
+            },
+            {
+                path:'works',
+                element:<AdminWorks/>
+            },
+            {
+                path:'work/edit/:id',
+                element:<EditWork/>
+            },
+            {
+                path:'add-work',
+                element:<AddWork/>
             }
 
 

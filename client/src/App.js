@@ -10,6 +10,7 @@ import { LogoContextProvider } from './context/LogoContext';
 import { SliderContextProvider } from './context/SliderContext';
 import { ServiceContextProvider } from './context/ServiceContext';
 import { CategoryContextProvider } from './context/CategoryContext';
+import { WorkContextProvider } from './context/WorkContext';
 function App() {
   const routes = createBrowserRouter(ROUTES)
   return (
@@ -22,10 +23,11 @@ function App() {
             <SliderContextProvider>
               <ServiceContextProvider>
                 <CategoryContextProvider>
+                  <WorkContextProvider>
+                    <RouterProvider router={routes}>
 
-                  <RouterProvider router={routes}>
-
-                  </RouterProvider>
+                    </RouterProvider>
+                  </WorkContextProvider>
                 </CategoryContextProvider>
               </ServiceContextProvider>
             </SliderContextProvider>

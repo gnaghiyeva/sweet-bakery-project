@@ -16,6 +16,7 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import WebStoriesIcon from '@mui/icons-material/WebStories';
 import RoomServiceIcon from '@mui/icons-material/RoomService';
 import CategoryIcon from '@mui/icons-material/Category';
+import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 
 const Navbarr = () => {
   const [state, setState] = React.useState({
@@ -38,7 +39,7 @@ const Navbarr = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Logo', 'Sliders', 'Services','Categories'].map((text, index) => (
+        {['Logo', 'Sliders', 'Services','Categories','Works'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -48,6 +49,7 @@ const Navbarr = () => {
                 {text === 'Sliders' ? <Link to='sliders'><WebStoriesIcon/></Link> : ''}
                 {text === 'Services' ? <Link to='services'><RoomServiceIcon/></Link> : ''}
                 {text === 'Categories' ? <Link to='categories'><CategoryIcon/></Link> : ''}
+                {text === 'Works' ? <Link to='works'><HomeRepairServiceIcon/></Link> : ''}
                
 
               </ListItemIcon>

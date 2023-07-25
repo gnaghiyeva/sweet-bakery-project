@@ -3,7 +3,6 @@ import { getAllWorks } from '../../../../api/requests';
 import { useTheme } from '@mui/material/styles';
 import { Grid } from '@mui/material';
 import workStyle from '../../../../style/works.module.css'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 const Works = () => {
     const theme = useTheme();
@@ -25,7 +24,7 @@ const Works = () => {
             <Grid container spacing={2} style={{ padding: '50px 60px' }}>
                 {works && works.map((work) => {
                     return (
-                        <Grid item sm={6} xs={12} md={3}>
+                        <Grid item sm={6} xs={12} md={4} lg={3}>
                             <Card >
                                 <div className={workStyle.works_card}>
                                 <Card.Img className={workStyle.card_image} variant="top" src={work.image} />
