@@ -30,14 +30,14 @@
 
 .card_image {
     object-fit: cover;
-    transition: all 2500ms ease-in-out;
+    transition: all 1300ms ease-in-out;
     position: relative;    
 }
 
 
 .works_card:hover .card_image {
     transform: scale(1.1) rotate(3deg);
-    transition: all 2500ms ease-in-out;
+    transition: all 1300ms ease-in-out;
     overflow: hidden;
     
 
