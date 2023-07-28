@@ -6,6 +6,9 @@ import EditCategory from "../pages/Admin/Counts/EditCategory";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 import AdminLogos from "../pages/Admin/Logo/AdminLogos";
 import EditLogo from "../pages/Admin/Logo/EditLogo";
+import AddPrice from "../pages/Admin/Prices/AddPrice";
+import AdminPrices from "../pages/Admin/Prices/AdminPrices";
+import EditPrice from "../pages/Admin/Prices/EditPrice";
 import AddServices from "../pages/Admin/Services/AddServices";
 import AdminServices from "../pages/Admin/Services/AdminServices";
 import EditService from "../pages/Admin/Services/EditService";
@@ -109,6 +112,18 @@ export const ROUTES = [
             {
                 path:'add-work',
                 element:<AddWork/>
+            },
+            {
+                path:'prices',
+                element:<AdminPrices/>
+            },
+            {
+                path:'price/edit/:id',
+                element:<EditPrice/>
+            },
+            {
+                path:'add-price',
+                element:<AddPrice/>
             }
 
 

@@ -3,6 +3,7 @@ import Sliders from './Sliders/Sliders'
 import Services from './Services/Services'
 import Counts from './Counts/Counts'
 import Works from './Works/Works'
+import Prices from './Prices/Prices'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
     <Services/>
     <Counts/>
     <Works/>
+    <Prices/>
     </>
   )
 }

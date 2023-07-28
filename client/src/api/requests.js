@@ -253,3 +253,47 @@ export const postWork = (newWork)=>{
     axios.post(`${BASE_URL}/works`,newWork)
 }
 
+/******************************************* */
+//categories
+export const getAllPrices = async(name)=>{
+    let URL
+    let globalData
+
+    if(!name){
+        URL = BASE_URL+ "/prices"
+    }
+    else{
+        URL = BASE_URL + "/prices/"+`?name=${name}`
+    }
+
+    await axios.get(URL).then((res)=>{
+        globalData=res.data
+    })
+
+    return globalData
+}
+
+
+export const getPriceById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/prices/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deletePrice = async(id)=>{
+   let deletedPrice
+    await axios.delete(`${BASE_URL}/prices/${id}`).then((res)=>{
+        deletedPrice=res.data
+    })
+    return deletedPrice
+}
+
+export const editPrice = (id,updatedPrice)=>{
+   axios.put(`${BASE_URL}/prices/${id}`,updatedPrice)
+}
+
+export const postPrice = (newPrice)=>{
+    axios.post(`${BASE_URL}/prices`,newPrice)
+}

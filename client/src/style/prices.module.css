@@ -1,0 +1,86 @@
+.prices_section{
+    background-image: url('../assets/green-bg.png');
+    padding: 30px 100px;
+}
+.prices_container{
+    padding-top: 50px;
+    width: 100%;
+}
+
+.prices_title{
+    font-family: 'Lobster';
+    color: white;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+.prices_img_container{
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    padding: 25px 150px;
+    
+}
+
+.prices_img{
+    width: 600px;
+}
+
+
+.prices_card_title_container{
+    font-family: 'Lobster';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  
+    background-image: url('http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/bgribbon.jpg');
+    background-repeat: repeat; 
+    background-position: center; 
+    background-size: contain; 
+    padding: 0;
+}
+
+.prices_card_list{
+    text-align: center;
+}
+
+.prices_card_title{
+    font-family: 'Lobster';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.prices_card_description{
+    color: #7e7e7e;
+}
+
+.prices_card_img_container{
+    width: 60%;
+    margin: -70px auto;
+    padding-bottom: 40px;
+   
+}
+
+.prices_card_img{
+    /* position: absolute;
+    top: 50%; */
+    transition: all 0.5s ease;
+}
+
+.prices_card_img:hover{
+    transform: rotate(360deg);
+    transition: all 0.5s ease;
+}
+
+@media(max-width:992px){
+    .prices_img{
+        width: 300px;
+    }
+}
+

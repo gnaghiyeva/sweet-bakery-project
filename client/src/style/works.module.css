@@ -1,5 +1,7 @@
 .works_container {
     padding-top: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
     width: 100%;
 }
 
@@ -30,7 +32,7 @@
 
 .card_image {
     object-fit: cover;
-    transition: all 1300ms ease-in-out;
+    transition: all 130ms ease-in-out;
     position: relative;    
 }
 
