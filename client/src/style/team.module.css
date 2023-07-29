@@ -70,12 +70,12 @@
 
 
 
-.team_card_logos{
+/* .team_card_logos{
     display: flex;
     justify-content: center;
     gap: 6px;
  
-}
+} */
 
 @media(max-width:992px){
     .team_img{

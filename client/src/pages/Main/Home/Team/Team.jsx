@@ -48,7 +48,7 @@ const Team = () => {
 
                             <Card >
                                 <ListGroup variant="flush">
-                                    <ListGroup.Item className={teamStyle.team_card_logos}>
+                                    <ListGroup.Item style={{display:'flex', justifyContent:'center', gap:'6px'}}>
                                        
                                         <div style={{width:'15%'}}>
                                            <img style={{width:'100%'}} src={FacebookLogo}/>
