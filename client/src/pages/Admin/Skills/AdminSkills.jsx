@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { deleteSkill, getAllSkills } from '../../../api/requests'
+import { deleteProgress, deleteSkill, getAllProgress, getAllSkills } from '../../../api/requests'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -26,6 +26,14 @@ const AdminSkills = () => {
             setSkills(res.data)
         })
     }, [skills])
+
+    const [progress, setProgress] = useState([])
+    useEffect(() => {
+        getAllProgress().then((res) => {
+            setProgress(res.data)
+        })
+    }, [progress])
+
     return (
 
         <>
@@ -33,10 +41,12 @@ const AdminSkills = () => {
                 <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />
                     <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-skill'>Add Skill</Link> <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-progress'>Add Progress</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
-            <Grid container spacing={2} style={{width:'60%', margin:'60px auto'}}>
-                
+
+            <Grid container spacing={2}>
+                <Grid item sm={6} xs={12} md={12} lg={6}>
                     <TableContainer component={Paper} >
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
                             <TableHead>
@@ -92,8 +102,71 @@ const AdminSkills = () => {
                     </TableContainer>
                 </Grid>
 
-              
-            
+                <Grid item sm={6} xs={12} md={12} lg={6}>
+                    <TableContainer component={Paper} >
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell align="center">Image</TableCell>
+                                    <TableCell align="center">Title</TableCell>
+                                    <TableCell align="center">Delete</TableCell>
+                                    <TableCell align="center">Edit</TableCell>
+
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {progress.map((prog) => (
+                                    <TableRow
+                                        key={prog._id}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell align="center">
+                                            <Progress
+                                                type="circle"
+                                                percent={prog.progressCount}
+                                                strokeColor={{
+                                                    '0%': '#108ee9',
+                                                    '100%': '#87d068',
+                                                }}
+                                            />
+                                        </TableCell>
+                                        <TableCell align="center">{prog.progressName}</TableCell>
+
+                                        <TableCell align="center"><DeleteIcon style={{ color: 'red', fontSize: '33px' }} onClick={() => {
+                                            Swal.fire({
+                                                title: 'Are you sure?',
+                                                text: "You won't be able to revert this!",
+                                                icon: 'warning',
+                                                showCancelButton: true,
+                                                confirmButtonColor: '#3085d6',
+                                                cancelButtonColor: '#d33',
+                                                confirmButtonText: 'Yes, delete it!'
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    deleteProgress(prog._id).then((res) => {
+                                                        Swal.fire(
+                                                            'Deleted!',
+                                                            'Your file has been deleted.',
+                                                            'success'
+                                                        )
+
+                                                    })
+                                                    setSkills(progress.filter((x) => x._id !== prog._id))
+                                                }
+                                            })
+                                        }} /></TableCell>
+                                        <TableCell align="center"><Link to={`/admin/progress/edit/${prog._id}`}><ModeEditIcon style={{ fontSize: '33px' }} /></Link></TableCell>
+
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Grid>
+            </Grid>
+
+
+
         </>
     )
 }

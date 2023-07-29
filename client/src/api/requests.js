@@ -389,3 +389,50 @@ export const editSkill = (id,updatedSkill)=>{
 export const postSkill = (newSkill)=>{
     axios.post(`${BASE_URL}/skills`,newSkill)
 }
+
+
+
+/******************************************* */
+//progress
+export const getAllProgress = async(progressName)=>{
+    let URL
+    let globalData
+
+    if(!progressName){
+        URL = BASE_URL+ "/progress"
+    }
+    else{
+        URL = BASE_URL + "/progress/"+`?progressName=${progressName}`
+    }
+
+    await axios.get(URL).then((res)=>{
+        globalData=res.data
+    })
+
+    return globalData
+}
+
+
+export const getProgressById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/progress/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deleteProgress = async(id)=>{
+   let deletedProgress
+    await axios.delete(`${BASE_URL}/progress/${id}`).then((res)=>{
+        deletedProgress=res.data
+    })
+    return deletedProgress
+}
+
+export const editProgress = (id,updatedProgress)=>{
+   axios.put(`${BASE_URL}/progress/${id}`,updatedProgress)
+}
+
+export const postProgress = (newProgress)=>{
+    axios.post(`${BASE_URL}/progress`,newProgress)
+}

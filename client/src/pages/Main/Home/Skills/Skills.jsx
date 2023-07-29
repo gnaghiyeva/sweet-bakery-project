@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import skillStyle from '../../../../style/skills.module.css'
-import { getAllSkills } from '../../../../api/requests';
+import { getAllProgress, getAllSkills } from '../../../../api/requests';
 import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -13,6 +13,13 @@ const Skills = () => {
     useEffect(() => {
         getAllSkills().then((res) => {
             setSkills(res.data)
+        })
+    }, [])
+
+    const [progress, setProgress] = useState([])
+    useEffect(() => {
+        getAllProgress().then((res) => {
+            setProgress(res.data)
         })
     }, [])
     return (
@@ -57,11 +64,11 @@ const Skills = () => {
             </Grid>
 
             <Grid item sm={12} xs={12} md={6} style={{ padding: '40px 80px' }} >
-                {skills && skills.map((skill)=>{
+                {progress && progress.map((prog)=>{
                     return (
                    <div style={{padding:'10px 0'}}>
-                    <h5 style={{color:'white'}}>{skill.progressName}</h5>
-                   <ProgressBar striped variant='danger'  now={skill.progressCount} />
+                    <h5 style={{color:'white'}}>{prog.progressName}</h5>
+                   <ProgressBar striped variant='danger'  now={prog.progressCount} />
                    </div>
                         
                     )
