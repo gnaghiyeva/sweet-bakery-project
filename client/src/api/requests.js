@@ -254,7 +254,7 @@ export const postWork = (newWork)=>{
 }
 
 /******************************************* */
-//categories
+//prices
 export const getAllPrices = async(name)=>{
     let URL
     let globalData
@@ -296,4 +296,50 @@ export const editPrice = (id,updatedPrice)=>{
 
 export const postPrice = (newPrice)=>{
     axios.post(`${BASE_URL}/prices`,newPrice)
+}
+
+
+/******************************************* */
+//team
+export const getAllTeam = async(fullname)=>{
+    let URL
+    let globalData
+
+    if(!fullname){
+        URL = BASE_URL+ "/team"
+    }
+    else{
+        URL = BASE_URL + "/team/"+`?fullname=${fullname}`
+    }
+
+    await axios.get(URL).then((res)=>{
+        globalData=res.data
+    })
+
+    return globalData
+}
+
+
+export const getPersonById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/team/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deletePerson = async(id)=>{
+   let deletedPerson
+    await axios.delete(`${BASE_URL}/team/${id}`).then((res)=>{
+        deletedPerson=res.data
+    })
+    return deletedPerson
+}
+
+export const editPerson = (id,updatedPerson)=>{
+   axios.put(`${BASE_URL}/team/${id}`,updatedPerson)
+}
+
+export const postPerson = (newPerson)=>{
+    axios.post(`${BASE_URL}/team`,newPerson)
 }

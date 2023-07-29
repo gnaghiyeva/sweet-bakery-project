@@ -1,0 +1,85 @@
+.team_container{
+    padding-top: 50px;
+    width: 100%;
+    background-image: url('../assets/grey-bg.png');
+}
+.team_title{
+    font-family: 'Lobster';
+    color: #7e7e7e;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+.team_img_container{
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    padding: 25px 150px;
+    
+}
+
+.team_img{
+    width: 600px;
+}
+
+
+.team_card_img_container{
+    width: 60%;
+    margin: -70px auto;
+    padding-bottom: 40px;
+   
+}
+
+
+.team_card_img{
+    /* position: absolute;
+    top: 50%; */
+    transition: all 0.5s ease;
+}
+
+.team_card_img:hover{
+    transform: rotate(360deg);
+    transition: all 0.5s ease;
+}
+
+.team_card_title{
+    font-family: 'Lobster';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.team_card_body{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.team_card_body_title{
+   font-family: 'Lobster';
+   color: #7e7e7e;
+}
+
+.team_card_body_desc{
+    color: gray;
+    
+}
+
+
+
+
+
+.team_card_logos{
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+ 
+}
+
+@media(max-width:992px){
+    .team_img{
+        width: 300px;
+    }
+}
+

@@ -52,7 +52,7 @@ const CakePricesController = {
         else{
             res.status(203).send({
                 data:deletedPrice,
-                message:'service price succesfully'
+                message:'price succesfully'
             })
         }
     },

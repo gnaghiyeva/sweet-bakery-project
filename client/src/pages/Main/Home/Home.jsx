@@ -4,6 +4,7 @@ import Services from './Services/Services'
 import Counts from './Counts/Counts'
 import Works from './Works/Works'
 import Prices from './Prices/Prices'
+import Team from './Team/Team'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
     <Counts/>
     <Works/>
     <Prices/>
+    <Team/>
     </>
   )
 }

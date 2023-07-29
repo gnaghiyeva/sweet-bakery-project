@@ -15,6 +15,9 @@ import EditService from "../pages/Admin/Services/EditService";
 import AddSlider from "../pages/Admin/Sliders/AddSlider";
 import AdminSliders from "../pages/Admin/Sliders/AdminSliders";
 import EditSlider from "../pages/Admin/Sliders/EditSlider";
+import AddPerson from "../pages/Admin/Team/AddPerson";
+import AdminTeam from "../pages/Admin/Team/AdminTeam";
+import EditPerson from "../pages/Admin/Team/EditPerson";
 import AddWork from "../pages/Admin/Works/AddWork";
 import AdminWorks from "../pages/Admin/Works/AdminWorks";
 import EditWork from "../pages/Admin/Works/EditWork";
@@ -124,6 +127,18 @@ export const ROUTES = [
             {
                 path:'add-price',
                 element:<AddPrice/>
+            },
+            {
+                path:'team',
+                element:<AdminTeam/>
+            },
+            {
+                path:'team/edit/:id',
+                element:<EditPerson/>
+            },
+            {
+                path:'add-person',
+                element:<AddPerson/>
             }
 
 

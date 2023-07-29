@@ -32,7 +32,7 @@
 
 .card_image {
     object-fit: cover;
-    transition: all 130ms ease-in-out;
+    transition: all 1300ms ease-in-out;
     position: relative;    
 }
 
