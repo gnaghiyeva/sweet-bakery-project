@@ -1,0 +1,36 @@
+.skill_container{
+    padding-top: 50px;
+    width: 100%;
+    background-image: url('../assets/pink-bg.png');
+}
+
+.skill_title{
+    font-family: 'Lobster';
+    color: white;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+.skill_img_container{
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    padding: 25px 150px;
+    
+}
+
+.skill_img{
+    width: 600px;
+}
+
+@media(max-width:992px){
+    .skill_img{
+        width: 300px;
+    }
+}
+
+@media(max-width:576px){
+    .skill_img{
+        width: 180px;
+    }
+}

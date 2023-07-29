@@ -343,3 +343,49 @@ export const editPerson = (id,updatedPerson)=>{
 export const postPerson = (newPerson)=>{
     axios.post(`${BASE_URL}/team`,newPerson)
 }
+
+
+/******************************************* */
+//skills
+export const getAllSkills = async(title)=>{
+    let URL
+    let globalData
+
+    if(!title){
+        URL = BASE_URL+ "/skills"
+    }
+    else{
+        URL = BASE_URL + "/skills/"+`?title=${title}`
+    }
+
+    await axios.get(URL).then((res)=>{
+        globalData=res.data
+    })
+
+    return globalData
+}
+
+
+export const getSkillById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/skills/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deleteSkill = async(id)=>{
+   let deletedSkill
+    await axios.delete(`${BASE_URL}/skills/${id}`).then((res)=>{
+        deletedSkill=res.data
+    })
+    return deletedSkill
+}
+
+export const editSkill = (id,updatedSkill)=>{
+   axios.put(`${BASE_URL}/skills/${id}`,updatedSkill)
+}
+
+export const postSkill = (newSkill)=>{
+    axios.post(`${BASE_URL}/skills`,newSkill)
+}

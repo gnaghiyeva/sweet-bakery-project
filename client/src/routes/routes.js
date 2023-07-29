@@ -12,6 +12,11 @@ import EditPrice from "../pages/Admin/Prices/EditPrice";
 import AddServices from "../pages/Admin/Services/AddServices";
 import AdminServices from "../pages/Admin/Services/AdminServices";
 import EditService from "../pages/Admin/Services/EditService";
+import AddProgress from "../pages/Admin/Skills/AddProgress";
+import AddSkill from "../pages/Admin/Skills/AddSkill";
+import AdminSkills from "../pages/Admin/Skills/AdminSkills";
+import EditProgress from "../pages/Admin/Skills/EditProgress";
+import EditSkill from "../pages/Admin/Skills/EditSkill";
 import AddSlider from "../pages/Admin/Sliders/AddSlider";
 import AdminSliders from "../pages/Admin/Sliders/AdminSliders";
 import EditSlider from "../pages/Admin/Sliders/EditSlider";
@@ -139,6 +144,26 @@ export const ROUTES = [
             {
                 path:'add-person',
                 element:<AddPerson/>
+            },
+            {
+                path:'skills',
+                element:<AdminSkills/>
+            },
+            {
+                path:'skills/edit/:id',
+                element:<EditSkill/>
+            },
+            {
+                path:'add-skill',
+                element:<AddSkill/>
+            },
+            {
+                path:'progress/edit/:id',
+                element:<EditProgress/>
+            },
+            {
+                path:'add-progress',
+                element:<AddProgress/>
             }
 
 

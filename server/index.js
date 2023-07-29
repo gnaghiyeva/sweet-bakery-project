@@ -13,6 +13,7 @@ const category_router = require('./routes/categories.routes');
 const work_router = require('./routes/works.routes');
 const prices_router = require('./routes/prices.routes');
 const team_router = require('./routes/team.routes');
+const skill_router = require('./routes/skills.routes');
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
@@ -38,7 +39,10 @@ app.use('/api/works', work_router)
 
 app.use('/api/prices', prices_router)
 
-app.use('/api/team', team_router)  
+app.use('/api/team', team_router) 
+
+app.use('/api/skills', skill_router)
+
 DB_CONNECTION = process.env.DB_CONNECTION
 DB_PASSWORD = process.env.DB_PASSWORD
 
