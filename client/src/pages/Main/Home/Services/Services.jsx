@@ -33,7 +33,7 @@ const Services = () => {
                     {services && services.map((service) => {
                         return (
                             <Grid item sm={6} xs={12} md={4}>
-                                <Card sx={{ display: 'flex', alignItems:'center' }}>
+                                <Card sx={{ display: 'flex', alignItems:'center' }} style={{border:'none', boxShadow:'none'}}>
                                 <CardMedia
                                         component="img"
                                         
