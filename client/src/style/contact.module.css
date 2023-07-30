@@ -1,0 +1,40 @@
+.contact_container{
+    background-image: url('../assets/parallax5.jpg');
+    padding: 100px 0;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+.contact_form_container{
+    width: 40%;
+    margin: 0 auto;
+    background-image: url('../assets/grey-bg.png') ;
+    padding: 50px 70px;
+}
+
+.contact_text{
+    font-family: 'Old Standard TT';
+    color: #7e7e7e;
+}
+.contact_title{
+    font-family: 'Lobster';
+    color: #7e7e7e;
+}
+
+
+.form_input{
+    border:1px solid #f1f1f1
+}
+
+.form_textarea{
+    width: 100%;
+}
+.form_button{
+    background-color: #E4B9CF;
+    border: none;
+    padding: 10px 50px;
+    color: white;
+    font-family: 'Lobster';
+    width: 100%;
+    font-size: 20px;
+}
