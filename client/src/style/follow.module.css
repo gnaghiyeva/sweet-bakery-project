@@ -1,0 +1,44 @@
+.follow_container{
+    padding-top: 50px;
+    width: 100%;
+    background-image: url('../assets/grey-bg.png');
+}
+.follow_title{
+    font-family: 'Lobster';
+    color: #7e7e7e;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+.follow_img_container{
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    padding: 25px 150px;
+    
+}
+
+.follow_img{
+    width: 600px;
+}
+
+@media(max-width:992px){
+    .follow_img{
+        width: 300px;
+    }
+}
+
+@media(max-width:576px){
+    .follow_img{
+        width: 200px;
+       margin : auto;
+    }
+}
+
+
+@media(max-width:200px){
+    .follow_img{
+        width: 100px;
+        margin : auto;
+    }
+}

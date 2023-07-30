@@ -80,7 +80,21 @@
 
 @media(max-width:992px){
     .prices_img{
-        width: 300px;
+        width: 200px;
+    }
+}
+
+@media(max-width:576px){
+    .prices_img{
+        display: none;
+    }
+}
+
+
+@media(max-width:200px){
+    .prices_img{
+        width: 100px;
+        margin : auto;
     }
 }
 
