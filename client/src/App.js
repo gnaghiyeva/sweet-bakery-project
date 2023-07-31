@@ -15,6 +15,8 @@ import { PriceContextProvider } from './context/PricesContext';
 import { PersonContextProvider } from './context/PersonContext';
 import { SkillContextProvider } from './context/SkillContext';
 import { ProgressContextProvider } from './context/ProgressContext';
+import { BlogSliderContextProvider } from './context/BlogSliderContext';
+import { BlogContextProvider } from './context/BlogContext';
 function App() {
   const routes = createBrowserRouter(ROUTES)
   return (
@@ -32,21 +34,24 @@ function App() {
                       <PersonContextProvider>
                         <SkillContextProvider>
                           <ProgressContextProvider>
+                            <BlogContextProvider>
+                              <BlogSliderContextProvider>
+                                <RouterProvider router={routes}>
 
-                          <RouterProvider router={routes}>
-
-                          </RouterProvider>
-                          </ProgressContextProvider>
-                        </SkillContextProvider>
-                      </PersonContextProvider>
-                    </PriceContextProvider>
-                  </WorkContextProvider>
-                </CategoryContextProvider>
-              </ServiceContextProvider>
-            </SliderContextProvider>
-          </LogoContextProvider>
-        </UserContextProvider>
-      </AdminContextProvider>
+                                </RouterProvider>
+                          </BlogSliderContextProvider>
+                            </BlogContextProvider>
+                        </ProgressContextProvider>
+                      </SkillContextProvider>
+                    </PersonContextProvider>
+                  </PriceContextProvider>
+                </WorkContextProvider>
+              </CategoryContextProvider>
+            </ServiceContextProvider>
+          </SliderContextProvider>
+        </LogoContextProvider>
+      </UserContextProvider>
+    </AdminContextProvider >
 
     </>
   );

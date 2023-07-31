@@ -20,6 +20,7 @@ import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import GroupIcon from '@mui/icons-material/Group';
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
+import BookIcon from '@mui/icons-material/Book';
 
 const Navbarr = () => {
   const [state, setState] = React.useState({
@@ -42,7 +43,7 @@ const Navbarr = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Logo', 'Sliders', 'Services','Categories','Works', 'Prices', 'Team', 'Skills'].map((text, index) => (
+        {['Logo', 'Sliders', 'Services','Categories','Works', 'Prices', 'Team', 'Skills', 'Blog'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -56,8 +57,7 @@ const Navbarr = () => {
                 {text === 'Prices' ? <Link to='prices'><MonetizationOnIcon/></Link> : ''}
                 {text === 'Team' ? <Link to='team'><GroupIcon/></Link> : ''}
                 {text === 'Skills' ? <Link to='skills'><DonutLargeIcon/></Link> : ''}
-               
-
+                {text === 'Blog' ? <Link to='blogs'><BookIcon/></Link> : ''}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>

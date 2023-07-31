@@ -15,6 +15,8 @@ const prices_router = require('./routes/prices.routes');
 const team_router = require('./routes/team.routes');
 const skill_router = require('./routes/skills.routes');
 const progress_router = require('./routes/progress.routes');
+const blog_router = require('./routes/blogs.routes');
+const blog_slider_router = require('./routes/blogSlider.routes');
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
@@ -45,6 +47,10 @@ app.use('/api/team', team_router)
 app.use('/api/skills', skill_router)
 
 app.use('/api/progress', progress_router)
+
+app.use('/api/blogs', blog_router)
+
+app.use('/api/blogslider', blog_slider_router)
 
 DB_CONNECTION = process.env.DB_CONNECTION
 DB_PASSWORD = process.env.DB_PASSWORD

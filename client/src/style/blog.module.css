@@ -1,0 +1,15 @@
+.blog_title{
+   color: #666666; 
+   font-family: 'Lobster';
+   font-size: 1.5em;
+}
+
+.blog_releaseDate{
+    color: #7e7e7e;
+    font-family: 'Old Standard TT'
+}
+
+.blog_description{
+    color: #7e7e7e;
+    font-family: 'Old Standard TT';
+}

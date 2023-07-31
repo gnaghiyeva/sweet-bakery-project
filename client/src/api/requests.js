@@ -436,3 +436,76 @@ export const editProgress = (id,updatedProgress)=>{
 export const postProgress = (newProgress)=>{
     axios.post(`${BASE_URL}/progress`,newProgress)
 }
+
+/******************************************* */
+//blog
+export const getAllBlogs = async() => {
+    let globalData;
+   await axios.get(`${BASE_URL}/blogs`)
+        .then(res => {
+            globalData = res.data;
+        })
+    return globalData
+}
+
+
+export const getBlogById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/blogs/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deleteBlog = async(id)=>{
+   let deletedBlog
+    await axios.delete(`${BASE_URL}/blogs/${id}`).then((res)=>{
+        deletedBlog=res.data
+    })
+    return deletedBlog
+}
+
+export const editBlog = (id,updatedBLog)=>{
+   axios.put(`${BASE_URL}/blogs/${id}`,updatedBLog)
+}
+
+export const postBlog = (newBlog)=>{
+    axios.post(`${BASE_URL}/blogs`,newBlog)
+}
+
+
+/******************************************* */
+//blog slider
+export const getAllBlogSliders = async() => {
+    let globalData;
+   await axios.get(`${BASE_URL}/blogslider`)
+        .then(res => {
+            globalData = res.data;
+        })
+    return globalData
+}
+
+
+export const getBlogSliderById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/blogslider/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deleteBlogSlider = async(id)=>{
+   let deletedBlogSlider
+    await axios.delete(`${BASE_URL}/blogslider/${id}`).then((res)=>{
+        deletedBlogSlider=res.data
+    })
+    return deletedBlogSlider
+}
+
+export const editBlogSlider = (id,updatedBlogSlider)=>{
+   axios.put(`${BASE_URL}/blogslider/${id}`,updatedBlogSlider)
+}
+
+export const postBlogSlider = (newBlogSlider)=>{
+    axios.post(`${BASE_URL}/blogslider`,newBlogSlider)
+}

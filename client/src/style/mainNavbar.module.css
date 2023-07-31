@@ -20,6 +20,7 @@
    font-family: 'Lobster';
    font-size: 20px;
    text-shadow: 2px 2px 0 rgba(223, 223, 223, 0.9);
+   text-decoration: none;
 }
 
 .main_nav_logo{

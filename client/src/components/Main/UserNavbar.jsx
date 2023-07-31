@@ -125,9 +125,9 @@ const UserNavbar = () => {
 
     
       <ul className={mainNavbarStyle.main_nav_left} >
-        <li className={mainNavbarStyle.main_nav_item}>Home</li>
-        <li className={mainNavbarStyle.main_nav_item}>Our Services</li>
-        <li className={mainNavbarStyle.main_nav_item}>Works</li>
+        <Link  className={mainNavbarStyle.main_nav_item} to='/'>Home</Link>
+        <Link className={mainNavbarStyle.main_nav_item} to='/'>Our Services</Link>
+        <Link className={mainNavbarStyle.main_nav_item} to='/'>Works</Link>
        </ul> 
        
        {logos && logos.map((logo)=>(
@@ -136,7 +136,7 @@ const UserNavbar = () => {
         ))} 
         <div className={mainNavbarStyle.logo_title}>Sweet Bakery</div>
         <ul className={mainNavbarStyle.main_nav_left} >
-        <li className={mainNavbarStyle.main_nav_item}>Blog</li>
+        <Link className={mainNavbarStyle.main_nav_item} to='/blog'>Blog</Link>
         <li className={mainNavbarStyle.main_nav_item}>Shop</li>
         <li className={mainNavbarStyle.main_nav_item}>Contact</li>
       </ul>

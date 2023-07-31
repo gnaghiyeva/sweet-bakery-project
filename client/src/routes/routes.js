@@ -1,5 +1,11 @@
 import AdminLogin from "../pages/Admin/AdminLogin";
 import AdminRoot from "../pages/Admin/AdminRoot";
+import AddBlogSlider from "../pages/Admin/Blogs/BlogSliders/AddBlogSlider";
+import AdminBlogSliders from "../pages/Admin/Blogs/BlogSliders/AdminBlogSliders";
+import EditBlogSlider from "../pages/Admin/Blogs/BlogSliders/EditBlogSlider";
+import AddBlog from "../pages/Admin/Blogs/MyBlogs/AddBlog";
+import AdminBlogs from "../pages/Admin/Blogs/MyBlogs/AdminBlogs";
+import EditBlog from "../pages/Admin/Blogs/MyBlogs/EditBlog";
 import AddCategory from "../pages/Admin/Counts/AddCategory";
 import AdminCategories from "../pages/Admin/Counts/AdminCategories";
 import EditCategory from "../pages/Admin/Counts/EditCategory";
@@ -26,6 +32,8 @@ import EditPerson from "../pages/Admin/Team/EditPerson";
 import AddWork from "../pages/Admin/Works/AddWork";
 import AdminWorks from "../pages/Admin/Works/AdminWorks";
 import EditWork from "../pages/Admin/Works/EditWork";
+import Blog from "../pages/Main/Blog/Blog";
+import MyBlogDetail from "../pages/Main/Blog/MyBlogs/MyBlogDetail";
 
 import Home from "../pages/Main/Home/Home";
 import MainRoot from "../pages/Main/MainRoot";
@@ -44,7 +52,16 @@ export const ROUTES = [
             {
                 path:'/login',
                 element:<UserLogin/>
-            }
+            },
+
+            {
+                path:'/blog',
+                element:<Blog/>
+            },
+            {
+                path:'/blog/:id',
+                element:<MyBlogDetail/>
+            },
             
 
         ]
@@ -164,7 +181,31 @@ export const ROUTES = [
             {
                 path:'add-progress',
                 element:<AddProgress/>
-            }
+            },
+            {
+                path:'blogs',
+                element:<AdminBlogs/>
+            },
+            {
+                path:'add-blog',
+                element:<AddBlog/>
+            },
+            {
+                path:'blog/edit/:id',
+                element:<EditBlog/>
+            },
+            {
+                path:'blogs/slider',
+                element:<AdminBlogSliders/>
+            },
+            {
+                path:'blogs/slider/add-slider',
+                element:<AddBlogSlider/>
+            },
+            {
+                path:'blogs/slider/edit/:id',
+                element:<EditBlogSlider/>
+            },
 
 
             ]
