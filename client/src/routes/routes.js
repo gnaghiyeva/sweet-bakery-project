@@ -1,5 +1,8 @@
 import AdminLogin from "../pages/Admin/AdminLogin";
 import AdminRoot from "../pages/Admin/AdminRoot";
+import AddDetail from "../pages/Admin/Blogs/BlogDetail/AddDetail";
+import AdminBlogDetail from "../pages/Admin/Blogs/BlogDetail/AdminBlogDetail";
+import EditBlogDetail from "../pages/Admin/Blogs/BlogDetail/EditBlogDetail";
 import AddBlogSlider from "../pages/Admin/Blogs/BlogSliders/AddBlogSlider";
 import AdminBlogSliders from "../pages/Admin/Blogs/BlogSliders/AdminBlogSliders";
 import EditBlogSlider from "../pages/Admin/Blogs/BlogSliders/EditBlogSlider";
@@ -41,173 +44,186 @@ import UserLogin from "../pages/Main/UserLogin";
 
 export const ROUTES = [
     {
-        path:'/',
-        element:<MainRoot/>,
-        children:[
+        path: '/',
+        element: <MainRoot />,
+        children: [
             {
-                path:'',
-                element:<Home/>
-            },
-            
-            {
-                path:'/login',
-                element:<UserLogin/>
+                path: '',
+                element: <Home />
             },
 
             {
-                path:'/blog',
-                element:<Blog/>
+                path: '/login',
+                element: <UserLogin />
+            },
+
+            {
+                path: '/blog',
+                element: <Blog />
             },
             {
-                path:'/blog/:id',
-                element:<MyBlogDetail/>
+                path: '/blog/:id',
+                element: <MyBlogDetail />
             },
-            
+
 
         ]
     },
 
-    
+
 
 
     {
-        path:'/admin',
-        element:<AdminRoot/>,
-        children:[
+        path: '/admin',
+        element: <AdminRoot />,
+        children: [
             {
-                path:'',
-                element:<Dashboard/>
+                path: '',
+                element: <Dashboard />
             },
             {
-                path:'login',
-                element:<AdminLogin/>
+                path: 'login',
+                element: <AdminLogin />
             },
             {
-                path:'logo',
-                element:<AdminLogos/>
+                path: 'logo',
+                element: <AdminLogos />
             },
             {
-                path:'logo/edit/:id',
-                element:<EditLogo/>
+                path: 'logo/edit/:id',
+                element: <EditLogo />
             },
             {
-                path:'sliders',
-                element:<AdminSliders/>
+                path: 'sliders',
+                element: <AdminSliders />
             },
             {
-                path:'slider/edit/:id',
-                element:<EditSlider/>
+                path: 'slider/edit/:id',
+                element: <EditSlider />
             },
             {
-                path:'add-slider',
-                element:<AddSlider/>
+                path: 'add-slider',
+                element: <AddSlider />
             },
             {
-                path:'services',
-                element:<AdminServices/>
+                path: 'services',
+                element: <AdminServices />
             },
             {
-                path:'service/edit/:id',
-                element:<EditService/>
+                path: 'service/edit/:id',
+                element: <EditService />
             },
             {
-                path:'add-service',
-                element:<AddServices/>
+                path: 'add-service',
+                element: <AddServices />
             },
             {
-                path:'categories',
-                element:<AdminCategories/>
+                path: 'categories',
+                element: <AdminCategories />
             },
             {
-                path:'category/edit/:id',
-                element:<EditCategory/>
+                path: 'category/edit/:id',
+                element: <EditCategory />
             },
             {
-                path:'add-category',
-                element:<AddCategory/>
+                path: 'add-category',
+                element: <AddCategory />
             },
             {
-                path:'works',
-                element:<AdminWorks/>
+                path: 'works',
+                element: <AdminWorks />
             },
             {
-                path:'work/edit/:id',
-                element:<EditWork/>
+                path: 'work/edit/:id',
+                element: <EditWork />
             },
             {
-                path:'add-work',
-                element:<AddWork/>
+                path: 'add-work',
+                element: <AddWork />
             },
             {
-                path:'prices',
-                element:<AdminPrices/>
+                path: 'prices',
+                element: <AdminPrices />
             },
             {
-                path:'price/edit/:id',
-                element:<EditPrice/>
+                path: 'price/edit/:id',
+                element: <EditPrice />
             },
             {
-                path:'add-price',
-                element:<AddPrice/>
+                path: 'add-price',
+                element: <AddPrice />
             },
             {
-                path:'team',
-                element:<AdminTeam/>
+                path: 'team',
+                element: <AdminTeam />
             },
             {
-                path:'team/edit/:id',
-                element:<EditPerson/>
+                path: 'team/edit/:id',
+                element: <EditPerson />
             },
             {
-                path:'add-person',
-                element:<AddPerson/>
+                path: 'add-person',
+                element: <AddPerson />
             },
             {
-                path:'skills',
-                element:<AdminSkills/>
+                path: 'skills',
+                element: <AdminSkills />
             },
             {
-                path:'skills/edit/:id',
-                element:<EditSkill/>
+                path: 'skills/edit/:id',
+                element: <EditSkill />
             },
             {
-                path:'add-skill',
-                element:<AddSkill/>
+                path: 'add-skill',
+                element: <AddSkill />
             },
             {
-                path:'progress/edit/:id',
-                element:<EditProgress/>
+                path: 'progress/edit/:id',
+                element: <EditProgress />
             },
             {
-                path:'add-progress',
-                element:<AddProgress/>
+                path: 'add-progress',
+                element: <AddProgress />
             },
             {
-                path:'blogs',
-                element:<AdminBlogs/>
+                path: 'blogs',
+                element: <AdminBlogs />
             },
             {
-                path:'add-blog',
-                element:<AddBlog/>
+                path: 'add-blog',
+                element: <AddBlog />
             },
             {
-                path:'blog/edit/:id',
-                element:<EditBlog/>
+                path: 'blog/edit/:id',
+                element: <EditBlog />
             },
             {
-                path:'blogs/slider',
-                element:<AdminBlogSliders/>
+                path: 'blog/:id',
+                element: <AdminBlogDetail />
             },
             {
-                path:'blogs/slider/add-slider',
-                element:<AddBlogSlider/>
+                path: 'blogs/slider',
+                element: <AdminBlogSliders />
             },
             {
-                path:'blogs/slider/edit/:id',
-                element:<EditBlogSlider/>
+                path: 'blogs/slider/add-slider',
+                element: <AddBlogSlider />
             },
+            {
+                path: 'blogs/slider/edit/:id',
+                element: <EditBlogSlider />
+            },
+            {
+                path:'blogdetail/edit/:id',
+                element:<EditBlogDetail/>
+            },
+            {
+                path:'blog-detail/add-detail',
+                element:<AddDetail/>
+            }
+            
 
 
-            ]
+]
     }
 ]

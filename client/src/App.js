@@ -17,6 +17,7 @@ import { SkillContextProvider } from './context/SkillContext';
 import { ProgressContextProvider } from './context/ProgressContext';
 import { BlogSliderContextProvider } from './context/BlogSliderContext';
 import { BlogContextProvider } from './context/BlogContext';
+import { BlogDetailContextProvider } from './context/BlogDetailContext';
 function App() {
   const routes = createBrowserRouter(ROUTES)
   return (
@@ -36,22 +37,24 @@ function App() {
                           <ProgressContextProvider>
                             <BlogContextProvider>
                               <BlogSliderContextProvider>
-                                <RouterProvider router={routes}>
+                                <BlogDetailContextProvider>
+                                  <RouterProvider router={routes}>
 
-                                </RouterProvider>
-                          </BlogSliderContextProvider>
+                                  </RouterProvider>
+                                </BlogDetailContextProvider>
+                              </BlogSliderContextProvider>
                             </BlogContextProvider>
-                        </ProgressContextProvider>
-                      </SkillContextProvider>
-                    </PersonContextProvider>
-                  </PriceContextProvider>
-                </WorkContextProvider>
-              </CategoryContextProvider>
-            </ServiceContextProvider>
-          </SliderContextProvider>
-        </LogoContextProvider>
-      </UserContextProvider>
-    </AdminContextProvider >
+                          </ProgressContextProvider>
+                        </SkillContextProvider>
+                      </PersonContextProvider>
+                    </PriceContextProvider>
+                  </WorkContextProvider>
+                </CategoryContextProvider>
+              </ServiceContextProvider>
+            </SliderContextProvider>
+          </LogoContextProvider>
+        </UserContextProvider>
+      </AdminContextProvider >
 
     </>
   );
