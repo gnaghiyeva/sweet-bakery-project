@@ -78,7 +78,7 @@ const CakeBlogDetailController = {
         const guestTitle = req.body.guestTitle;
         const guestDesc = req.body.guestDesc;
 
-        let updatedBlog = await CakeBlogs.findById(id);
+        let updatedBlog = await CakeBlogDetail.findById(id);
 
         if(!updatedBlog){
             return res.status(404).send("blog not found")

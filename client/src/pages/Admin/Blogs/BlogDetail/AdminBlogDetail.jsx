@@ -20,7 +20,7 @@ const AdminBlogDetail = () => {
     getBlogDetailById(id).then((res) => {
       setBlogDetails(res);
     });
-  }, [id]);
+  });
 
 
 
