@@ -1,0 +1,24 @@
+.product_image_container{
+   position: relative;
+}
+
+.product_image{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: white;
+    background-color: rgb(191,225,164);
+    padding: 3px 8px;
+    font-family: 'Lobster';
+}
+
+.product_title{
+    font-family: 'Lobster';
+    color: #666666 !important;
+}
+
+.product_prices{
+    display: flex;
+    gap: 5px;
+    color: #666666;
+}

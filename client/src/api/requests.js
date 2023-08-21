@@ -545,3 +545,39 @@ export const editBlogDetail = (id,updatedBlogDetail)=>{
 export const postBlogDetail = (newBlogDetail)=>{
     axios.post(`${BASE_URL}/blogdetail`,newBlogDetail)
 }
+
+/******************************************* */
+//product 
+export const getAllProducts = async() => {
+    let globalData;
+   await axios.get(`${BASE_URL}/products`)
+        .then(res => {
+            globalData = res.data;
+        })
+    return globalData
+}
+
+
+export const getProductById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/products/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deleteProduct = async(id)=>{
+   let deletedProduct
+    await axios.delete(`${BASE_URL}/products/${id}`).then((res)=>{
+        deletedProduct=res.data
+    })
+    return deletedProduct
+}
+
+export const editProduct = (id,updatedProduct)=>{
+   axios.put(`${BASE_URL}/products/${id}`,updatedProduct)
+}
+
+export const postProduct = (newProduct)=>{
+    axios.post(`${BASE_URL}/products`,newProduct)
+}

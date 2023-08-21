@@ -18,6 +18,9 @@ import EditLogo from "../pages/Admin/Logo/EditLogo";
 import AddPrice from "../pages/Admin/Prices/AddPrice";
 import AdminPrices from "../pages/Admin/Prices/AdminPrices";
 import EditPrice from "../pages/Admin/Prices/EditPrice";
+import AddProduct from "../pages/Admin/Products/AddProduct";
+import AdminProducts from "../pages/Admin/Products/AdminProducts";
+import EditProduct from "../pages/Admin/Products/EditProduct";
 import AddServices from "../pages/Admin/Services/AddServices";
 import AdminServices from "../pages/Admin/Services/AdminServices";
 import EditService from "../pages/Admin/Services/EditService";
@@ -40,6 +43,7 @@ import MyBlogDetail from "../pages/Main/Blog/MyBlogs/MyBlogDetail";
 
 import Home from "../pages/Main/Home/Home";
 import MainRoot from "../pages/Main/MainRoot";
+import ShopPage from "../pages/Main/Shop/ShopPage";
 import UserLogin from "../pages/Main/UserLogin";
 
 export const ROUTES = [
@@ -65,6 +69,10 @@ export const ROUTES = [
                 path: '/blog/:id',
                 element: <MyBlogDetail />
             },
+            {
+                path:'/shop',
+                element:<ShopPage/>
+            }
 
 
         ]
@@ -220,7 +228,19 @@ export const ROUTES = [
             {
                 path:'blog-detail/add-detail',
                 element:<AddDetail/>
-            }
+            },
+            {
+                path: 'shop',
+                element: <AdminProducts />
+            },
+            {
+                path:'shop/edit/:id',
+                element:<EditProduct/>
+            },
+            {
+                path: 'add-product',
+                element: <AddProduct/>
+            },
             
 
 
