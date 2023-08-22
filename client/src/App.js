@@ -19,6 +19,7 @@ import { BlogSliderContextProvider } from './context/BlogSliderContext';
 import { BlogContextProvider } from './context/BlogContext';
 import { BlogDetailContextProvider } from './context/BlogDetailContext';
 import { ProductContextProvider } from './context/ProductsContext';
+import { ProductSliderContextProvider } from './context/ProductSliderContext';
 function App() {
   const routes = createBrowserRouter(ROUTES)
   return (
@@ -40,9 +41,11 @@ function App() {
                               <BlogSliderContextProvider>
                                 <BlogDetailContextProvider>
                                   <ProductContextProvider>
-                                    <RouterProvider router={routes}>
+                                    <ProductSliderContextProvider>
+                                      <RouterProvider router={routes}>
 
-                                    </RouterProvider>
+                                      </RouterProvider>
+                                    </ProductSliderContextProvider>
                                   </ProductContextProvider>
                                 </BlogDetailContextProvider>
                               </BlogSliderContextProvider>

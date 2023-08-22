@@ -21,6 +21,8 @@ import EditPrice from "../pages/Admin/Prices/EditPrice";
 import AddProduct from "../pages/Admin/Products/AddProduct";
 import AdminProducts from "../pages/Admin/Products/AdminProducts";
 import EditProduct from "../pages/Admin/Products/EditProduct";
+import AdminProductSliders from "../pages/Admin/Products/ProductSliders/AdminProductSliders";
+import EditProductSlider from "../pages/Admin/Products/ProductSliders/EditProductSlider";
 import AddServices from "../pages/Admin/Services/AddServices";
 import AdminServices from "../pages/Admin/Services/AdminServices";
 import EditService from "../pages/Admin/Services/EditService";
@@ -240,6 +242,14 @@ export const ROUTES = [
             {
                 path: 'add-product',
                 element: <AddProduct/>
+            },
+            {
+                path: 'product-slider',
+                element: <AdminProductSliders/>
+            },
+            {
+                path: 'product-slider/edit/:id',
+                element: <EditProductSlider/>
             },
             
 

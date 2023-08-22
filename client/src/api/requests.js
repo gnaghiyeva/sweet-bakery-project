@@ -581,3 +581,33 @@ export const editProduct = (id,updatedProduct)=>{
 export const postProduct = (newProduct)=>{
     axios.post(`${BASE_URL}/products`,newProduct)
 }
+
+
+/******************************************* */
+//product slider
+export const getAllProductSliders = async() => {
+    let globalData;
+   await axios.get(`${BASE_URL}/product-slider`)
+        .then(res => {
+            globalData = res.data;
+        })
+    return globalData
+}
+
+
+export const getProductSliderById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/product-slider/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+
+export const editProductSlider = (id,updatedProduct)=>{
+   axios.put(`${BASE_URL}/product-slider/${id}`,updatedProduct)
+}
+
+export const postProductSlider = (newProduct)=>{
+    axios.post(`${BASE_URL}/product-slider`,newProduct)
+}
