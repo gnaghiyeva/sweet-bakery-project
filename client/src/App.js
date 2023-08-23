@@ -20,6 +20,7 @@ import { BlogContextProvider } from './context/BlogContext';
 import { BlogDetailContextProvider } from './context/BlogDetailContext';
 import { ProductContextProvider } from './context/ProductsContext';
 import { ProductSliderContextProvider } from './context/ProductSliderContext';
+import { BasketContextProvider } from './context/BasketContext';
 function App() {
   const routes = createBrowserRouter(ROUTES)
   return (
@@ -42,9 +43,11 @@ function App() {
                                 <BlogDetailContextProvider>
                                   <ProductContextProvider>
                                     <ProductSliderContextProvider>
-                                      <RouterProvider router={routes}>
+                                      <BasketContextProvider>
+                                        <RouterProvider router={routes}>
 
-                                      </RouterProvider>
+                                        </RouterProvider>
+                                      </BasketContextProvider>
                                     </ProductSliderContextProvider>
                                   </ProductContextProvider>
                                 </BlogDetailContextProvider>

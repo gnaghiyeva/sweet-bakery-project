@@ -3,7 +3,11 @@ import { getAllProducts } from '../../../api/requests';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import productStyle from '../../../style/products.module.css'
-import { Grid } from '@mui/material';
+import { Alert, Grid } from '@mui/material';
+import { useUserContext } from '../../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+import { useBasketContext } from '../../../context/BasketContext';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -12,6 +16,10 @@ const Products = () => {
       setProducts(res.data)
     })
   }, [])
+
+  const [user, setUser] = useUserContext()
+  const navigate = useNavigate();
+  const{basket,setBasket} = useBasketContext();
   return (
     <Grid container spacing={2} style={{ padding: '50px 140px' }}>
       {products && products.map((product) => {
@@ -37,7 +45,27 @@ const Products = () => {
                   {product.priceDiscount ?  '$'+ product.priceDiscount.toFixed(2) :''}
                   </span>
                 </Card.Text>
-                <Button variant="light">Add to Cart</Button>
+
+              
+                <div>
+                   
+                  
+                 <Button onClick={()=>{
+                  if(!user){
+                    toast.error("User is not logged in !")
+                  }
+                  else{
+                    setBasket([...basket,product]);
+                    <button>view added</button>
+                    toast.success("product added succesfully !")
+                    
+                  }
+                 }} variant="light">Add to Cart</Button>
+                  
+                  <Toaster position="top-center"  />
+                </div>
+               
+             
               </Card.Body>
             </Card>
 
