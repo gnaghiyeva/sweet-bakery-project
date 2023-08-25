@@ -30,6 +30,7 @@ const EditProduct = () => {
             formik.values.price = res.data.price;
             formik.values.priceDiscount = res.data.priceDiscount;
             formik.values.onSale = res.data.onSale;
+            formik.values.desc = res.data.desc;
             setLoading(false);
 
         })
@@ -42,6 +43,7 @@ const EditProduct = () => {
         formData.append('price', values.price);
         formData.append('priceDiscount', values.priceDiscount);
         formData.append('onSale', values.onSale);
+        formData.append('desc', values.desc);
 
         await editProduct(id, formData);
 
@@ -63,6 +65,7 @@ const EditProduct = () => {
             price: product.price,
             priceDiscount: product.priceDiscount,
             onSale: product.onSale,
+            desc: product.desc,
 
         },
         
@@ -94,6 +97,8 @@ const EditProduct = () => {
                     <TextField type='number' onChange={formik.handleChange} onBlur={formik.handleBlur} name='priceDiscount' value={formik.values.priceDiscount} id="outlined-basic" label="priceDiscount" variant="outlined" />
                     {formik.errors.priceDiscount && formik.touched.priceDiscount && (<Alert severity="warning">{formik.errors.priceDiscount}</Alert>)}
                     <br />
+                    <TextField style={{ width: '700px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='desc' type='text' value={formik.values.desc} id="outlined-basic" label="description" variant="outlined" /> <br />
+                    {formik.errors.desc && formik.touched.desc && (<Alert severity="warning">{formik.errors.desc}</Alert>)}
 
 
 

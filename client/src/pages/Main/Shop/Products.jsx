@@ -38,16 +38,16 @@ const Products = () => {
                 <Card style={{ border: 'none', boxShadow: 'none' }}>
                   <div className={productStyle.product_image_container}>
 
-                    <Card.Img variant="top" src={product.image} />
-                    <span className={productStyle.product_image}>
-                      {product.onSale ? 'SALE !' : 'No Sale'}
+                   <Link to={`/shop/${product._id}`}><Card.Img variant="top" src={product.image} /></Link> 
+                    <span style={{display: product.onSale ? 'block' : 'none'}} className={productStyle.product_image}>
+                      {product.onSale ? 'SALE !' : ''}
 
                     </span>
                   </div>
                   <Card.Body>
                     <Card.Title className={productStyle.product_title}>{product.title}</Card.Title>
                     <Card.Text className={productStyle.product_prices}>
-                      <span style={{ textDecoration: product.onSale ? 'line-through' : 'none' }}>
+                      <span style={{ textDecoration: product.onSale ? 'line-through' : 'none', color: product.onSale ? 'rgb(189,189,189)' : '', }}>
 
                         ${product.price.toFixed(2)}
                       </span>

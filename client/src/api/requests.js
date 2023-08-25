@@ -611,3 +611,26 @@ export const editProductSlider = (id,updatedProduct)=>{
 export const postProductSlider = (newProduct)=>{
     axios.post(`${BASE_URL}/product-slider`,newProduct)
 }
+
+/*************** comments ********************** */
+export const postComment = (newComment)=>{
+    axios.post(`${BASE_URL}/comments`,newComment)
+}
+
+export const getAllComments = async() => {
+    let globalData;
+   await axios.get(`${BASE_URL}/comments`)
+        .then(res => {
+            globalData = res.data;
+        })
+    return globalData
+}
+
+export const deleteComment = async(id)=>{
+    let deletedComment
+     await axios.delete(`${BASE_URL}/comments/${id}`).then((res)=>{
+        deletedComment=res.data
+     })
+     return deletedComment
+ }
+ 

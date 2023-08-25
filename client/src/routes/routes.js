@@ -46,6 +46,7 @@ import MyBlogDetail from "../pages/Main/Blog/MyBlogs/MyBlogDetail";
 import Home from "../pages/Main/Home/Home";
 import MainRoot from "../pages/Main/MainRoot";
 import Basket from "../pages/Main/Shop/Basket";
+import ProductDetail from "../pages/Main/Shop/ProductDetail";
 import ShopPage from "../pages/Main/Shop/ShopPage";
 import UserLogin from "../pages/Main/UserLogin";
 
@@ -79,7 +80,11 @@ export const ROUTES = [
             {
                 path:'/shop/favourites',
                 element:<Basket/>
-            }
+            },
+            {
+                path:'/shop/:id',
+                element:<ProductDetail/>
+            },
 
 
 

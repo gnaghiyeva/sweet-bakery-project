@@ -24,6 +24,7 @@ const AddProduct = () => {
         formData.append("price", values.price)
         formData.append("priceDiscount", values.priceDiscount)
         formData.append("onSale", values.onSale)
+        formData.append("desc", values.desc)
 
         postProduct(formData)
         Swal.fire({
@@ -47,7 +48,8 @@ const AddProduct = () => {
             title: '',
             price: '',
             priceDiscount: '',
-            onSale: ''
+            onSale: '',
+            desc:''
 
 
         },
@@ -73,6 +75,10 @@ const AddProduct = () => {
                     {formik.errors.priceDiscount && formik.touched.priceDiscount && (<Alert severity="warning">{formik.errors.priceDiscount}</Alert>)}
                     <br />
 
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='desc' value={formik.values.desc} id="outlined-basic" label="description" variant="outlined" />
+                    {formik.errors.desc && formik.touched.desc && ( <Alert severity="warning">{formik.errors.desc}</Alert>)}
+    
+                    <br />
                     <FormControl>
                         <FormLabel id="demo-controlled-radio-buttons-group">is onSale ?</FormLabel>
                         <RadioGroup

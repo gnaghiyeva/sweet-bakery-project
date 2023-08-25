@@ -13,6 +13,7 @@ const CakeProductsController = {
             onSale:req.body.onSale,
             price:req.body.price,
             priceDiscount:req.body.priceDiscount,
+            desc:req.body.desc
 
         })
         await newProduct.save()
@@ -63,6 +64,7 @@ const CakeProductsController = {
         const onSale = req.body.onSale;
         const price = req.body.price;
         const priceDiscount = req.body.priceDiscount;
+        const desc = req.body.desc;
 
         let updatedProduct = await CakeProducts.findById(id);
 
@@ -85,6 +87,7 @@ const CakeProductsController = {
           updatedProduct.onSale = onSale;
           updatedProduct.price = price;
           updatedProduct.priceDiscount = priceDiscount;
+          updatedProduct.desc = desc;
 
 
           await updatedProduct.save();
