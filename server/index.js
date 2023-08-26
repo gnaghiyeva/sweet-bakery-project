@@ -21,6 +21,7 @@ const blog_detail_router = require('./routes/blogDetail.routes');
 const product_router = require('./routes/products.routes');
 const product_slider_router = require('./routes/productSlider.routes');
 const comments_router = require('./routes/comments.routes');
+const contact_slider_router = require('./routes/contactSlider.routes');
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
@@ -65,6 +66,8 @@ app.use('/api/products', product_router)
 app.use('/api/product-slider', product_slider_router)
 
 app.use('/api/comments', comments_router)
+
+app.use('/api/contact-slider', contact_slider_router)
 
 DB_CONNECTION = process.env.DB_CONNECTION
 DB_PASSWORD = process.env.DB_PASSWORD

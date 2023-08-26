@@ -42,6 +42,7 @@ import AdminWorks from "../pages/Admin/Works/AdminWorks";
 import EditWork from "../pages/Admin/Works/EditWork";
 import Blog from "../pages/Main/Blog/Blog";
 import MyBlogDetail from "../pages/Main/Blog/MyBlogs/MyBlogDetail";
+import Contact from "../pages/Main/Contact/Contact";
 
 import Home from "../pages/Main/Home/Home";
 import MainRoot from "../pages/Main/MainRoot";
@@ -85,6 +86,11 @@ export const ROUTES = [
                 path:'/shop/:id',
                 element:<ProductDetail/>
             },
+            {
+                path:'/contact',
+                element:<Contact/>
+            },
+
 
 
 

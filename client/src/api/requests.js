@@ -640,4 +640,33 @@ export const deleteComment = async(id)=>{
      })
      return deletedComment
  }
+
+ /******************************************* */
+//contact slider
+export const getAllContactSliders = async() => {
+    let globalData;
+   await axios.get(`${BASE_URL}/contact-slider`)
+        .then(res => {
+            globalData = res.data;
+        })
+    return globalData
+}
+
+
+export const getContactSliderById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/contact-slider/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+
+export const editContactSlider = (id,updatedContactSlider)=>{
+   axios.put(`${BASE_URL}/contact-slider/${id}`,updatedContactSlider)
+}
+
+export const postContactSlider = (newContactSlider)=>{
+    axios.post(`${BASE_URL}/contact-slider`,newContactSlider)
+}
  

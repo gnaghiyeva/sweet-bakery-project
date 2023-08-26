@@ -138,7 +138,7 @@ const UserNavbar = () => {
         <ul className={mainNavbarStyle.main_nav_left} >
         <Link className={mainNavbarStyle.main_nav_item} to='/blog'>Blog</Link>
         <Link className={mainNavbarStyle.main_nav_item} to='/shop'>Shop</Link>
-        <li className={mainNavbarStyle.main_nav_item}>Contact</li>
+        <Link className={mainNavbarStyle.main_nav_item} to='/contact'>Contact</Link>
       </ul>
      
      <div className={mainNavbarStyle.hamburger_menu} >
