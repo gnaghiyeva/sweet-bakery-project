@@ -625,6 +625,13 @@ export const getAllComments = async() => {
         })
     return globalData
 }
+export const getCommentById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/comments/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
 
 export const deleteComment = async(id)=>{
     let deletedComment

@@ -8,9 +8,10 @@ import { useUserContext } from '../../../context/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { useBasketContext } from '../../../context/BasketContext';
+import { useProductContext } from '../../../context/ProductsContext';
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useProductContext([]);
   useEffect(() => {
     getAllProducts().then((res) => {
       setProducts(res.data)

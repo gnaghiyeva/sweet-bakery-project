@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { getAllComments, getAllProductSliders, getProductById, postComment } from '../../../api/requests';
+import { getAllComments, getAllProductSliders, getCommentById, getProductById, postComment } from '../../../api/requests';
 import { Alert, Button, Grid, TextField } from '@mui/material';
 import productdetailStyle from '../../../style/productDetail.module.css'
 import toast, { Toaster } from 'react-hot-toast';
@@ -23,7 +23,7 @@ import { Bounce } from "react-awesome-reveal";
 const ProductDetail = () => {
     const [comments, setComments] = useState([]);
     const [quantity, setQuantity] = useState(1);
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState({})
     const [sliders, setSliders] = useState([]);
   
     const { id } = useParams();
@@ -34,10 +34,13 @@ const ProductDetail = () => {
     }, [id]);
 
     useEffect(() => {
-        getAllComments().then((res) => {
+        getCommentById(id).then((res) => {
+            console.log('API Cavabı:', res.data); // API cavabını konsola çıxar
             setComments(res.data)
-        })
-    }, [])
+        });
+    }, [id]);
+ 
+    
 
     useEffect(() => {
         getAllProductSliders().then((res) => {
@@ -52,7 +55,9 @@ const ProductDetail = () => {
 
     const handleSubmit = async (values, actions) => {
         if(user){
+            values.productID = id;
             await postComment(values)
+            setComments([...comments,values])
             actions.resetForm()
             navigate(`/shop/${products._id}`)
         }
@@ -91,10 +96,7 @@ const ProductDetail = () => {
           </article>
         </SwiperSlide>
       ))}
-      {/* <SwiperSlide>Slide 2</SwiperSlide>
-    <SwiperSlide>Slide 3</SwiperSlide> */}
-
-    </Swiper>
+     </Swiper>
 
             <Grid container spacing={10} style={{ padding: '50px 80px' }}>
 
@@ -183,46 +185,35 @@ const ProductDetail = () => {
                     }}>Submit</Button>
                 </form>
             </Grid>
-
+           
             <div style={{ padding: '0 80px' }}>
-                <h4 style={{ color: 'gray', fontFamily: 'Lobster' }}>Reviews</h4>
-
-
-                {comments && comments.map((comment) => {
-                    return (
-                        <>
-
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <div style={{ display: 'flex', gap: '15px' }}>
-                                    <div>
-                                        <img style={{borderRadius:'50%'}} src='http://0.gravatar.com/avatar/0560077b462e533e17d42326550ba365?s=60&d=mm&r=g' />
-                                    </div>
-
-                                    <div>
-                                        <h5>{comment.name}</h5>
-                                        <p>{comment.review}</p>
-                                    </div>
-                                </div>
-
-
-
-
-                                <div>
-                                    <Rating readOnly
-                                        name="rating"
-                                        value={comment.rating}
-                                    />
-
-                                </div>
-
-                            </div>
-                        </>
-
-                    )
-                })}
+    <h4 style={{ color: 'gray', fontFamily: 'Lobster' }}>Reviews</h4>
+    {comments && comments.length > 0 ? (
+        comments.map((comment) => (
+            <div key={comment._id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style={{ display: 'flex', gap: '15px' }}>
+                    <div>
+                        <img style={{ borderRadius: '50%' }} src='http://0.gravatar.com/avatar/0560077b462e533e17d42326550ba365?s=60&d=mm&r=g' alt="İstifadəçi Avatarı" />
+                    </div>
+                    <div>
+                        <h5>{comment.name}</h5>
+                        <p>{comment.review}</p>
+                    </div>
+                </div>
+                <div>
+                    <Rating readOnly name="rating" value={comment.rating} />
+                </div>
             </div>
+        ))
+    ) : (
+        <p>No comments available.</p>
+    )}
+</div>
+
         </>
+        
     )
 }
 
 export default ProductDetail
+
