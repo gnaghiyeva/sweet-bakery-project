@@ -670,3 +670,39 @@ export const postContactSlider = (newContactSlider)=>{
     axios.post(`${BASE_URL}/contact-slider`,newContactSlider)
 }
  
+
+/******************************************* */
+//datas 
+export const getAllDatas = async() => {
+    let globalData;
+   await axios.get(`${BASE_URL}/contact`)
+        .then(res => {
+            globalData = res.data;
+        })
+    return globalData
+}
+
+
+export const getDataById = async(id)=>{
+    let globalData;
+    await axios.get(`${BASE_URL}/contact/${id}`).then((res)=>{
+        globalData=res.data
+        })
+        return globalData
+}
+
+export const deleteData = async(id)=>{
+   let deletedData
+    await axios.delete(`${BASE_URL}/contact/${id}`).then((res)=>{
+        deletedData=res.data
+    })
+    return deletedData
+}
+
+export const editData = (id,updatedData)=>{
+   axios.put(`${BASE_URL}/contact/${id}`,updatedData)
+}
+
+export const postData = (newData)=>{
+    axios.post(`${BASE_URL}/contact`,newData)
+}
