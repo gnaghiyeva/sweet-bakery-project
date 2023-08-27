@@ -5,6 +5,11 @@
     background-attachment: fixed;
 }
 
+.contact_data_container{
+    background-image: url('../assets/grey-bg.png');
+    padding: 40px 50px;
+}
+
 .contact_form_container{
     width: 40%;
     margin: 0 auto;
@@ -38,3 +43,4 @@
     width: 100%;
     font-size: 20px;
 }
+
