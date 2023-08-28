@@ -101,12 +101,8 @@ const ContactData = () => {
                       <ListItemText primary={data.timein + '' + data.meridiem} />
                     </ListItem>
                     <ListItem>
-
-
-
                     </ListItem>
                   </List>
-
                 </Grid>
 
                 <Grid item sm={12} xs={12} md={6} lg={6}>
@@ -130,9 +126,6 @@ const ContactData = () => {
                       <ListItemText primary={data.timeout + '' + data.meridiem} />
                     </ListItem>
                     <ListItem>
-
-
-
                     </ListItem>
                   </List>
                 </Grid>

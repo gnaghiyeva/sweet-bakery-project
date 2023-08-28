@@ -11,6 +11,8 @@ import AdminBlogs from "../pages/Admin/Blogs/MyBlogs/AdminBlogs";
 import EditBlog from "../pages/Admin/Blogs/MyBlogs/EditBlog";
 import AdminContact from "../pages/Admin/Contact/ContactData/AdminContact";
 import EditContact from "../pages/Admin/Contact/ContactData/EditContact";
+import AdminContactSliders from "../pages/Admin/Contact/ContactSlider/AdminContactSliders";
+import EditContactSlider from "../pages/Admin/Contact/ContactSlider/EditContactSlider";
 import AddCategory from "../pages/Admin/Counts/AddCategory";
 import AdminCategories from "../pages/Admin/Counts/AdminCategories";
 import EditCategory from "../pages/Admin/Counts/EditCategory";
@@ -278,6 +280,14 @@ export const ROUTES = [
             {
                 path: 'contact/edit/:id',
                 element: <EditContact/>
+            },
+            {
+                path: 'contact-slider',
+                element: <AdminContactSliders/>
+            },
+            {
+                path: 'contact-slider/edit/:id',
+                element: <EditContactSlider/>
             },
 
 ]
