@@ -9,6 +9,8 @@ import EditBlogSlider from "../pages/Admin/Blogs/BlogSliders/EditBlogSlider";
 import AddBlog from "../pages/Admin/Blogs/MyBlogs/AddBlog";
 import AdminBlogs from "../pages/Admin/Blogs/MyBlogs/AdminBlogs";
 import EditBlog from "../pages/Admin/Blogs/MyBlogs/EditBlog";
+import AdminContact from "../pages/Admin/Contact/ContactData/AdminContact";
+import EditContact from "../pages/Admin/Contact/ContactData/EditContact";
 import AddCategory from "../pages/Admin/Counts/AddCategory";
 import AdminCategories from "../pages/Admin/Counts/AdminCategories";
 import EditCategory from "../pages/Admin/Counts/EditCategory";
@@ -269,7 +271,14 @@ export const ROUTES = [
                 element: <EditProductSlider/>
             },
             
-
+            {
+                path: 'contact',
+                element: <AdminContact/>
+            },
+            {
+                path: 'contact/edit/:id',
+                element: <EditContact/>
+            },
 
 ]
     }

@@ -52,9 +52,9 @@ const ContactData = () => {
         return (
           <>
             <Grid item sm={12} xs={12} md={6} lg={6}>
-              <article style={{color:'grey'}}>
-                <h4 style={{fontFamily:'Old Standard TT'}}>{data.title}</h4>
-                <p style={{lineHeight:'2em'}}>{data.desc}</p>
+              <article style={{ color: 'grey' }}>
+                <h4 style={{ fontFamily: 'Old Standard TT' }}>{data.title}</h4>
+                <p style={{ lineHeight: '2em' }}>{data.desc}</p>
               </article>
 
               <form ref={form} onSubmit={sendEmail}>
@@ -81,58 +81,62 @@ const ContactData = () => {
               >
               </iframe>
 
-              <Grid container spacing={4} style={{color:'grey'}}>
-                     
-              <Grid item sm={12} xs={12} md={6} lg={6} >
-                 
-                <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                  <ListItem>
-                    <ListItemText primary="Address:" />
-                    <ListItemText primary={data.address} />
-                  </ListItem>
-                  <Divider/>
-                  <ListItem>
-                    <ListItemText primary="City:" />
-                    <ListItemText primary={data.city} />
-                  </ListItem>
-                  <Divider/>
-                  <ListItem>
-                    <ListItemText primary="Check In:" />
-                    <ListItemText primary={data.timein + '' + data.meridiem} />
-                  </ListItem>
-                  <ListItem>
+              <Grid container spacing={4} style={{ color: 'grey' }}>
+
+                <Grid item sm={12} xs={12} md={6} lg={6} >
+
+                  <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                    <ListItem>
+                      <ListItemText primary="Address:" />
+                      <ListItemText primary={data.address} />
+                    </ListItem>
+                    <Divider />
+                    <ListItem>
+                      <ListItemText primary="City:" />
+                      <ListItemText primary={data.city} />
+                    </ListItem>
+                    <Divider />
+                    <ListItem>
+                      <ListItemText primary="Time In:" />
+                      <ListItemText primary={data.timein + '' + data.meridiem} />
+                    </ListItem>
+                    <ListItem>
 
 
 
-                  </ListItem>
-                </List>
-                
+                    </ListItem>
+                  </List>
+
                 </Grid>
 
                 <Grid item sm={12} xs={12} md={6} lg={6}>
-                <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                  <ListItem>
-                    <ListItemText primary="Phone:" />
-                    <ListItemText primary={data.phone} />
-                  </ListItem>
-                 <Divider/>
-                  <ListItem>
-                    <ListItemText primary="Email:" />
-                    <ListItemText primary={data.email} />
-                  </ListItem>
-                  <Divider/>
-                  <ListItem>
-                    <ListItemText primary="Check Out:" />
-                    <ListItemText primary={data.timeout + '' + data.meridiem} />
-                  </ListItem>
-                  <ListItem>
+                  <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                    <ListItem style={{display:'flex', gap:'70px'}}>
+                      <ListItemText primary="Phone:" />
+                      <ListItem button component="a" href={`tel:${data.phone}`}>
+                        <ListItemText primary={data.phone} />
+                      </ListItem>
+                    </ListItem>
+                    <Divider />
+                    <ListItem style={{display:'flex', gap:'70px'}}>
+                      <ListItemText primary="Email:" />
+                      <ListItem button component="a" href={`tel:${data.email}`}>
+                        <ListItemText primary={data.email} />
+                      </ListItem>
+                    </ListItem>
+                    <Divider />
+                    <ListItem>
+                      <ListItemText primary="Time Out:" />
+                      <ListItemText primary={data.timeout + '' + data.meridiem} />
+                    </ListItem>
+                    <ListItem>
 
 
 
-                  </ListItem>
-                </List>
+                    </ListItem>
+                  </List>
                 </Grid>
-               
+
               </Grid>
             </Grid>
           </>
