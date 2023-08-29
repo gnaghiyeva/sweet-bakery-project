@@ -31,7 +31,7 @@ const CakeBlogDetailController = {
 
     // getById: async(req,res)=>{
     //     const id = req.params.id;
-    //     CakeBlogDetail.findById(id).then((blog)=>{
+    //     CakeBlogDetail.find({blogID:id}).then((blog)=>{
     //         res.status(200).send({
     //             data:blog,
     //             message:'blog get succesfully'

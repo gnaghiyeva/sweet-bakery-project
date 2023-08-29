@@ -1,8 +1,18 @@
 import React from 'react'
+import Counts from './Counts'
+import { Grid } from '@mui/material'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+  <>
+   <Grid container spacing={2}>
+   <Grid item xs={6} md={8}>
+ <Counts/>
+   </Grid>
+
+   </Grid>
+ 
+  </>
   )
 }
 
