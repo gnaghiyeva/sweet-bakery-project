@@ -65,7 +65,7 @@ const options = {
     };
 
     return (
-        <div>
+        <div style={{border:'1px solid gray', marginTop:'50px'}}>
             <Chart type="bar" options={options} data={chartData} />
         </div>
     )
