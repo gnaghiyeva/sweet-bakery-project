@@ -19,6 +19,7 @@ import EditCategory from "../pages/Admin/Counts/EditCategory";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 import AdminLogos from "../pages/Admin/Logo/AdminLogos";
 import EditLogo from "../pages/Admin/Logo/EditLogo";
+import AdminNotFound from "../pages/Admin/NotFound/AdminNotFound";
 import AddPrice from "../pages/Admin/Prices/AddPrice";
 import AdminPrices from "../pages/Admin/Prices/AdminPrices";
 import EditPrice from "../pages/Admin/Prices/EditPrice";
@@ -50,6 +51,7 @@ import Contact from "../pages/Main/Contact/Contact";
 
 import Home from "../pages/Main/Home/Home";
 import MainRoot from "../pages/Main/MainRoot";
+import NotFound from "../pages/Main/NotFound/NotFound";
 import Basket from "../pages/Main/Shop/Basket";
 import ProductDetail from "../pages/Main/Shop/ProductDetail";
 import ShopPage from "../pages/Main/Shop/ShopPage";
@@ -94,6 +96,10 @@ export const ROUTES = [
                 path:'/contact',
                 element:<Contact/>
             },
+            {
+                path:'*',
+                element:<NotFound/>
+            }
 
 
 
@@ -289,6 +295,10 @@ export const ROUTES = [
                 path: 'contact-slider/edit/:id',
                 element: <EditContactSlider/>
             },
+            {
+                path: '*',
+                element:<AdminNotFound/>
+            }
 
 ]
     }
