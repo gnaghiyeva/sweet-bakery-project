@@ -50,10 +50,10 @@ const AddWork = () => {
 
                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
                 <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" />
-                {formik.errors.title && formik.touched.title && (<span>{formik.errors.title}</span>)}
+                {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
                 <br/>
                 <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
-                {formik.errors.description && formik.touched.description && (<span>{formik.errors.description}</span>)}
+                {formik.errors.description && formik.touched.description && (<Alert severity="warning">{formik.errors.description}</Alert>)}
                 </div> <br/>
                 <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }}  ref={buttonRef} variant="contained" component="label" >
                     Upload File
@@ -68,7 +68,7 @@ const AddWork = () => {
                         onBlur={formik.handleBlur} name='image' type='file' accept="image/*" hidden
                     />
                 </Button> <br/>
-                {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+                {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
 
                 <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit'>Add</Button>

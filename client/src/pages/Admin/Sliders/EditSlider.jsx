@@ -5,6 +5,7 @@ import { editSlider, getSliderById } from '../../../api/requests'
 import { useFormik } from 'formik'
 import { Button, CircularProgress, TextField } from '@mui/material'
 import Swal from "sweetalert2";
+import { sliderSchema } from '../../../validation/sliderSchema'
 const EditSlider = () => {
     const [selectedImages, setSelectedImages] = useState({})
   const buttonRef = useRef()
@@ -49,6 +50,7 @@ const formik = useFormik({
       image: slider.image,
 
     },
+    validationSchema: sliderSchema,
     onSubmit: handleEdit,
   });
   const handleImageChange = (e) => {
@@ -69,9 +71,9 @@ const formik = useFormik({
     {loading ? <div style={{textAlign:'center'}}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <TextField style={{width:'300px'}} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="name" variant="outlined" /> <br/>
-          {formik.errors.title && formik.touched.title && (<span>{formik.errors.title}</span>)}
+          {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
 
-          {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+          {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
           <Button ref={buttonRef} variant="contained" component="label" >
             Edit File
@@ -86,7 +88,7 @@ const formik = useFormik({
           </Button>
           {/* <img src={formik.values.image} width={100} height={100} alt='logo'/>
      */}
-          {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+          {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>

@@ -83,15 +83,18 @@ const EditBlog = () => {
             {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
                 <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <TextField style={{ width: '600px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" /> <br />
-                   
+                    {formik.errors.title && formik.touched.title && (<><Alert severity="warning">{formik.errors.title}</Alert></>)}
                     <TextField style={{ width: '600px' }} type='date' onChange={formik.handleChange} onBlur={formik.handleBlur} name='releaseDate' value={formik.values.releaseDate} id="outlined-basic" label="releaseDate" variant="outlined" />
+                    {formik.errors.releaseDate && formik.touched.releaseDate && (<><Alert severity="warning">{formik.errors.releaseDate}</Alert></>)}
                     <br />
                     <TextField style={{ width: '600px' }} type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
+                    {formik.errors.description && formik.touched.description && (<><Alert severity="warning">{formik.errors.description}</Alert></>)}
                     <br />
                     <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='color' value={formik.values.color} id="outlined-basic" label="color" variant="outlined" />
+                    {formik.errors.color && formik.touched.color && (<><Alert severity="warning">{formik.errors.color}</Alert></>)}
                     <br />
 
-                    {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+                    {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
                     <Button ref={buttonRef} variant="contained" component="label" >
                         Edit File
@@ -104,9 +107,8 @@ const EditBlog = () => {
                             hidden
                         />
                     </Button>
-                    {/* <img src={formik.values.image} width={100} height={100} alt='logo'/>
-     */}
-                    {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+                  
+                    {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
                 </div>
 
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>

@@ -71,7 +71,7 @@ const EditLogo = () => {
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           
 
-          {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+          {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
           <Button ref={buttonRef} variant="contained" component="label" >
             Edit File
@@ -86,7 +86,7 @@ const EditLogo = () => {
           </Button>
           {/* <img src={formik.values.image} width={100} height={100} alt='logo'/>
      */}
-          {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+          {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>

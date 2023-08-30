@@ -5,6 +5,7 @@ import { editPerson, getPersonById } from '../../../api/requests'
 import Swal from "sweetalert2";
 import { useFormik } from 'formik';
 import { Button, CircularProgress, TextField } from '@mui/material';
+import { personSchema } from '../../../validation/personSchema';
 const EditPerson = () => {
     const [selectedImages, setSelectedImages] = useState({})
     const buttonRef = useRef()
@@ -52,6 +53,7 @@ const EditPerson = () => {
             description: person.description,
 
         },
+        validationSchema: personSchema,
         onSubmit: handleEdit,
     });
     const handleImageChange = (e) => {
@@ -72,13 +74,13 @@ const EditPerson = () => {
     {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='fullname' type='text' value={formik.values.fullname} id="outlined-basic" label="fullname" variant="outlined" /> <br />
-            {formik.errors.fullname && formik.touched.fullname && (<span>{formik.errors.fullname}</span>)}
+            {formik.errors.fullname && formik.touched.fullname && (<Alert severity="warning">{formik.errors.fullname}</Alert>)}
 
            
             <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
             <br />
            
-            {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+            {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
             <Button ref={buttonRef} variant="contained" component="label" >
                 Edit File
@@ -93,7 +95,7 @@ const EditPerson = () => {
             </Button>
             {/* <img src={formik.values.image} width={100} height={100} alt='logo'/>
 */}
-            {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+            {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>

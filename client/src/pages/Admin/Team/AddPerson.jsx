@@ -50,7 +50,7 @@ const AddPerson = () => {
 
                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
                 <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='fullname' value={formik.values.fullname} id="outlined-basic" label="fullname" variant="outlined" />
-                {formik.errors.fullname && formik.touched.fullname && (<span>{formik.errors.fullname}</span>)}
+                {formik.errors.fullname && formik.touched.fullname && (<Alert severity="warning">{formik.errors.fullname}</Alert>)}
                 <br/>
                
                 <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
@@ -72,10 +72,10 @@ const AddPerson = () => {
                         onBlur={formik.handleBlur} name='image' type='file' accept="image/*" hidden
                     />
                 </Button> <br/>
-                {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+                {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
 
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit'>Add</Button>
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Add</Button>
             </form>
     </>
   )

@@ -47,10 +47,10 @@ const EditCategory = () => {
     {loading ? <div style={{textAlign:'center'}}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <TextField style={{width:'300px'}} onChange={formik.handleChange} onBlur={formik.handleBlur} name='name' type='text' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" /> <br/>
-          {formik.errors.name && formik.touched.name && (<span>{formik.errors.name}</span>)}
+          {formik.errors.name && formik.touched.name && (<Alert severity="warning">{formik.errors.name}</Alert>)}
 
           <TextField style={{width:'500px'}} onChange={formik.handleChange} onBlur={formik.handleBlur} name='count' type='number' value={formik.values.count} id="outlined-basic" label="count" variant="outlined" /> <br/>
-          {formik.errors.count && formik.touched.count && (<span>{formik.errors.count}</span>)}
+          {formik.errors.count && formik.touched.count && (<Alert severity="warning">{formik.errors.count}</Alert>)}
 
 
           

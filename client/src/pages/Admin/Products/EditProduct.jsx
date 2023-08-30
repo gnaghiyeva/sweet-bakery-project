@@ -5,6 +5,7 @@ import { editProduct, getProductById } from '../../../api/requests'
 import { useFormik } from 'formik'
 import Swal from "sweetalert2";
 import { Alert, Button, CircularProgress, TextField } from '@mui/material'
+import { productSchema } from '../../../validation/productSchema';
 
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -68,7 +69,7 @@ const EditProduct = () => {
             desc: product.desc,
 
         },
-        
+        validationSchema: productSchema,  
         onSubmit: handleEdit,
     });
     const handleImageChange = (e) => {

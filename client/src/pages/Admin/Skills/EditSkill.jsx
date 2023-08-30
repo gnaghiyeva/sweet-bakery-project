@@ -54,6 +54,7 @@ const formik = useFormik({
       image: skill.image,
 
     },
+    validationSchema: skillsSchema,
     onSubmit: handleEdit,
   });
   const handleImageChange = (e) => {
@@ -74,11 +75,12 @@ const formik = useFormik({
     {loading ? <div style={{textAlign:'center'}}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <TextField style={{width:'300px'}} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="name" variant="outlined" /> <br/>
+          {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
 
           <TextField style={{width:'500px'}} onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' type='text' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" /> <br/>
+          {formik.errors.description && formik.touched.description && (<Alert severity="warning">{formik.errors.description}</Alert>)}
 
-
-          {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+          {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
           <Button ref={buttonRef} variant="contained" component="label" >
             Edit File

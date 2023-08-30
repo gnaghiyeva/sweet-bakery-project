@@ -5,6 +5,7 @@ import { editPrice, getPriceById } from '../../../api/requests'
 import { useFormik } from 'formik'
 import Swal from "sweetalert2";
 import { Button, CircularProgress, TextField } from '@mui/material'
+import { priceSchema } from '../../../validation/priceSchema'
 
 const EditPrice = () => {
     const [selectedImages, setSelectedImages] = useState({})
@@ -59,6 +60,7 @@ const EditPrice = () => {
             color: price.color,
 
         },
+        validationSchema: priceSchema,
         onSubmit: handleEdit,
     });
     const handleImageChange = (e) => {
@@ -79,10 +81,10 @@ const EditPrice = () => {
             {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
                 <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='name' type='text' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" /> <br />
-                    {formik.errors.name && formik.touched.name && (<span>{formik.errors.name}</span>)}
+                    {formik.errors.name && formik.touched.name && (<Alert severity="warning">{formik.errors.name}</Alert>)}
 
                     <TextField type='number' onChange={formik.handleChange} onBlur={formik.handleBlur} name='price' value={formik.values.price} id="outlined-basic" label="price" variant="outlined" />
-                    {formik.errors.price && formik.touched.price && (<span>{formik.errors.price}</span>)}
+                    {formik.errors.price && formik.touched.price && (<Alert severity="warning">{formik.errors.price}</Alert>)}
                     <br />
                     <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
                     <br />

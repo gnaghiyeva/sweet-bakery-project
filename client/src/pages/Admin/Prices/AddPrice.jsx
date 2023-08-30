@@ -57,10 +57,10 @@ const AddPrice = () => {
 
                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
                 <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='name' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" />
-                {formik.errors.name && formik.touched.name && (<span>{formik.errors.name}</span>)}
+                {formik.errors.name && formik.touched.name && (<Alert severity="warning">{formik.errors.name}</Alert>)}
                 <br/>
                 <TextField type='number' onChange={formik.handleChange} onBlur={formik.handleBlur} name='price' value={formik.values.price} id="outlined-basic" label="price" variant="outlined" />
-                {formik.errors.price && formik.touched.price && (<span>{formik.errors.price}</span>)}
+                {formik.errors.price && formik.touched.price && (<Alert severity="warning">{formik.errors.price}</Alert>)}
                 <br/>
                 <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
                 <br/>
@@ -82,10 +82,10 @@ const AddPrice = () => {
                         onBlur={formik.handleBlur} name='image' type='file' accept="image/*" hidden
                     />
                 </Button> <br/>
-                {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+                {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
 
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit'>Add</Button>
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Add</Button>
             </form>
     </>
   )

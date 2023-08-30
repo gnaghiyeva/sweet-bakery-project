@@ -29,12 +29,12 @@ const AddCategory = () => {
          <form onSubmit={formik.handleSubmit}>
          <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '30%', margin: '0 auto' }}>
         <TextField placeholder='name' onChange={formik.handleChange} onBlur={formik.handleBlur} name='name' type='text' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" />
-        {formik.errors.name && formik.touched.name && (<span>{formik.errors.name}</span>)}
+        {formik.errors.name && formik.touched.name && (<Alert severity="warning">{formik.errors.name}</Alert>)}
         <br/>
         <TextField placeholder='count' onChange={formik.handleChange} onBlur={formik.handleBlur} name='count' type='number' value={formik.values.count} id="outlined-basic" label="count" variant="outlined" />
-        {formik.errors.count && formik.touched.count && (<span>{formik.errors.count}</span>)}
+        {formik.errors.count && formik.touched.count && (<Alert severity="warning">{formik.errors.count}</Alert>)}
         </div> <br/>
-        <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} type='submit' variant="contained">Add</Button>
+        <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} type='submit' variant="contained" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Add</Button>
       </form>
         </>
     )

@@ -51,7 +51,7 @@ const AddSlider = () => {
 
                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
                 <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" />
-                {formik.errors.name && formik.touched.name && (<span>{formik.errors.name}</span>)}
+                {formik.errors.name && formik.touched.name && (<Alert severity="warning">{formik.errors.name}</Alert>)}
                 </div> <br/>
                 <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }}  ref={buttonRef} variant="contained" component="label" >
                     Upload File
@@ -66,7 +66,7 @@ const AddSlider = () => {
                         onBlur={formik.handleBlur} name='image' type='file' accept="image/*" hidden
                     />
                 </Button> <br/>
-                {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
+                {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
 
                 <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit'>Add</Button>

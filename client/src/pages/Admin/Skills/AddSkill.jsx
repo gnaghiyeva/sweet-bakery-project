@@ -4,6 +4,7 @@ import { postSkill } from '../../../api/requests'
 import { useFormik } from 'formik'
 import Swal from "sweetalert2";
 import { Button, TextField } from '@mui/material';
+import { skillsSchema } from '../../../validation/skillSchema';
 
 const AddSkill = () => {
     const navigate = useNavigate()
@@ -40,7 +41,7 @@ const AddSkill = () => {
 
         },
 
-       
+        validationSchema: skillsSchema,
         onSubmit: handleSubmit
     })
 
@@ -51,10 +52,12 @@ const AddSkill = () => {
 
                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
                 <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" />
-                
+                {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
+
                 <br/>
                 <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
-                
+                {formik.errors.description && formik.touched.description && (<Alert severity="warning">{formik.errors.description}</Alert>)}
+
                 </div> <br/>
                 <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }}  ref={buttonRef} variant="contained" component="label" >
                     Upload File
