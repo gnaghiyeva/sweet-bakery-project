@@ -3,7 +3,7 @@ import { useSliderContext } from '../../../context/SliderContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import { editSlider, getSliderById } from '../../../api/requests'
 import { useFormik } from 'formik'
-import { Button, CircularProgress, TextField } from '@mui/material'
+import { Alert, Button, CircularProgress, TextField } from '@mui/material'
 import Swal from "sweetalert2";
 import { sliderSchema } from '../../../validation/sliderSchema'
 const EditSlider = () => {

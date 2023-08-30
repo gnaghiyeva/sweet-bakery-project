@@ -4,7 +4,7 @@ import { postPerson } from '../../../api/requests'
 import Swal from "sweetalert2";
 import { useFormik } from 'formik';
 import { personSchema } from '../../../validation/personSchema';
-import { Button, TextField } from '@mui/material';
+import { Alert, Button, TextField } from '@mui/material';
 const AddPerson = () => {
     const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)

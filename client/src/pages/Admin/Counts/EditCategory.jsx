@@ -4,7 +4,7 @@ import { useCategoryContext } from '../../../context/CategoryContext';
 import { editCategory, getCategoryById } from '../../../api/requests';
 import { categorySchema } from '../../../validation/categorySchema';
 import { useFormik } from 'formik';
-import { Button, CircularProgress, TextField } from '@mui/material';
+import { Alert, Button, CircularProgress, TextField } from '@mui/material';
 
 const EditCategory = () => {
     const { id } = useParams()

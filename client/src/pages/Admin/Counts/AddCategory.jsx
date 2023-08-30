@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { postCategory } from '../../../api/requests'
 import { useFormik } from 'formik'
 import { categorySchema } from '../../../validation/categorySchema'
-import { Button, TextField } from '@mui/material'
+import { Alert, Button, TextField } from '@mui/material'
 
 const AddCategory = () => {
     const navigate = useNavigate()

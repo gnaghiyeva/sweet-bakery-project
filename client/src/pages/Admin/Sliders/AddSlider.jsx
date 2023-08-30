@@ -3,7 +3,7 @@ import { postSlider } from '../../../api/requests'
 import Swal from "sweetalert2";
 import { useFormik } from 'formik';
 import { sliderSchema } from '../../../validation/sliderSchema';
-import { Button, TextField } from '@mui/material';
+import { Alert, Button, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const AddSlider = () => {

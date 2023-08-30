@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { editLogo, getLogoById } from '../../../api/requests'
 import Swal from "sweetalert2";
 import { useFormik } from 'formik';
-import { Button, TextField } from '@mui/material';
+import { Alert, Button, TextField } from '@mui/material';
 
 const EditLogo = () => {
     const [selectedImages, setSelectedImages] = useState({})

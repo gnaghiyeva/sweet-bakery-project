@@ -3,9 +3,10 @@ import { useSkillContext } from '../../../context/SkillContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import { editSkill, getSkillById } from '../../../api/requests'
 import { useFormik } from 'formik'
-import { Button, TextField } from '@mui/material'
+import { Alert, Button, TextField } from '@mui/material'
 import { CircularProgress } from '@mui/material';
 import Swal from "sweetalert2";
+import { skillsSchema } from '../../../validation/skillSchema'
 
 const EditSkill = () => {
     const [selectedImages, setSelectedImages] = useState({})
