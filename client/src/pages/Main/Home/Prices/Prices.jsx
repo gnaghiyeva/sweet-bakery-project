@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllPrices } from '../../../../api/requests';
 import pricesStyle from '../../../../style/prices.module.css'
-import { Button, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
@@ -18,7 +18,7 @@ const Prices = () => {
                 <h1 className={pricesStyle.prices_title}>Our Prices</h1>
 
                 <div className={pricesStyle.prices_img_container}>
-                    <img className={pricesStyle.prices_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-price1200-1024x26.png' />
+                    <img className={pricesStyle.prices_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-price1200-1024x26.png' alt='priceImage' />
                 </div>
 
             </article>

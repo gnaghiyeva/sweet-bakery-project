@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { getAllTeam } from '../../../../api/requests';
 import teamStyle from '../../../../style/team.module.css'
 import { Grid } from '@mui/material';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import FacebookLogo from '../../../../assets/logos/facebook.png'
 import FlickerLogo from '../../../../assets/logos/flicker.png'
 import GoogleLogo from '../../../../assets/logos/google.png'
 import TwitterLogo from '../../../../assets/logos/twitter.png'
-import { width } from '@mui/system';
 const Team = () => {
     const [teams, setTeams] = useState([]);
     useEffect(() => {
@@ -24,7 +22,7 @@ const Team = () => {
             <article>
                 <h1 className={teamStyle.team_title}>Our Team</h1>
                 <div className={teamStyle.team_img_container}>
-                    <img className={teamStyle.team_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-team1200-1024x37.png' />
+                    <img className={teamStyle.team_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-team1200-1024x37.png' alt='teamImage' />
                 </div>
             </article>
 
@@ -51,16 +49,16 @@ const Team = () => {
                                     <ListGroup.Item style={{display:'flex', justifyContent:'center', gap:'6px'}}>
                                        
                                         <div style={{width:'15%'}}>
-                                           <img style={{width:'100%'}} src={FacebookLogo}/>
+                                           <img style={{width:'100%'}} src={FacebookLogo} alt='facebook'/>
                                         </div>
                                         <div style={{width:'15%'}}>
-                                           <img style={{width:'100%'}} src={FlickerLogo}/>
+                                           <img style={{width:'100%'}} src={FlickerLogo} alt='flicker'/>
                                         </div>
                                         <div style={{width:'15%'}}>
-                                           <img style={{width:'100%'}} src={GoogleLogo}/>
+                                           <img style={{width:'100%'}} src={GoogleLogo} alt='google'/>
                                         </div>
                                         <div style={{width:'15%'}}>
-                                           <img style={{width:'100%'}} src={TwitterLogo}/>
+                                           <img style={{width:'100%'}} src={TwitterLogo} alt='twitter'/>
                                         </div>
                                         
                                     </ListGroup.Item>

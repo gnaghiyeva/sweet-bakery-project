@@ -33,7 +33,7 @@ const MyBlogDetail = () => {
               <br />
 
               <div className={blogdetailStyle.blog_detail_image_container}>
-                <img className={blogdetailStyle.blog_detail_image} src={detail.image} />
+                <img className={blogdetailStyle.blog_detail_image} src={detail.image} alt='detailimage'/>
               </div>
             </div>
 

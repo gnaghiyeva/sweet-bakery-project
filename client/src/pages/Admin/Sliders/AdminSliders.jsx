@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { deleteSlider, getAllSliders } from '../../../api/requests';
 import { Link } from 'react-router-dom';
@@ -23,9 +22,9 @@ const AdminSliders = () => {
                 <link rel="icon" type="image/x-icon" href={favicon} />
             </Helmet>
             <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <a class="navbar-brand" href={() => false} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://static.thenounproject.com/png/396915-200.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-                    <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-slider'>Add Slider</Link> <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active" href={() => false} ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-slider'>Add Slider</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
 

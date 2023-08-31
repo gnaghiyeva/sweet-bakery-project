@@ -23,9 +23,9 @@ const AdminWorks = () => {
                 <link rel="icon" type="image/x-icon" href={favicon} />
             </Helmet>
             <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
-                <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <a class="navbar-brand" href={() => false} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-                    <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-work'>Add Work</Link> <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active" href={() => false} ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-work'>Add Work</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
             <Grid container spacing={2} style={{ padding: '50px 60px' }}>

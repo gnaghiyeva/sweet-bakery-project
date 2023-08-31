@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAllServices } from '../../../../api/requests';
 import { Grid } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import serviceStyle from '../../../../style/services.module.css'
 
 const Services = () => {
-    const theme = useTheme();
     const [services, setServices] = useState([]);
     useEffect(() => {
         getAllServices().then((res) => {
@@ -23,7 +21,7 @@ const Services = () => {
                 <h1 className={serviceStyle.service_title}>Services We Provide</h1>
 
                 <div className={serviceStyle.service_img_container}>
-                <img  className={serviceStyle.service_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-services1200-1024x44.png'/>
+                <img  className={serviceStyle.service_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-services1200-1024x44.png' alt='service'/>
                 </div>
 
             </article>

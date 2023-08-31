@@ -27,7 +27,7 @@ const Skills = () => {
             <article>
                 <h1 className={skillStyle.skill_title}>Our Skills</h1>
                 <div className={skillStyle.skill_img_container}>
-                    <img className={skillStyle.skill_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-skill1200-1024x44.png' />
+                    <img className={skillStyle.skill_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-skill1200-1024x44.png' alt='skillImage' />
                 </div>
             </article>
 

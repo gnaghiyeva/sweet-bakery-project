@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { getAllComments, getAllProductSliders, getCommentById, getProductById, postComment } from '../../../api/requests';
+import { getAllProductSliders, getCommentById, getProductById, postComment } from '../../../api/requests';
 import { Alert, Button, Grid, TextField } from '@mui/material';
 import productdetailStyle from '../../../style/productDetail.module.css'
 import toast, { Toaster } from 'react-hot-toast';
@@ -50,8 +50,8 @@ const ProductDetail = () => {
       }, [])
 
     const [user, setUser] = useUserContext()
+    console.log(setUser)
     const navigate = useNavigate();
-    const [value, setValue] = React.useState(2);
 
     const handleSubmit = async (values, actions) => {
         if(user){
@@ -103,7 +103,7 @@ const ProductDetail = () => {
 
                 <Grid item sm={12} xs={12} md={6} lg={6}>
                     <div className={productdetailStyle.product_image_container}>
-                        <img src={products.image} />
+                        <img src={products.image} alt='productImage' />
                         <span style={{ display: products.onSale ? 'block' : 'none' }} className={productdetailStyle.product_image}>
                             {products.onSale ? 'SALE !' : ''}
                         </span>

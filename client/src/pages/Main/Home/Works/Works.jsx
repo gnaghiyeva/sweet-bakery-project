@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { getAllWorks } from '../../../../api/requests';
-import { useTheme } from '@mui/material/styles';
 import { Grid } from '@mui/material';
 import workStyle from '../../../../style/works.module.css'
 import Card from 'react-bootstrap/Card';
 const Works = () => {
-    const theme = useTheme();
     const [works, setWorks] = useState([]);
     useEffect(() => {
         getAllWorks().then((res) => {
@@ -17,7 +15,7 @@ const Works = () => {
             <article>
                 <h1 className={workStyle.works_title}>Our Works</h1>
                 <div className={workStyle.works_img_container}>
-                    <img className={workStyle.works_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-works1200-1024x33.png' />
+                    <img className={workStyle.works_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-works1200-1024x33.png' alt='workimage' />
                 </div>
             </article>
 

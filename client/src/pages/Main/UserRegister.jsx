@@ -3,11 +3,17 @@ import { useNavigate } from 'react-router-dom'
 import { signUp } from '../../api/requests'
 import { useFormik } from 'formik'
 import { Alert, Button, TextField } from '@mui/material'
+import Swal from 'sweetalert2'
 
 const UserRegister = () => {
     const navigate = useNavigate()
     const handleSubmit = async (values, actions) => {
         await signUp(values)
+        Swal.fire(
+            'Good job!',
+            'Account created succesfully!',
+            'success'
+          )
         actions.resetForm()
         navigate('/login')
     }

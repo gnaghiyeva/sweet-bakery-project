@@ -14,7 +14,7 @@ const Follow = () => {
             <article>
                 <h1 className={followStyle.follow_title}>Follow Us</h1>
                 <div className={followStyle.follow_img_container}>
-                    <img className={followStyle.follow_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-social1200-1024x33.png' />
+                    <img className={followStyle.follow_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-social1200-1024x33.png' alt='follow'/>
                 </div>
             </article>
 
@@ -22,32 +22,32 @@ const Follow = () => {
             <Grid container spacing={2} style={{ padding: '0px 60px' }} >
             <Grid item xs={12} sm={6} md={4} lg={2}>
                 <div style={{width:'70%',display:'block', margin:'auto'}}>
-                <img style={{width:'100%'}} src={FacebookIcon}/>
+                <img style={{width:'100%'}} src={FacebookIcon} alt='facebbok'/>
                 </div>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={2} >
                 <div style={{width:'70%',display:'block', margin:'auto'}}>
-                <img style={{width:'100%'}} src={TwitterIcon}/>
+                <img style={{width:'100%'}} src={TwitterIcon} alt='twitter'/>
                 </div>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={2} >
                 <div style={{width:'70%',display:'block', margin:'auto'}}>
-                <img style={{width:'100%'}} src={GoogleIcon}/>
+                <img style={{width:'100%'}} src={GoogleIcon} alt='google'/>
                 </div>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={2} >
                 <div style={{width:'70%',display:'block', margin:'auto'}}>
-                <img style={{width:'100%'}} src={FlickerIcon}/>
+                <img style={{width:'100%'}} src={FlickerIcon} alt='flicker'/>
                 </div>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={2} >
                 <div style={{width:'70%',display:'block', margin:'auto'}}>
-                <img style={{width:'100%'}} src={InstagramIcon}/>
+                <img style={{width:'100%'}} src={InstagramIcon} alt='instagram'/>
                 </div>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={2} >
                 <div style={{width:'70%',display:'block', margin:'auto'}}>
-                <img style={{width:'100%'}} src={VimeoIcon}/>
+                <img style={{width:'100%'}} src={VimeoIcon} alt='vimeo'/>
                 </div>
             </Grid>
             </Grid>

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Col, Row } from 'antd';
 import { getAllDatas } from '../../../api/requests';
 import { Divider, Grid, TextareaAutosize } from '@mui/material';
 import emailjs from '@emailjs/browser';
@@ -77,7 +76,7 @@ const ContactData = () => {
             </Grid>
 
             <Grid item sm={12} xs={12} md={6} lg={6}>
-              <iframe style={{ width: '100%', height: '50vh' }} src={data.location}
+              <iframe style={{ width: '100%', height: '50vh' }} src={data.location} title='map'
               >
               </iframe>
 
@@ -135,11 +134,6 @@ const ContactData = () => {
           </>
         )
       })}
-
-
-
-
-
     </Grid>
 
   )

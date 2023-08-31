@@ -2,15 +2,16 @@ import React from 'react'
 import { useUserContext } from '../../context/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
-import { Button, Grid, TextField } from '@mui/material';
-import LoginIcon from '@mui/icons-material/Login';
+import { Grid, TextField } from '@mui/material';
 import { signIn } from '../../api/requests';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
 import favicon from '../../assets/favicon-logo.png'
 import userLogo from '../../assets/user-logo.png'
+import toast,{ Toaster } from 'react-hot-toast';
 const UserLogin = () => {
   const [user, setUser] = useUserContext();
+  console.log(user)
   const navigate = useNavigate();
 
   const handleSubmit = async (values, actions) => {
@@ -56,7 +57,7 @@ const UserLogin = () => {
         <Grid item sm={6} xs={12} md={6} style={{ backgroundColor: 'rgb(8,183,172)', textAlign: 'center' }}>
           <div >
             <div style={{ width: '100%' }}>
-              <img style={{ width: '60%' }} src={userLogo} />
+              <img style={{ width: '60%' }} src={userLogo} alt='logo'/>
             </div>
             <article style={{ color: 'white' }}>
               <h3>Bakery</h3>
@@ -102,8 +103,14 @@ const UserLogin = () => {
                 />
                 <br />
 
-                <button type="submit" style={{ backgroundColor: 'rgb(8,183,172)', border: 'none', padding: '6px 30px', color: 'white', width: '80%' }}>
+                <button type="submit" style={{ backgroundColor: 'rgb(8,183,172)', border: 'none', padding: '6px 30px', color: 'white', width: '80%' }}
+                onClick={()=>{
+                  if(!user){
+                    toast.error("Username or Password is incorrect !")
+                  }
+                }}>
                   SIGN IN
+                  <Toaster position="top-center" />
                 </button>
 
                 <div style={{display:'flex', justifyContent:'space-between', width: '80%'}}>

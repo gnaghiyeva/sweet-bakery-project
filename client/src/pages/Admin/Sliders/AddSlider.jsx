@@ -51,7 +51,7 @@ const AddSlider = () => {
                 <title>Adding Slider</title>
                 <link rel="icon" type="image/x-icon" href={favicon} />
             </Helmet>
-            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Slider</h1>
+            <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Add Slider</h1>
             <form onSubmit={formik.handleSubmit} >
 
                 <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>

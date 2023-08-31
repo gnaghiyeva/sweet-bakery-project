@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import React from 'react'
 import { useBasketContext } from '../../../context/BasketContext';
 import Swal from "sweetalert2";
@@ -14,14 +14,14 @@ const Basket = () => {
     const { basket, setBasket } = useBasketContext();
     console.log("Basket Data:", basket);
 
-    const getProductCount = (productId) => {
-        return basket.reduce((count, product) => {
-            if (product._id === productId) {
-                return count + 1;
-            }
-            return count;
-        }, 0);
-    }
+    // const getProductCount = (productId) => {
+    //     return basket.reduce((count, product) => {
+    //         if (product._id === productId) {
+    //             return count + 1;
+    //         }
+    //         return count;
+    //     }, 0);
+    // }
 
     function handleClearBasket() {
         const swalWithBootstrapButtons = Swal.mixin({

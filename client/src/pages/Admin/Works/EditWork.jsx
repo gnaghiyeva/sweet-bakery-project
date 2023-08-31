@@ -10,9 +10,11 @@ import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
 const EditWork = () => {
   const [selectedImages, setSelectedImages] = useState({})
+  console.log('work-selected-images' ,selectedImages)
   const buttonRef = useRef()
 
   const [setWorks] = useWorksContext()
+  console.log('works',setWorks)
   const [loading, setLoading] = useState(true)
   const { id } = useParams()
   const navigate = useNavigate();
@@ -76,7 +78,7 @@ const EditWork = () => {
         <title>Editing Work</title>
         <link rel="icon" type="image/x-icon" href={favicon} />
       </Helmet>
-      <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
+      <h1 style={{ textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
       {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="name" variant="outlined" /> <br />

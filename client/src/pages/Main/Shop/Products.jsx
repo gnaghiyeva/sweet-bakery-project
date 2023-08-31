@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { getAllProducts } from '../../../api/requests';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import productStyle from '../../../style/products.module.css'
-import { Alert, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import { useUserContext } from '../../../context/UserContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { useBasketContext } from '../../../context/BasketContext';
 import { useProductContext } from '../../../context/ProductsContext';
@@ -16,10 +16,10 @@ const Products = () => {
     getAllProducts().then((res) => {
       setProducts(res.data)
     })
-  }, [])
+  })
 
   const [user, setUser] = useUserContext()
-  const navigate = useNavigate();
+  console.log(setUser)
   const { basket, setBasket } = useBasketContext();
   return (
     <>
