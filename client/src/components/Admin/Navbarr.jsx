@@ -23,6 +23,7 @@ import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import BookIcon from '@mui/icons-material/Book';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
+import CakeIcon from '@mui/icons-material/Cake';
 const Navbarr = () => {
   const [state, setState] = React.useState({
     left: false,
@@ -116,7 +117,7 @@ const Navbarr = () => {
       </div>
 
       <Container>
-        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+        <Navbar.Brand href="#home" style={{display:'flex', alignItems:'center', gap:'10px'}}> <CakeIcon/>Sweet Bakery</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           {admin === null ? <>
