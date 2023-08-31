@@ -56,6 +56,7 @@ import Basket from "../pages/Main/Shop/Basket";
 import ProductDetail from "../pages/Main/Shop/ProductDetail";
 import ShopPage from "../pages/Main/Shop/ShopPage";
 import UserLogin from "../pages/Main/UserLogin";
+import UserRegister from "../pages/Main/UserRegister";
 
 export const ROUTES = [
     {
@@ -95,6 +96,10 @@ export const ROUTES = [
             {
                 path:'/contact',
                 element:<Contact/>
+            },
+            {
+                path:'/user-register',
+                element:<UserRegister/>
             },
             {
                 path:'*',
