@@ -9,6 +9,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { Link } from 'react-router-dom';
+import favicon from '../../../../assets/favicon-logo.png'
+import { Helmet } from 'react-helmet';
 const AdminContact = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
@@ -18,10 +20,14 @@ const AdminContact = () => {
   }, [datas])
   return (
     <>
+      <Helmet>
+        <title>Admin Contact</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0 20px' }}>
           <img src="https://static.thenounproject.com/png/396915-200.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-          <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/contact-slider'>Go to Slider</Link> <span class="sr-only"></span></a> 
+          <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/contact-slider'>Go to Slider</Link> <span class="sr-only"></span></a>
         </a>
       </nav>
 

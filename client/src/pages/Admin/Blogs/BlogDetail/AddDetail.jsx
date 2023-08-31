@@ -5,16 +5,18 @@ import { useFormik } from 'formik';
 import { blogdetailSchema } from '../../../../validation/blogDetailSchema';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Alert, Button, TextField } from '@mui/material';
+import { Helmet } from 'react-helmet';
+import favicon from '../../../../assets/favicon-logo.png'
 const AddDetail = () => {
   const navigate = useNavigate()
   const [selectedImages, setSelectedImages] = useState(null)
   const buttonRef = useRef()
 
-  
+
 
   function handleSubmit(values, actions) {
     const formData = new FormData()
-    
+
     formData.append("blogID", values.blogID)
     formData.append("image", selectedImages)
     formData.append("menuTitle", values.menuTitle)
@@ -53,13 +55,17 @@ const AddDetail = () => {
   })
   return (
     <>
+      <Helmet>
+        <title>Adding Detail Page</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
       <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Detail info</h1>
       <form onSubmit={formik.handleSubmit} >
 
         <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
           <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='blogID' value={formik.values.blogID} id="outlined-basic" label="blogID" variant="outlined" />
           {formik.errors.blogID && formik.touched.blogID && (<><Alert severity="warning">{formik.errors.blogID}</Alert></>)}
-           <br/>
+          <br />
           <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuTitle' value={formik.values.menuTitle} id="outlined-basic" label="title" variant="outlined" />
           <br />
           <TextField type='date' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestTitle' value={formik.values.guestTitle} id="outlined-basic" placeholder="release date" variant="outlined" />

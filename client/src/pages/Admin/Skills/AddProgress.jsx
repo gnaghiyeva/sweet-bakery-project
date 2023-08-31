@@ -5,7 +5,8 @@ import { useFormik } from 'formik'
 import { Alert, Button, TextField } from '@mui/material'
 import Swal from "sweetalert2";
 import { progressSchema } from '../../../validation/progressSchema'
-
+import { Helmet } from 'react-helmet'
+import favicon from '../../../assets/favicon-logo.png'
 const AddProgress = () => {
   const navigate = useNavigate()
   const handleSubmit = async (values, actions) => {
@@ -31,6 +32,10 @@ const AddProgress = () => {
   })
   return (
     <>
+      <Helmet>
+        <title>Adding Progress</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
       <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Progress</h1>
       <form onSubmit={formik.handleSubmit} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '60%', margin: '0 auto' }}>
 

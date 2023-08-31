@@ -6,7 +6,8 @@ import Swal from "sweetalert2";
 import { useFormik } from 'formik';
 import { blogdetailSchema } from '../../../../validation/blogDetailSchema';
 import { Alert, Button, CircularProgress, TextField } from '@mui/material';
-
+import { Helmet } from 'react-helmet';
+import favicon from '../../../../assets/favicon-logo.png'
 const EditBlogDetail = () => {
   const [selectedImages, setSelectedImages] = useState({})
   const buttonRef = useRef()
@@ -27,7 +28,7 @@ const EditBlogDetail = () => {
   }, [id]);
 
   const handleEdit = async (values, actions) => {
-    
+
     const formData = new FormData();
     formData.append('image', values.image);
     formData.append('description', values.description);
@@ -51,7 +52,7 @@ const EditBlogDetail = () => {
   }
   const formik = useFormik({
     initialValues: {
-     image: blogdetail?.image || '',
+      image: blogdetail?.image || '',
       description: blogdetail?.description || '',
       menuTitle: blogdetail?.menuTitle || '',
       guestTitle: blogdetail?.guestTitle || '',
@@ -59,7 +60,7 @@ const EditBlogDetail = () => {
       guestDesc: blogdetail?.guestDesc || '',
 
     },
-
+    validationSchema: blogdetailSchema,
     onSubmit: handleEdit,
   });
   const handleImageChange = (e) => {
@@ -76,13 +77,17 @@ const EditBlogDetail = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>Editing Detail Page</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
       <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Detail Info</h1>
-      <small style={{textAlign:'center', display:'block'}}>change everything</small>
+      <small style={{ textAlign: 'center', display: 'block' }}>change everything</small>
       {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          
+
           <TextField style={{ width: '600px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuTitle' type='text' value={formik.values.menuTitle} id="outlined-basic" label="menu title" variant="outlined" /> <br />
-          
+          {formik.errors.blogID && formik.touched.blogID && (<><Alert severity="warning">{formik.errors.blogID}</Alert></>)}
           <TextField style={{ width: '600px' }} type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
           <br />
           <TextField style={{ width: '600px' }} type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestTitle' value={formik.values.guestTitle} id="outlined-basic" label="guest title" variant="outlined" />

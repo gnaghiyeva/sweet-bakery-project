@@ -6,9 +6,10 @@ import { Button, TextField } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import { signIn } from '../../api/requests';
 import Swal from 'sweetalert2';
-
+import { Helmet } from 'react-helmet';
+import favicon from '../../assets/favicon-logo.png'
 const UserLogin = () => {
-    const [user, setUser] = useUserContext(); 
+  const [user, setUser] = useUserContext();
   const navigate = useNavigate();
 
   const handleSubmit = async (values, actions) => {
@@ -18,7 +19,7 @@ const UserLogin = () => {
     });
 
     if (response.auth) {
-      localStorage.setItem('userToken', response.token); 
+      localStorage.setItem('userToken', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
       setUser(response.user);
 
@@ -45,7 +46,11 @@ const UserLogin = () => {
 
   return (
     <>
-    <form onSubmit={formik.handleSubmit}>
+      <Helmet>
+        <title>User Login</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
+      <form onSubmit={formik.handleSubmit}>
         <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto', paddingTop: '150px' }}>
           <article style={{ textAlign: 'center' }}>
             <span style={{ padding: '15px', backgroundColor: 'rgb(156,39,176)', borderRadius: '54%' }}>

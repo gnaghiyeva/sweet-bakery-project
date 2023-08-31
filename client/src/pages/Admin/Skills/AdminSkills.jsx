@@ -12,13 +12,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import Swal from "sweetalert2";
 import { Grid } from '@mui/material';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Progress, Space } from 'antd';
-
+import { Progress } from 'antd';
+import { Helmet } from 'react-helmet';
+import favicon from '../../../assets/favicon-logo.png'
 const AdminSkills = () => {
     const [skills, setSkills] = useState([])
     useEffect(() => {
@@ -37,6 +33,10 @@ const AdminSkills = () => {
     return (
 
         <>
+            <Helmet>
+                <title>Admin Skills</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
             <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
                 <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />

@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Swal from "sweetalert2";
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import favicon from '../../../assets/favicon-logo.png'
 const AdminWorks = () => {
     const [works, setWorks] = useState([]);
     useEffect(() => {
@@ -16,6 +18,10 @@ const AdminWorks = () => {
     return (
 
         <>
+            <Helmet>
+                <title>Admin Works</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
             <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
                 <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />
@@ -61,7 +67,7 @@ const AdminWorks = () => {
                                                 }
                                             })
                                         }} >Delete</Button>
-                                        <Button variant="outline-info"><Link style={{textDecoration:'none'}} to={`/admin/work/edit/${work._id}`}>Edit</Link></Button>
+                                        <Button variant="outline-info"><Link style={{ textDecoration: 'none' }} to={`/admin/work/edit/${work._id}`}>Edit</Link></Button>
                                     </div>
                                 </Card.Body>
                             </Card>

@@ -5,7 +5,8 @@ import { useFormik } from 'formik'
 import Swal from "sweetalert2";
 import { Alert, Button, TextField } from '@mui/material';
 import { skillsSchema } from '../../../validation/skillSchema';
-
+import favicon from '../../../assets/favicon-logo.png'
+import { Helmet } from 'react-helmet';
 const AddSkill = () => {
     const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)
@@ -45,21 +46,25 @@ const AddSkill = () => {
         onSubmit: handleSubmit
     })
 
-  return (
-    <>
-    <h1 style={{fontFamily:'sans-serif', textAlign:'center', fontFamily:'Lobster'}}>Add Service</h1>
+    return (
+        <>
+            <Helmet>
+                <title>Adding Skill</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
+            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Service</h1>
             <form onSubmit={formik.handleSubmit} >
 
-               <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
-                <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" />
-                {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
+                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" />
+                    {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
 
-                <br/>
-                <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
-                {formik.errors.description && formik.touched.description && (<Alert severity="warning">{formik.errors.description}</Alert>)}
+                    <br />
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
+                    {formik.errors.description && formik.touched.description && (<Alert severity="warning">{formik.errors.description}</Alert>)}
 
-                </div> <br/>
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }}  ref={buttonRef} variant="contained" component="label" >
+                </div> <br />
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} ref={buttonRef} variant="contained" component="label" >
                     Upload File
 
                     <input value={formik.values.image}
@@ -71,14 +76,14 @@ const AddSkill = () => {
                         }}
                         onBlur={formik.handleBlur} name='image' type='file' accept="image/*" hidden
                     />
-                </Button> <br/>
+                </Button> <br />
                 {formik.errors.image && formik.touched.image && (<span>{formik.errors.image}</span>)}
 
 
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit'>Add</Button>
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }} variant='contained' color='error' type='submit'>Add</Button>
             </form>
-    </>
-  )
+        </>
+    )
 }
 
 export default AddSkill

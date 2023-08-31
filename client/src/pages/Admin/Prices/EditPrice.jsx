@@ -6,7 +6,8 @@ import { useFormik } from 'formik'
 import Swal from "sweetalert2";
 import { Alert, Button, CircularProgress, TextField } from '@mui/material'
 import { priceSchema } from '../../../validation/priceSchema'
-
+import favicon from '../../../assets/favicon-logo.png'
+import { Helmet } from 'react-helmet'
 const EditPrice = () => {
     const [selectedImages, setSelectedImages] = useState({})
     const buttonRef = useRef()
@@ -77,6 +78,10 @@ const EditPrice = () => {
     };
     return (
         <>
+            <Helmet>
+                <title>Edit Price</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
             <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
             {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
                 <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

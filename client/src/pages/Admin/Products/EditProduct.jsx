@@ -12,8 +12,10 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import { Helmet } from 'react-helmet'
+import favicon from '../../../assets/favicon-logo.png'
 const EditProduct = () => {
-      
+
     const [selectedImages, setSelectedImages] = useState({})
     const buttonRef = useRef()
 
@@ -69,7 +71,7 @@ const EditProduct = () => {
             desc: product.desc,
 
         },
-        validationSchema: productSchema,  
+        validationSchema: productSchema,
         onSubmit: handleEdit,
     });
     const handleImageChange = (e) => {
@@ -86,7 +88,11 @@ const EditProduct = () => {
     };
     return (
         <>
-            <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Editing Product</h1>
+            <Helmet>
+                <title>Edit product</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
+            <h1 style={{ textAlign: 'center', fontFamily: 'Lobster' }}>Editing Product</h1>
             {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
                 <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" /> <br />
@@ -112,7 +118,7 @@ const EditProduct = () => {
                             onChange={formik.handleChange}
                         >
                             <FormControlLabel value={true} control={<Radio />} label="Yes" name='onSale' />
-                            <FormControlLabel value={false}  control={<Radio />} label="No" name='onSale'/>
+                            <FormControlLabel value={false} control={<Radio />} label="No" name='onSale' />
                         </RadioGroup>
                     </FormControl>
 

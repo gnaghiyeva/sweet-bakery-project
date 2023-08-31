@@ -5,7 +5,8 @@ import Swal from "sweetalert2";
 import { priceSchema } from '../../../validation/priceSchema';
 import { Alert, Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
-
+import favicon from '../../../assets/favicon-logo.png'
+import { Helmet } from 'react-helmet';
 const AddPrice = () => {
     const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)
@@ -40,8 +41,8 @@ const AddPrice = () => {
             image: '',
             name: '',
             description: '',
-            price:'',
-            color:''
+            price: '',
+            color: ''
 
 
         },
@@ -50,26 +51,30 @@ const AddPrice = () => {
         onSubmit: handleSubmit
     })
 
-  return (
-    <>
-    <h1 style={{fontFamily:'sans-serif', textAlign:'center', fontFamily:'Lobster'}}>Add Price</h1>
+    return (
+        <>
+            <Helmet>
+                <title>Adding Price</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
+            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Price</h1>
             <form onSubmit={formik.handleSubmit} >
 
-               <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
-                <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='name' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" />
-                {formik.errors.name && formik.touched.name && (<Alert severity="warning">{formik.errors.name}</Alert>)}
-                <br/>
-                <TextField type='number' onChange={formik.handleChange} onBlur={formik.handleBlur} name='price' value={formik.values.price} id="outlined-basic" label="price" variant="outlined" />
-                {formik.errors.price && formik.touched.price && (<Alert severity="warning">{formik.errors.price}</Alert>)}
-                <br/>
-                <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
-                <br/>
-                <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='color' value={formik.values.color} id="outlined-basic" label="color" variant="outlined" />
-                <br/>
-                </div> <br/>
+                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='name' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" />
+                    {formik.errors.name && formik.touched.name && (<Alert severity="warning">{formik.errors.name}</Alert>)}
+                    <br />
+                    <TextField type='number' onChange={formik.handleChange} onBlur={formik.handleBlur} name='price' value={formik.values.price} id="outlined-basic" label="price" variant="outlined" />
+                    {formik.errors.price && formik.touched.price && (<Alert severity="warning">{formik.errors.price}</Alert>)}
+                    <br />
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
+                    <br />
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='color' value={formik.values.color} id="outlined-basic" label="color" variant="outlined" />
+                    <br />
+                </div> <br />
 
-                
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }}  ref={buttonRef} variant="contained" component="label" >
+
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} ref={buttonRef} variant="contained" component="label" >
                     Upload File
 
                     <input value={formik.values.image}
@@ -81,14 +86,14 @@ const AddPrice = () => {
                         }}
                         onBlur={formik.handleBlur} name='image' type='file' accept="image/*" hidden
                     />
-                </Button> <br/>
+                </Button> <br />
                 {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
 
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Add</Button>
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }} variant='contained' color='error' type='submit' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Add</Button>
             </form>
-    </>
-  )
+        </>
+    )
 }
 
 export default AddPrice

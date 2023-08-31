@@ -6,7 +6,8 @@ import { useFormik } from 'formik';
 import { Alert, Button, CircularProgress, TextField } from '@mui/material';
 import Swal from "sweetalert2";
 import { progressSchema } from '../../../validation/progressSchema';
-
+import { Helmet } from 'react-helmet';
+import favicon from '../../../assets/favicon-logo.png'
 const EditProgress = () => {
   const [progress, setProgress] = useProgressContext();
   const { id } = useParams()
@@ -53,6 +54,10 @@ const EditProgress = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Editing Progress</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
       <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Progress</h1>
 
       {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>

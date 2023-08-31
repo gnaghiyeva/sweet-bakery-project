@@ -7,9 +7,10 @@ import { Alert, Button, TextField } from '@mui/material'
 import { CircularProgress } from '@mui/material';
 import Swal from "sweetalert2";
 import { skillsSchema } from '../../../validation/skillSchema'
-
+import { Helmet } from 'react-helmet'
+import favicon from '../../../assets/favicon-logo.png'
 const EditSkill = () => {
-    const [selectedImages, setSelectedImages] = useState({})
+  const [selectedImages, setSelectedImages] = useState({})
   const buttonRef = useRef()
 
   const [setSkills] = useSkillContext()
@@ -28,7 +29,7 @@ const EditSkill = () => {
 
     })
   }, [id]);
-  
+
   const handleEdit = async (values, actions) => {
     const formData = new FormData();
     formData.append('title', values.title);
@@ -47,8 +48,8 @@ const EditSkill = () => {
 
     navigate('/admin/skills');
     actions.resetForm();
-}
-const formik = useFormik({
+  }
+  const formik = useFormik({
     initialValues: {
       title: skill.title,
       description: skill.description,
@@ -72,13 +73,17 @@ const formik = useFormik({
   };
   return (
     <>
-    <h1 style={{fontFamily:'sans-serif', textAlign:'center', fontFamily:'Lobster'}}>Editing Service</h1>
-    {loading ? <div style={{textAlign:'center'}}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
+      <Helmet>
+        <title>Editing Skill</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
+      <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
+      {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <TextField style={{width:'300px'}} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="name" variant="outlined" /> <br/>
+          <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="name" variant="outlined" /> <br />
           {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
 
-          <TextField style={{width:'500px'}} onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' type='text' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" /> <br/>
+          <TextField style={{ width: '500px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' type='text' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" /> <br />
           {formik.errors.description && formik.touched.description && (<Alert severity="warning">{formik.errors.description}</Alert>)}
 
           {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}

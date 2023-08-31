@@ -11,7 +11,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import Swal from "sweetalert2";
 import { Link } from 'react-router-dom';
-
+import favicon from '../../../assets/favicon-logo.png'
+import { Helmet } from 'react-helmet';
 const AdminServices = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
@@ -22,14 +23,17 @@ const AdminServices = () => {
     return (
 
         <>
-
-            <nav class="navbar navbar-light bg-light" style={{padding:'0 30px'}}>
+            <Helmet>
+                <title>Admin Services</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
+            <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
                 <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />
                     <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-service'>Add Service</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
-            <TableContainer component={Paper} style={{width:'60%', margin:'0 auto'}}>
+            <TableContainer component={Paper} style={{ width: '60%', margin: '0 auto' }}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
 import { Grid } from '@mui/material';
 import Swal from "sweetalert2";
-
+import { Helmet } from 'react-helmet';
+import favicon from '../../../assets/favicon-logo.png'
 const AdminCategories = () => {
     const [categories, setCategories] = useState([])
     useEffect(() => {
@@ -14,7 +15,11 @@ const AdminCategories = () => {
     }, [categories])
     return (
         <>
-            <nav class="navbar navbar-light bg-light" style={{padding:'0 30px'}}>
+            <Helmet>
+                <title>Admin Categories</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
+            <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
                 <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://static.thenounproject.com/png/396915-200.png" width="30" height="30" class="d-inline-block align-top" alt="" />
                     <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-category'>Add Category</Link> <span class="sr-only"></span></a>
@@ -28,33 +33,33 @@ const AdminCategories = () => {
                             <Card>
                                 <Card.Body>
                                     <Card.Title>{category.name}</Card.Title>
-                                    
+
                                     <Card.Text>
-                                       count: {category.count}
+                                        count: {category.count}
                                     </Card.Text>
                                     <Card.Link href="#" onClick={() => {
-                                            Swal.fire({
-                                                title: 'Are you sure?',
-                                                text: "You won't be able to revert this!",
-                                                icon: 'warning',
-                                                showCancelButton: true,
-                                                confirmButtonColor: '#3085d6',
-                                                cancelButtonColor: '#d33',
-                                                confirmButtonText: 'Yes, delete it!'
-                                            }).then((result) => {
-                                                if (result.isConfirmed) {
-                                                    deleteCategory(category._id).then((res) => {
-                                                        Swal.fire(
-                                                            'Deleted!',
-                                                            'Your file has been deleted.',
-                                                            'success'
-                                                        )
+                                        Swal.fire({
+                                            title: 'Are you sure?',
+                                            text: "You won't be able to revert this!",
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#3085d6',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'Yes, delete it!'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                deleteCategory(category._id).then((res) => {
+                                                    Swal.fire(
+                                                        'Deleted!',
+                                                        'Your file has been deleted.',
+                                                        'success'
+                                                    )
 
-                                                    })
-                                                    setCategories(categories.filter((x) => x._id !== category._id))
-                                                }
-                                            })
-                                        }}>Delete</Card.Link>
+                                                })
+                                                setCategories(categories.filter((x) => x._id !== category._id))
+                                            }
+                                        })
+                                    }}>Delete</Card.Link>
                                     <Card.Link href="#"><Link to={`/admin/category/edit/${category._id}`}>Edit</Link></Card.Link>
                                 </Card.Body>
                             </Card>

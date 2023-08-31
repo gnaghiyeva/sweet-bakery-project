@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import Swal from "sweetalert2";
 import { postWork } from '../../../api/requests';
 import { Alert, Button, TextField } from '@mui/material';
+import { Helmet } from 'react-helmet';
+import favicon from '../../../assets/favicon-logo.png'
 const AddWork = () => {
     const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)
@@ -43,19 +45,23 @@ const AddWork = () => {
         validationSchema: workSchema,
         onSubmit: handleSubmit
     })
-  return (
-   <>
-   <h1 style={{fontFamily:'sans-serif', textAlign:'center', fontFamily:'Lobster'}}>Add Work</h1>
+    return (
+        <>
+            <Helmet>
+                <title>Adding Work</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
+            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Work</h1>
             <form onSubmit={formik.handleSubmit} >
 
-               <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
-                <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" />
-                {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
-                <br/>
-                <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
-                {formik.errors.description && formik.touched.description && (<Alert severity="warning">{formik.errors.description}</Alert>)}
-                </div> <br/>
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }}  ref={buttonRef} variant="contained" component="label" >
+                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" />
+                    {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
+                    <br />
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='description' value={formik.values.description} id="outlined-basic" label="description" variant="outlined" />
+                    {formik.errors.description && formik.touched.description && (<Alert severity="warning">{formik.errors.description}</Alert>)}
+                </div> <br />
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} ref={buttonRef} variant="contained" component="label" >
                     Upload File
 
                     <input value={formik.values.image}
@@ -67,14 +73,14 @@ const AddWork = () => {
                         }}
                         onBlur={formik.handleBlur} name='image' type='file' accept="image/*" hidden
                     />
-                </Button> <br/>
+                </Button> <br />
                 {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
 
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit'>Add</Button>
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }} variant='contained' color='error' type='submit'>Add</Button>
             </form>
-   </>
-  )
+        </>
+    )
 }
 
 export default AddWork

@@ -5,7 +5,8 @@ import { useFormik } from 'formik';
 import { sliderSchema } from '../../../validation/sliderSchema';
 import { Alert, Button, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
+import favicon from '../../../assets/favicon-logo.png'
+import { Helmet } from 'react-helmet';
 const AddSlider = () => {
     const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)
@@ -44,16 +45,20 @@ const AddSlider = () => {
     })
 
 
-  return (
-    <>
-     <h1 style={{fontFamily:'sans-serif', textAlign:'center', fontFamily:'Lobster'}}>Add Slider</h1>
+    return (
+        <>
+            <Helmet>
+                <title>Adding Slider</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
+            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Slider</h1>
             <form onSubmit={formik.handleSubmit} >
 
-               <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
-                <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" />
-                {formik.errors.name && formik.touched.name && (<Alert severity="warning">{formik.errors.name}</Alert>)}
-                </div> <br/>
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }}  ref={buttonRef} variant="contained" component="label" >
+                <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" />
+                    {formik.errors.name && formik.touched.name && (<Alert severity="warning">{formik.errors.name}</Alert>)}
+                </div> <br />
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} ref={buttonRef} variant="contained" component="label" >
                     Upload File
 
                     <input value={formik.values.image}
@@ -65,14 +70,14 @@ const AddSlider = () => {
                         }}
                         onBlur={formik.handleBlur} name='image' type='file' accept="image/*" hidden
                     />
-                </Button> <br/>
+                </Button> <br />
                 {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
 
 
-                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }}   variant='contained' color='error' type='submit'>Add</Button>
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '10%', margin: '0 auto' }} variant='contained' color='error' type='submit'>Add</Button>
             </form>
-    </>
-  )
+        </>
+    )
 }
 
 export default AddSlider

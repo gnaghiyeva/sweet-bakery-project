@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import Swal from "sweetalert2";
 import { Divider, Grid } from '@mui/material';
 import Card from 'react-bootstrap/Card';
-
+import { Helmet } from 'react-helmet';
+import favicon from '../../../../assets/favicon-logo.png'
 const AdminBlogs = () => {
     const [blogs, setBlogs] = useState([])
     const [pages, setPages] = useState(1);
@@ -31,6 +32,10 @@ const AdminBlogs = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Admin Blogs</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://static.thenounproject.com/png/396915-200.png" width="30" height="30" class="d-inline-block align-top" alt="" />
@@ -43,7 +48,7 @@ const AdminBlogs = () => {
                 {blogs && blogs.map((blog) => {
                     return (
                         <Grid item sm={6} xs={12} md={3}>
-                            
+
 
                             <Card>
                                 <Card.Img variant="top" src={blog.image} />

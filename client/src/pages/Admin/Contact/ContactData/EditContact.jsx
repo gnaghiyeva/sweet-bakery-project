@@ -5,12 +5,8 @@ import { useFormik } from 'formik';
 import { ContactSchema } from '../../../../validation/ContactSchema';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Alert, Button, CircularProgress, TextField } from '@mui/material';
-
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-
+import favicon from '../../../../assets/favicon-logo.png'
+import { Helmet } from 'react-helmet';
 const EditContact = () => {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -64,7 +60,11 @@ const EditContact = () => {
   })
   return (
     <>
-      <h1 style={{ textAlign: 'center', fontFamily: 'Lobster' }}>Editing Product</h1>
+      <Helmet>
+        <title>Editing Contact</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
+      <h1 style={{ textAlign: 'center', fontFamily: 'Lobster' }}>Editing Contact Information</h1>
       {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" /> <br />
@@ -82,7 +82,7 @@ const EditContact = () => {
 
           <TextField onChange={formik.handleChange} onBlur={formik.handleBlur} name='timein' type='time' value={formik.values.timein} id="outlined-basic" label="Time in" variant="outlined" /> <br />
           {formik.errors.timein && formik.touched.timein && (<Alert severity="warning">{formik.errors.timein}</Alert>)}
-          <br/>
+          <br />
 
           <TextField onChange={formik.handleChange} onBlur={formik.handleBlur} name='timeout' type='time' value={formik.values.timeout} id="outlined-basic" label="Time out" variant="outlined" /> <br />
           {formik.errors.timeout && formik.touched.timeout && (<Alert severity="warning">{formik.errors.timeout}</Alert>)}
@@ -94,7 +94,7 @@ const EditContact = () => {
           <TextField type='email' onChange={formik.handleChange} onBlur={formik.handleBlur} name='email' value={formik.values.email} id="outlined-basic" label="email" variant="outlined" />
           {formik.errors.email && formik.touched.email && (<Alert severity="warning">{formik.errors.email}</Alert>)}
           <br />
-          <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='phone'  value={formik.values.phone} id="outlined-basic" label="phone" variant="outlined" /> <br />
+          <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='phone' value={formik.values.phone} id="outlined-basic" label="phone" variant="outlined" /> <br />
           {formik.errors.phone && formik.touched.phone && (<Alert severity="warning">{formik.errors.phone}</Alert>)}
 
           <br />

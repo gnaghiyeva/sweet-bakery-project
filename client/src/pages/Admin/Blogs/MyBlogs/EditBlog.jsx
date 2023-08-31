@@ -5,9 +5,10 @@ import { useFormik } from 'formik'
 import { Alert, Button, CircularProgress, TextField } from '@mui/material';
 import Swal from "sweetalert2";
 import { editBlog, getBlogById } from '../../../../api/requests';
-import { DatePicker} from 'antd';
+import { DatePicker } from 'antd';
 import { blogSchema } from '../../../../validation/blogSchema';
-
+import { Helmet } from 'react-helmet';
+import favicon from '../../../../assets/favicon-logo.png'
 const EditBlog = () => {
     const [selectedImages, setSelectedImages] = useState({})
     const buttonRef = useRef()
@@ -77,9 +78,13 @@ const EditBlog = () => {
 
         reader.readAsDataURL(file);
     };
-  return (
-   <>
-    <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
+    return (
+        <>
+            <Helmet>
+                <title>Editing Blog</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
+            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
             {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
                 <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <TextField style={{ width: '600px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" /> <br />
@@ -107,7 +112,7 @@ const EditBlog = () => {
                             hidden
                         />
                     </Button>
-                  
+
                     {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
                 </div>
 
@@ -115,8 +120,8 @@ const EditBlog = () => {
                     <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
                 </div>
             </form>}
-   </>
-  )
+        </>
+    )
 }
 
 export default EditBlog

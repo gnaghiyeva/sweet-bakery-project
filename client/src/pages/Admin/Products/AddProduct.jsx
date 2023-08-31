@@ -11,7 +11,8 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-
+import { Helmet } from 'react-helmet';
+import favicon from '../../../assets/favicon-logo.png'
 const AddProduct = () => {
     const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)
@@ -49,7 +50,7 @@ const AddProduct = () => {
             price: '',
             priceDiscount: '',
             onSale: '',
-            desc:''
+            desc: ''
 
 
         },
@@ -60,13 +61,17 @@ const AddProduct = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Adding product</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
             <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Price</h1>
             <form onSubmit={formik.handleSubmit} >
 
                 <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>
                     <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" />
-                    {formik.errors.title && formik.touched.title && ( <Alert severity="warning">{formik.errors.title}</Alert>)}
-    
+                    {formik.errors.title && formik.touched.title && (<Alert severity="warning">{formik.errors.title}</Alert>)}
+
                     <br />
                     <TextField type='number' onChange={formik.handleChange} onBlur={formik.handleBlur} name='price' value={formik.values.price} id="outlined-basic" label="price" variant="outlined" />
                     {formik.errors.price && formik.touched.price && (<Alert severity="warning">{formik.errors.price}</Alert>)}
@@ -76,8 +81,8 @@ const AddProduct = () => {
                     <br />
 
                     <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='desc' value={formik.values.desc} id="outlined-basic" label="description" variant="outlined" />
-                    {formik.errors.desc && formik.touched.desc && ( <Alert severity="warning">{formik.errors.desc}</Alert>)}
-    
+                    {formik.errors.desc && formik.touched.desc && (<Alert severity="warning">{formik.errors.desc}</Alert>)}
+
                     <br />
                     <FormControl>
                         <FormLabel id="demo-controlled-radio-buttons-group">is onSale ?</FormLabel>

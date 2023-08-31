@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import { postBlogSlider } from '../../../../api/requests';
 import { useFormik } from 'formik';
 import { Alert, Button, TextField } from '@mui/material';
+import { Helmet } from 'react-helmet';
+import favicon from '../../../../assets/favicon-logo.png'
 const AddBlogSlider = () => {
   const navigate = useNavigate()
   const [selectedImages, setSelectedImages] = useState(null)
@@ -44,6 +46,10 @@ const AddBlogSlider = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Adding Slider</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
       <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Slider</h1>
       <form onSubmit={formik.handleSubmit} >
 

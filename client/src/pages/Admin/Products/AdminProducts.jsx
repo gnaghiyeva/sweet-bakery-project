@@ -11,6 +11,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import Swal from "sweetalert2";
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import favicon from '../../../assets/favicon-logo.png'
 const AdminProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
@@ -20,15 +22,16 @@ const AdminProducts = () => {
     }, [products])
     return (
         <>
+            <Helmet>
+                <title>Admin Products</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
             <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
                 <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />
                     <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-product'>Add Product</Link> <span class="sr-only"></span></a>
                     <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/product-slider'>Go to Sliders</Link> <span class="sr-only"></span></a>
                 </a>
-
-
-
             </nav>
 
             <TableContainer component={Paper} >
@@ -52,13 +55,13 @@ const AdminProducts = () => {
                                 key={product._id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                                <TableCell align="center" style={{width:'15%'}}>
-                                    <img src={product.image} style={{width:'100%'}} />
+                                <TableCell align="center" style={{ width: '15%' }}>
+                                    <img src={product.image} style={{ width: '100%' }} />
                                 </TableCell>
                                 <TableCell align="center">{product.title}</TableCell>
                                 <TableCell align="center">{product.onSale ? 'yes' : 'no'}</TableCell>
                                 <TableCell align="center">{product.price.toFixed(2)}</TableCell>
-                                <TableCell align="center">{product.priceDiscount ? product.priceDiscount.toFixed(2):''}</TableCell>
+                                <TableCell align="center">{product.priceDiscount ? product.priceDiscount.toFixed(2) : ''}</TableCell>
                                 <TableCell align="center">{product.desc}</TableCell>
                                 <TableCell align="center"><DeleteIcon style={{ color: 'red', fontSize: '33px' }} onClick={() => {
                                     Swal.fire({
@@ -83,7 +86,7 @@ const AdminProducts = () => {
                                         }
                                     })
                                 }} /></TableCell>
-                                <TableCell align="center"> <Link style={{ color: 'white', textDecoration: 'none' }} to={`/admin/shop/edit/${product._id}`}><ModeEditIcon style={{ fontSize: '33px',color: 'blue' }} /></Link></TableCell> 
+                                <TableCell align="center"> <Link style={{ color: 'white', textDecoration: 'none' }} to={`/admin/shop/edit/${product._id}`}><ModeEditIcon style={{ fontSize: '33px', color: 'blue' }} /></Link></TableCell>
 
                             </TableRow>
                         ))}

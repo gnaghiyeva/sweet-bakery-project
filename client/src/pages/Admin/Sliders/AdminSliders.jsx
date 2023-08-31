@@ -5,6 +5,8 @@ import { deleteSlider, getAllSliders } from '../../../api/requests';
 import { Link } from 'react-router-dom';
 import Swal from "sweetalert2";
 import { Grid } from '@mui/material';
+import favicon from '../../../assets/favicon-logo.png'
+import { Helmet } from 'react-helmet';
 const AdminSliders = () => {
     const [sliders, setSliders] = useState([])
     useEffect(() => {
@@ -16,6 +18,10 @@ const AdminSliders = () => {
     return (
 
         <>
+            <Helmet>
+                <title>Admin Sliders</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://static.thenounproject.com/png/396915-200.png" width="30" height="30" class="d-inline-block align-top" alt="" />
@@ -56,7 +62,7 @@ const AdminSliders = () => {
                                                 }
                                             })
                                         }}>Delete</button>
-                                        <button type="button" class="btn btn-outline-info"><Link style={{textDecoration:'none'}} to={`/admin/slider/edit/${slider._id}`}>Edit</Link></button>
+                                        <button type="button" class="btn btn-outline-info"><Link style={{ textDecoration: 'none' }} to={`/admin/slider/edit/${slider._id}`}>Edit</Link></button>
                                     </div>
                                 </Card.Body>
                             </Card>
@@ -65,7 +71,7 @@ const AdminSliders = () => {
                 })}
 
             </Grid>
-            
+
         </>
     )
 }

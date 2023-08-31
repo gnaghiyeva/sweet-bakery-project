@@ -12,7 +12,8 @@ import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import Swal from "sweetalert2";
-import { Pagination } from '@mui/material';
+import favicon from '../../../../assets/favicon-logo.png'
+import { Helmet } from 'react-helmet';
 const AdminBlogDetail = () => {
   const [blogDetails, setBlogDetails] = useState([]);
   const { id } = useParams();
@@ -26,7 +27,10 @@ const AdminBlogDetail = () => {
 
   return (
     <>
-
+      <Helmet>
+        <title>Admin Blog Details</title>
+        <link rel="icon" type="image/x-icon" href={favicon} />
+      </Helmet>
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <img src="https://static.thenounproject.com/png/396915-200.png" width="30" height="30" class="d-inline-block align-top" alt="" />

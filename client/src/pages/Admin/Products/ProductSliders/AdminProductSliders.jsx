@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { getAllProductSliders } from '../../../../api/requests'
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-import Swal from "sweetalert2";
 import { Grid } from '@mui/material';
+import { Helmet } from 'react-helmet';
+import favicon from '../../../../assets/favicon-logo.png'
 const AdminProductSliders = () => {
     const [sliders, setSliders] = useState([])
     useEffect(() => {
@@ -14,6 +15,10 @@ const AdminProductSliders = () => {
     }, [sliders])
     return (
         <>
+            <Helmet>
+                <title>Admin Sliders</title>
+                <link rel="icon" type="image/x-icon" href={favicon} />
+            </Helmet>
             <Grid container spacing={2} style={{ padding: '30px 40px' }}>
                 {sliders && sliders.map((slider) => {
                     return (
@@ -24,7 +29,7 @@ const AdminProductSliders = () => {
                                     <Card.Title>{slider.title}</Card.Title>
 
                                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                        
+
                                         <button type="button" class="btn btn-outline-info"><Link style={{ textDecoration: 'none' }} to={`/admin/product-slider/edit/${slider._id}`}>Edit</Link></button>
                                     </div>
                                 </Card.Body>
