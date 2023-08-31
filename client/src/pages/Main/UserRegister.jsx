@@ -35,7 +35,7 @@ const UserRegister = () => {
                     {formik.errors.password && formik.touched.password && (<Alert severity="warning">{formik.errors.password}</Alert>)}
                     
                 </div> <br />
-                <Button  style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} type='submit' variant="contained" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Add</Button>
+                <Button  style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} type='submit' variant="contained" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Create Account</Button>
             </form>
         </>
     )

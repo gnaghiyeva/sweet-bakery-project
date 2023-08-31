@@ -55,10 +55,10 @@ const UserLogin = () => {
       <Grid container spacing={2} style={{ padding: '30px 140px' }} >
         <Grid item sm={6} xs={12} md={6} style={{ backgroundColor: 'rgb(8,183,172)', textAlign: 'center' }}>
           <div >
-            <div style={{width:'100%'}}>
-              <img style={{width:'60%'}} src={userLogo} />
+            <div style={{ width: '100%' }}>
+              <img style={{ width: '60%' }} src={userLogo} />
             </div>
-            <article style={{color:'white'}}>
+            <article style={{ color: 'white' }}>
               <h3>Bakery</h3>
               <p>Sign in and enjoy</p>
             </article>
@@ -105,6 +105,11 @@ const UserLogin = () => {
                 <button type="submit" style={{ backgroundColor: 'rgb(8,183,172)', border: 'none', padding: '6px 30px', color: 'white', width: '80%' }}>
                   SIGN IN
                 </button>
+
+                <div style={{display:'flex', justifyContent:'space-between', width: '80%'}}>
+                <p>Not logged in yet?</p>
+                <Link to={'/user-register'}>SIGN UP</Link>
+                </div>
               </div>
             </div>
 

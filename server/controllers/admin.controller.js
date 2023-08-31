@@ -129,6 +129,23 @@ const usersController = {
         }
     },
 
+    // deleteUser: async (req, res) => {
+    //     const userId = req.params.id; // Kullanıcının ID'sini al
+    //     console.log('User ID to delete:', userId);
+    //     try {
+    //         // Kullanıcıyı veritabanından sil
+    //         const deletedUser = await Admin.findByIdAndDelete(userId);
+            
+    //         if (deletedUser) {
+    //             res.json({ message: 'User deleted successfully' });
+    //         } else {
+    //             res.status(404).json({ message: 'User not found' });
+    //         }
+    //     } catch (error) {
+    //         res.status(500).json({ message: 'An error occurred while deleting the user' });
+    //     }
+    // },
+
     getAllUsers: async (req, res) => {
         const users = await Admin.find()
         res.json({ users: users })
