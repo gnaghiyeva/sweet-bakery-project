@@ -11,12 +11,13 @@ const AddDetail = () => {
   const navigate = useNavigate()
   const [selectedImages, setSelectedImages] = useState(null)
   const buttonRef = useRef()
-
-
+  const { id } = useParams();
+  const [blogDetails, setBlogDetails] = useState([]);
 
   function handleSubmit(values, actions) {
+    values.blogID = id
     const formData = new FormData()
-
+    
     formData.append("blogID", values.blogID)
     formData.append("image", selectedImages)
     formData.append("menuTitle", values.menuTitle)
@@ -25,6 +26,7 @@ const AddDetail = () => {
     formData.append("guestDesc", values.guestTitle)
 
     postBlogDetail(formData)
+    setBlogDetails([...blogDetails,values])
     Swal.fire({
       position: "top-end",
       icon: "success",
@@ -66,13 +68,13 @@ const AddDetail = () => {
           <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='blogID' value={formik.values.blogID} id="outlined-basic" label="blogID" variant="outlined" />
           {formik.errors.blogID && formik.touched.blogID && (<><Alert severity="warning">{formik.errors.blogID}</Alert></>)}
           <br />
-          <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuTitle' value={formik.values.menuTitle} id="outlined-basic" label="title" variant="outlined" />
+          <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuTitle' value={formik.values.menuTitle} id="outlined-basic" label="menu title" variant="outlined" />
           <br />
-          <TextField type='date' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestTitle' value={formik.values.guestTitle} id="outlined-basic" placeholder="release date" variant="outlined" />
+          <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestTitle' value={formik.values.guestTitle} id="outlined-basic" placeholder="guest title" variant="outlined" />
           <br />
-          <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuDesc' value={formik.values.menuDesc} id="outlined-basic" label="description" variant="outlined" />
+          <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuDesc' value={formik.values.menuDesc} id="outlined-basic" label="menu description" variant="outlined" />
           <br />
-          <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestDesc' value={formik.values.guestDesc} id="outlined-basic" label="color" variant="outlined" />
+          <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestDesc' value={formik.values.guestDesc} id="outlined-basic" label="guest description" variant="outlined" />
           <br />
         </div> <br />
 

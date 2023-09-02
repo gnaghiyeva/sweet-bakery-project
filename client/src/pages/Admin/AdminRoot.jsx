@@ -5,24 +5,24 @@ import Navbarr from '../../components/Admin/Navbarr'
 import { useAdminContext } from '../../context/AdminContext'
 
 const AdminRoot = () => {
-    const [admin] = useAdminContext()
+  const [admin] = useAdminContext()
   return (
     <>
-    {/* <Navbarr/>
+      {/* <Navbarr/>
     <Outlet/> */}
-    <>
-   {
-    admin?.isAdmin ? (
       <>
-      <Navbarr/>
-      <Outlet/>
+        {
+          admin?.isAdmin ? (
+            <>
+              <Navbarr />
+              <Outlet />
+            </>
+          ) : (
+            <AdminLogin />
+          )
+        }
       </>
-    ) : (
-      <AdminLogin/>
-    )
-   }
-   </>
-   </>
+    </>
   )
 }
 

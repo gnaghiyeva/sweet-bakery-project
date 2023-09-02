@@ -5,17 +5,17 @@ const path = require('path')
 const imagesDIR = path.join(__dirname, "..")
 
 const CakeSliderController = {
-    post:async(req,res)=>{
-        const url = req.protocol + '://' + req.get('host');
-
-        const newSlider = new CakeSliders({
-            title: req.body.title,
-            image: url + '/images/' + req.file.filename,
-        })
-
-        await newSlider.save()
-        res.status(201).send("created");
-    },
+  post:async(req,res)=>{
+    const url = req.protocol + '://' + req.get('host');
+    console.log('url',url)
+    const newSlider = new CakeSliders({
+        title: req.body.title,
+        image: url + '/images/' + req.file.filename,
+    })
+   
+    await newSlider.save()
+    res.status(201).send("created");
+},
 
     getAll: async (req, res) => {
         const AllSliders = await CakeSliders.find();

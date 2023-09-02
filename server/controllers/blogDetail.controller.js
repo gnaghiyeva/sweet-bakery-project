@@ -29,28 +29,28 @@ const CakeBlogDetailController = {
         })
     },
 
-    // getById: async(req,res)=>{
-    //     const id = req.params.id;
-    //     CakeBlogDetail.find({blogID:id}).then((blog)=>{
-    //         res.status(200).send({
-    //             data:blog,
-    //             message:'blog get succesfully'
-    //         })
-    //     }).catch((err)=>{
-    //         res.send('data not found')
-    //     })
-    // },
-
-    getById: async (req, res) => {
+    getById: async(req,res)=>{
         const id = req.params.id;
-        const UpcomingDetail = await CakeBlogDetail.find();
-        if(UpcomingDetail==undefined){
-            res.status(404).send("detail not found!");
-          }
-          else{
-            res.status(200).send(UpcomingDetail.filter((detail)=>detail.blogID==id))
-          }
+        CakeBlogDetail.find({blogID:id}).then((blog)=>{
+            res.status(200).send({
+                data:blog,
+                message:'blog get succesfully'
+            })
+        }).catch((err)=>{
+            res.send('data not found')
+        })
     },
+
+    // getById: async (req, res) => {
+    //     const id = req.params.id;
+    //     const UpcomingDetail = await CakeBlogDetail.find();
+    //     if(UpcomingDetail==undefined){
+    //         res.status(404).send("detail not found!");
+    //       }
+    //       else{
+    //         res.status(200).send(UpcomingDetail.filter((detail)=>detail.blogID==id))
+    //       }
+    // },
 
     delete: async(req,res)=>{
         const id = req.params.id;

@@ -13,6 +13,10 @@ const CakeBlogs = mongoose.model('CakeBlogs', new mongoose.Schema({
     title:String,
     description:String,
     color:String,
+    menuTitle:String,
+    menuDesc:String,
+    guestTitle:String,
+    guestDesc:String,
 }))
 
 module.exports = CakeBlogs

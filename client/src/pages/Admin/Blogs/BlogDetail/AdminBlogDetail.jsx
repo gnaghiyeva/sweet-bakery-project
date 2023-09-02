@@ -15,13 +15,14 @@ import Swal from "sweetalert2";
 import favicon from '../../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
 const AdminBlogDetail = () => {
+  const [blogs, setBlogs] = useState({})
   const [blogDetails, setBlogDetails] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     getBlogDetailById(id).then((res) => {
       setBlogDetails(res);
     });
-  });
+  },[id]);
 
 
 

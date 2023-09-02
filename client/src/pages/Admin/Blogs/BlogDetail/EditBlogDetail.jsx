@@ -28,7 +28,7 @@ const EditBlogDetail = () => {
   }, [id]);
 
   const handleEdit = async (values, actions) => {
-
+    console.log('Edit button clicked');
     const formData = new FormData();
     formData.append('image', values.image);
     formData.append('description', values.description);
