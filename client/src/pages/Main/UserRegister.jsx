@@ -22,6 +22,7 @@ const UserRegister = () => {
         initialValues: {
             username: '',
             email: '',
+            image:'',
             password: ''
         },
 
@@ -36,6 +37,9 @@ const UserRegister = () => {
                     <br />
                     <TextField placeholder='email' onChange={formik.handleChange} onBlur={formik.handleBlur} name='email' type='email' value={formik.values.email} id="outlined-basic" label="email" variant="outlined" />
                     {formik.errors.email && formik.touched.email && (<Alert severity="warning">{formik.errors.email}</Alert>)}
+                    <br/>
+                    <TextField placeholder='image' onChange={formik.handleChange} onBlur={formik.handleBlur} name='image' type='text' value={formik.values.image} id="outlined-basic" label="image" variant="outlined" />
+                    {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
                     <br/>
                     <TextField placeholder='password' onChange={formik.handleChange} onBlur={formik.handleBlur} name='password' type='password' value={formik.values.password} id="outlined-basic" label="password" variant="outlined" />
                     {formik.errors.password && formik.touched.password && (<Alert severity="warning">{formik.errors.password}</Alert>)}
