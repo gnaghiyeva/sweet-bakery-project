@@ -20,6 +20,12 @@ const AddBlog = () => {
         formData.append("releaseDate", values.releaseDate)
         formData.append("color", values.color)
 
+
+        formData.append("menuTitle", values.menuTitle)
+        formData.append("guestTitle", values.guestTitle)
+        formData.append("menuDesc", values.menuDesc)
+        formData.append("guestDesc", values.guestDesc)
+
         postBlog(formData)
         Swal.fire({
             position: "top-end",
@@ -42,7 +48,13 @@ const AddBlog = () => {
             releaseDate: '',
             title: '',
             description: '',
-            color: ''
+            color: '',
+
+            menuTitle: '',
+            guestTitle: '',
+            menuDesc: '',
+            guestDesc: ''
+
 
 
         },
@@ -71,6 +83,20 @@ const AddBlog = () => {
                     <br />
                     <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='color' value={formik.values.color} id="outlined-basic" label="color" variant="outlined" />
                     {formik.errors.color && formik.touched.color && (<><Alert severity="warning">{formik.errors.color}</Alert></>)}
+                    <br />
+
+                    <h1 style={{fontFamily:'Lobster', textAlign:'center'}}>Adding Blog Detail</h1>
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuTitle' value={formik.values.menuTitle} id="outlined-basic" label="menu title" variant="outlined" />
+                    {formik.errors.menuTitle && formik.touched.menuTitle && (<><Alert severity="warning">{formik.errors.menuTitle}</Alert></>)}
+                    <br />
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestTitle' value={formik.values.guesTitle} id="outlined-basic" placeholder="guest title" variant="outlined" />
+                    {formik.errors.guestTitle && formik.touched.guestTitle && (<><Alert severity="warning">{formik.errors.guestTitle}</Alert></>)}
+                    <br />
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuDesc' value={formik.values.menuDesc} id="outlined-basic" label="menu desc" variant="outlined" />
+                    {formik.errors.menuDesc && formik.touched.menuDesc && (<><Alert severity="warning">{formik.errors.menuDesc}</Alert></>)}
+                    <br />
+                    <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestDesc' value={formik.values.guestDesc} id="outlined-basic" label="guestDesc" variant="outlined" />
+                    {formik.errors.guestDesc && formik.touched.guestDesc && (<><Alert severity="warning">{formik.errors.guestDesc}</Alert></>)}
                     <br />
                 </div> <br />
 

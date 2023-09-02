@@ -54,7 +54,7 @@ const AdminBlogs = () => {
                                 <Card.Img variant="top" src={blog.image} />
                                 <Card.Body>
                                     <span>{blog.releaseDate}</span>
-                                    <Card.Title><Link to={`/admin/blog/${blog._id}`}>{blog.title}</Link></Card.Title>
+                                    <Card.Title>{blog.title}</Card.Title>
                                     <Card.Text>
                                         <p>{blog.description}</p>
                                     </Card.Text>

@@ -511,42 +511,6 @@ export const postBlogSlider = (newBlogSlider)=>{
 }
 
 /******************************************* */
-//blog detail
-export const getAllBlogDetails = async() => {
-    let globalData;
-   await axios.get(`${BASE_URL}/blogdetail`)
-        .then(res => {
-            globalData = res.data;
-        })
-    return globalData
-}
-
-
-export const getBlogDetailById = async(id)=>{
-    let globalData;
-    await axios.get(`${BASE_URL}/blogdetail/${id}`).then((res)=>{
-        globalData=res.data
-        })
-        return globalData
-}
-
-export const deleteBlogDetail = async(id)=>{
-   let deletedBlogDetail
-    await axios.delete(`${BASE_URL}/blogdetail/${id}`).then((res)=>{
-        deletedBlogDetail=res.data
-    })
-    return deletedBlogDetail
-}
-
-export const editBlogDetail = (id,updatedBlogDetail)=>{
-   axios.put(`${BASE_URL}/blogdetail/${id}`,updatedBlogDetail)
-}
-
-export const postBlogDetail = (newBlogDetail)=>{
-    axios.post(`${BASE_URL}/blogdetail`,newBlogDetail)
-}
-
-/******************************************* */
 //product 
 export const getAllProducts = async() => {
     let globalData;

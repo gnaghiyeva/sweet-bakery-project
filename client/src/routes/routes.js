@@ -1,8 +1,5 @@
 import AdminLogin from "../pages/Admin/AdminLogin";
 import AdminRoot from "../pages/Admin/AdminRoot";
-import AddDetail from "../pages/Admin/Blogs/BlogDetail/AddDetail";
-import AdminBlogDetail from "../pages/Admin/Blogs/BlogDetail/AdminBlogDetail";
-import EditBlogDetail from "../pages/Admin/Blogs/BlogDetail/EditBlogDetail";
 import AddBlogSlider from "../pages/Admin/Blogs/BlogSliders/AddBlogSlider";
 import AdminBlogSliders from "../pages/Admin/Blogs/BlogSliders/AdminBlogSliders";
 import EditBlogSlider from "../pages/Admin/Blogs/BlogSliders/EditBlogSlider";
@@ -239,10 +236,7 @@ export const ROUTES = [
                 path: 'blog/edit/:id',
                 element: <EditBlog />
             },
-            {
-                path: 'blog/:id',
-                element: <AdminBlogDetail />
-            },
+            
             {
                 path: 'blogs/slider',
                 element: <AdminBlogSliders />
@@ -255,14 +249,7 @@ export const ROUTES = [
                 path: 'blogs/slider/edit/:id',
                 element: <EditBlogSlider />
             },
-            {
-                path:'blogdetail/edit/:id',
-                element:<EditBlogDetail/>
-            },
-            {
-                path:'blog-detail/add-detail',
-                element:<AddDetail/>
-            },
+            
             {
                 path: 'shop',
                 element: <AdminProducts />

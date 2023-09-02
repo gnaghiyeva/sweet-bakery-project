@@ -27,6 +27,13 @@ const EditBlog = () => {
             formik.values.title = res.data.title;
             formik.values.description = res.data.description;
             formik.values.color = res.data.color;
+
+            formik.values.menuTitle = res.data.menuTitle
+            formik.values.guestTitle = res.data.guestTitle
+            formik.values.menuDesc = res.data.menuDesc
+            formik.values.guestDesc = res.data.guestDesc
+
+
             setLoading(false);
 
         })
@@ -39,6 +46,12 @@ const EditBlog = () => {
         formData.append('title', values.title);
         formData.append('description', values.description);
         formData.append('color', values.color);
+
+        formData.append('menuTitle', values.menuTitle);
+        formData.append('guestTitle', values.guestTitle);
+        formData.append('menuDesc', values.menuDesc);
+        formData.append('guestDesc', values.guestDesc);
+
 
         await editBlog(id, formData);
 
@@ -60,6 +73,11 @@ const EditBlog = () => {
             title: blog.title,
             price: blog.price,
             color: blog.color,
+
+            menuTitle: blog.menuTitle,
+            guestTitle: blog.guestTitle,
+            menuDesc: blog.menuDesc,
+            guestDesc: blog.guestDesc,
 
         },
         validationSchema: blogSchema,
@@ -97,6 +115,16 @@ const EditBlog = () => {
                     <br />
                     <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='color' value={formik.values.color} id="outlined-basic" label="color" variant="outlined" />
                     {formik.errors.color && formik.touched.color && (<><Alert severity="warning">{formik.errors.color}</Alert></>)}
+                    <br />
+                    <h1 style={{fontFamily:'Lobster'}}>Editing Blog Description </h1>
+                    <TextField style={{ width: '600px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuTitle' type='text' value={formik.values.menuTitle} id="outlined-basic" label="menu title" variant="outlined" /> <br />
+                    {formik.errors.menuTitle && formik.touched.menuTitle && (<><Alert severity="warning">{formik.errors.menuTitle}</Alert></>)}
+
+                    <TextField style={{ width: '600px' }} type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestTitle' value={formik.values.guestTitle} id="outlined-basic" label="guest title" variant="outlined" />
+                    <br />
+                    <TextField style={{ width: '600px' }} type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuDesc' value={formik.values.menuDesc} id="outlined-basic" label="menu description" variant="outlined" />
+                    <br />
+                    <TextField style={{ width: '600px' }} type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='guestDesc' value={formik.values.guestDesc} id="outlined-basic" label="guest description" variant="outlined" />
                     <br />
 
                     {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
