@@ -14,7 +14,7 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import { Avatar, IconButton, Menu, MenuItem } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
 const UserNavbar = () => {
@@ -115,27 +115,31 @@ const UserNavbar = () => {
             <Button color="inherit"><Link style={{ color: 'black', textDecoration: 'none' }} to={'/login'}>Login</Link></Button>
           </> : <>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Navbar.Text>
-                <p>User: {user.username}</p>
-              </Navbar.Text>
-              <div style={{marginTop:'-12px'}}>
-            {user && <>
-              <Button onClick={async () => {
-                localStorage.removeItem('userToken');
-                localStorage.removeItem('user');
-                await setUser(null);
-                // await setUser("");
-
-                navigate('/login')
-                // navigate("http://localhost:3000/admin")
-              }} color="inherit">
-                Logout
-              </Button>
               
-            </>}
-            </div>
+                
+             
+              <Navbar.Text>
+              <Avatar alt="Remy Sharp" src={user.image} />
+                <p>{user.username}</p>
+              </Navbar.Text>
+              <div style={{ marginTop: '-12px' }}>
+                {user && <>
+                  <Button onClick={async () => {
+                    localStorage.removeItem('userToken');
+                    localStorage.removeItem('user');
+                    await setUser(null);
+                    // await setUser("");
 
-            
+                    navigate('/login')
+                    // navigate("http://localhost:3000/admin")
+                  }} color="inherit">
+                    Logout
+                  </Button>
+
+                </>}
+              </div>
+
+
             </div>
 
 
