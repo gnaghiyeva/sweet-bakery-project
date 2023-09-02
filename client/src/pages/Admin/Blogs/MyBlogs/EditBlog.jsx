@@ -5,15 +5,13 @@ import { useFormik } from 'formik'
 import { Alert, Button, CircularProgress, TextField } from '@mui/material';
 import Swal from "sweetalert2";
 import { editBlog, getBlogById } from '../../../../api/requests';
-import { DatePicker } from 'antd';
 import { blogSchema } from '../../../../validation/blogSchema';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../../assets/favicon-logo.png'
 const EditBlog = () => {
-    const [selectedImages, setSelectedImages] = useState({})
     const buttonRef = useRef()
 
-    const [setBlogs] = useBlogContext()
+    const [blogs, setBlogs] = useBlogContext()
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
     const navigate = useNavigate();
@@ -54,6 +52,14 @@ const EditBlog = () => {
 
 
         await editBlog(id, formData);
+        const updatedBlogs = blogs.map((item) => {
+            if (item.id === id) {
+                return { ...item, image: values.image };
+            }
+            return item;
+        });
+
+        setBlogs(updatedBlogs);
 
         Swal.fire({
             position: "top-end",
@@ -90,8 +96,8 @@ const EditBlog = () => {
 
         reader.onload = () => {
             const base64Image = reader.result;
-            setSelectedImages(base64Image);
-            formik.setFieldValue('image', file); // Seçilen resmi formik değerine atayın
+            formik.setFieldValue('image', file);
+            console.log(base64Image)
         };
 
         reader.readAsDataURL(file);
@@ -102,7 +108,7 @@ const EditBlog = () => {
                 <title>Editing Blog</title>
                 <link rel="icon" type="image/x-icon" href={favicon} />
             </Helmet>
-            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
+            <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
             {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
                 <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <TextField style={{ width: '600px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="title" variant="outlined" /> <br />
@@ -116,7 +122,7 @@ const EditBlog = () => {
                     <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='color' value={formik.values.color} id="outlined-basic" label="color" variant="outlined" />
                     {formik.errors.color && formik.touched.color && (<><Alert severity="warning">{formik.errors.color}</Alert></>)}
                     <br />
-                    <h1 style={{fontFamily:'Lobster'}}>Editing Blog Description </h1>
+                    <h1 style={{ fontFamily: 'Lobster' }}>Editing Blog Description </h1>
                     <TextField style={{ width: '600px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='menuTitle' type='text' value={formik.values.menuTitle} id="outlined-basic" label="menu title" variant="outlined" /> <br />
                     {formik.errors.menuTitle && formik.touched.menuTitle && (<><Alert severity="warning">{formik.errors.menuTitle}</Alert></>)}
 
@@ -145,7 +151,7 @@ const EditBlog = () => {
                 </div>
 
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                    <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
+                    <Button type='submit' variant='contained' color='success'>Edit</Button>
                 </div>
             </form>}
         </>

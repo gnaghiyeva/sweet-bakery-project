@@ -10,7 +10,7 @@ import favicon from '../../../assets/favicon-logo.png'
 const EditCategory = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const [categories, setCategories] = useCategoryContext();
+  const [setCategories] = useCategoryContext();
 
   const [category, setCategory] = useState({})
   const [loading, setLoading] = useState([])
@@ -48,7 +48,7 @@ const EditCategory = () => {
         <title>Editing Category</title>
         <link rel="icon" type="image/x-icon" href={favicon} />
       </Helmet>
-      <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Category</h1>
+      <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Editing Category</h1>
       {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='name' type='text' value={formik.values.name} id="outlined-basic" label="name" variant="outlined" /> <br />
@@ -63,7 +63,7 @@ const EditCategory = () => {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
+          <Button type='submit' variant='contained' color='success'>Edit</Button>
         </div>
       </form>}
     </>

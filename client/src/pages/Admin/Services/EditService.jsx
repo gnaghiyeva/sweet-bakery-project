@@ -9,10 +9,9 @@ import { serviceSchema } from '../../../validation/serviceSchema';
 import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
 const EditService = () => {
-  const [selectedImages, setSelectedImages] = useState({})
   const buttonRef = useRef()
 
-  const [setServices] = useServiceContext()
+  const [services, setServices] = useServiceContext()
   const [loading, setLoading] = useState(true)
   const { id } = useParams()
   const navigate = useNavigate();
@@ -36,6 +35,13 @@ const EditService = () => {
     formData.append('image', values.image);
 
     await editService(id, formData);
+    const updatedService = services.map((item) => {
+      if (item.id === id) {
+        return { ...item, image: values.image };
+      }
+      return item;
+    });
+    setServices(updatedService)
 
     Swal.fire({
       position: "top-end",
@@ -64,8 +70,8 @@ const EditService = () => {
 
     reader.onload = () => {
       const base64Image = reader.result;
-      setSelectedImages(base64Image);
-      formik.setFieldValue('image', file); // Seçilen resmi formik değerine atayın
+      formik.setFieldValue('image', file);
+      console.log(base64Image)
     };
 
     reader.readAsDataURL(file);
@@ -76,7 +82,7 @@ const EditService = () => {
         <title>Editing Service</title>
         <link rel="icon" type="image/x-icon" href={favicon} />
       </Helmet>
-      <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
+      <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
       {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="name" variant="outlined" /> <br />
@@ -105,7 +111,7 @@ const EditService = () => {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
+          <Button type='submit' variant='contained' color='success'>Edit</Button>
         </div>
       </form>}
     </>

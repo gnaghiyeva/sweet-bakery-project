@@ -9,10 +9,9 @@ import { sliderSchema } from '../../../validation/sliderSchema'
 import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet'
 const EditSlider = () => {
-  const [selectedImages, setSelectedImages] = useState({})
   const buttonRef = useRef()
 
-  const [setSliders] = useSliderContext()
+  const [sliders, setSliders] = useSliderContext()
   const [loading, setLoading] = useState(true)
   const { id } = useParams()
   const navigate = useNavigate();
@@ -34,6 +33,14 @@ const EditSlider = () => {
     formData.append('image', values.image);
 
     await editSlider(id, formData);
+    const updatedSliders = sliders.map((item) => {
+      if (item.id === id) {
+        return { ...item, image: values.image };
+      }
+      return item;
+    });
+
+    setSliders([...updatedSliders]);
 
     Swal.fire({
       position: "top-end",
@@ -61,8 +68,8 @@ const EditSlider = () => {
 
     reader.onload = () => {
       const base64Image = reader.result;
-      setSelectedImages(base64Image);
-      formik.setFieldValue('image', file); // Seçilen resmi formik değerine atayın
+      formik.setFieldValue('image', file);
+      console.log(base64Image)
     };
 
     reader.readAsDataURL(file);
@@ -73,7 +80,7 @@ const EditSlider = () => {
         <title>Editing Slider</title>
         <link rel="icon" type="image/x-icon" href={favicon} />
       </Helmet>
-      <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Slider</h1>
+      <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Editing Slider</h1>
       {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='title' type='text' value={formik.values.title} id="outlined-basic" label="name" variant="outlined" /> <br />
@@ -98,7 +105,7 @@ const EditSlider = () => {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
+          <Button type='submit' variant='contained' color='success'>Edit</Button>
         </div>
       </form>}
     </>

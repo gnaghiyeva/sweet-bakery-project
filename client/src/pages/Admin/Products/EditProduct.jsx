@@ -15,11 +15,9 @@ import FormLabel from '@mui/material/FormLabel';
 import { Helmet } from 'react-helmet'
 import favicon from '../../../assets/favicon-logo.png'
 const EditProduct = () => {
-
-    const [selectedImages, setSelectedImages] = useState({})
     const buttonRef = useRef()
 
-    const [setProducts] = useProductContext()
+    const [products, setProducts] = useProductContext()
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
     const navigate = useNavigate();
@@ -49,6 +47,14 @@ const EditProduct = () => {
         formData.append('desc', values.desc);
 
         await editProduct(id, formData);
+        const updatedProducts = products.map((item) => {
+            if (item.id === id) {
+                return { ...item, image: values.image };
+            }
+            return item;
+        });
+
+        setProducts(updatedProducts);
 
         Swal.fire({
             position: "top-end",
@@ -80,8 +86,8 @@ const EditProduct = () => {
 
         reader.onload = () => {
             const base64Image = reader.result;
-            setSelectedImages(base64Image);
-            formik.setFieldValue('image', file); // Seçilen resmi formik değerine atayın
+            formik.setFieldValue('image', file);
+            console.log(base64Image)
         };
 
         reader.readAsDataURL(file);
@@ -140,7 +146,7 @@ const EditProduct = () => {
                 </div>
 
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                    <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
+                    <Button type='submit' variant='contained' color='success'>Edit</Button>
                 </div>
             </form>}
         </>

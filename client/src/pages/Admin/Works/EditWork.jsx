@@ -9,12 +9,9 @@ import { workSchema } from '../../../validation/workSchema';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
 const EditWork = () => {
-  const [selectedImages, setSelectedImages] = useState({})
-  console.log('work-selected-images' ,selectedImages)
   const buttonRef = useRef()
 
-  const [setWorks] = useWorksContext()
-  console.log('works',setWorks)
+  const [works, setWorks] = useWorksContext()
   const [loading, setLoading] = useState(true)
   const { id } = useParams()
   const navigate = useNavigate();
@@ -38,6 +35,13 @@ const EditWork = () => {
     formData.append('image', values.image);
 
     await editWork(id, formData);
+    const updatedWork = works.map((item) => {
+      if (item.id === id) {
+        return { ...item, image: values.image };
+      }
+      return item;
+    });
+    setWorks(updatedWork)
 
     Swal.fire({
       position: "top-end",
@@ -66,8 +70,8 @@ const EditWork = () => {
 
     reader.onload = () => {
       const base64Image = reader.result;
-      setSelectedImages(base64Image);
-      formik.setFieldValue('image', file); // Seçilen resmi formik değerine atayın
+      formik.setFieldValue('image', file);
+      console.log(base64Image)
     };
 
     reader.readAsDataURL(file);
@@ -106,7 +110,7 @@ const EditWork = () => {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
+          <Button type='submit' variant='contained' color='success'>Edit</Button>
         </div>
       </form>}
     </>

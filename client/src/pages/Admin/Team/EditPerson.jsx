@@ -9,10 +9,9 @@ import { personSchema } from '../../../validation/personSchema';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
 const EditPerson = () => {
-    const [selectedImages, setSelectedImages] = useState({})
     const buttonRef = useRef()
 
-    const [setPrices] = usePersonContext()
+    const [teams, setTeams] = usePersonContext()
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
     const navigate = useNavigate();
@@ -36,7 +35,14 @@ const EditPerson = () => {
         formData.append('description', values.description);
 
         await editPerson(id, formData);
+        const updatedTeam = teams.map((item) => {
+            if (item.id === id) {
+                return { ...item, image: values.image };
+            }
+            return item;
+        });
 
+        setTeams(updatedTeam);
         Swal.fire({
             position: "top-end",
             icon: "success",
@@ -64,8 +70,8 @@ const EditPerson = () => {
 
         reader.onload = () => {
             const base64Image = reader.result;
-            setSelectedImages(base64Image);
-            formik.setFieldValue('image', file); // Seçilen resmi formik değerine atayın
+            formik.setFieldValue('image', file);
+            console.log(base64Image) 
         };
 
         reader.readAsDataURL(file);
@@ -76,7 +82,7 @@ const EditPerson = () => {
                 <title>Editing Person</title>
                 <link rel="icon" type="image/x-icon" href={favicon} />
             </Helmet>
-            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
+            <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Editing Service</h1>
             {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
                 <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <TextField style={{ width: '300px' }} onChange={formik.handleChange} onBlur={formik.handleBlur} name='fullname' type='text' value={formik.values.fullname} id="outlined-basic" label="fullname" variant="outlined" /> <br />
@@ -105,7 +111,7 @@ const EditPerson = () => {
                 </div>
 
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                    <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
+                    <Button type='submit' variant='contained' color='success'>Edit</Button>
                 </div>
             </form>}
         </>

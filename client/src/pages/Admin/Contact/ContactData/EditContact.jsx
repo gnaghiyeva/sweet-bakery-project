@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet';
 const EditContact = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const [datas, setDatas] = useContactContext();
+  const [setDatas] = useContactContext();
 
   const [data, setData] = useState({})
   const [loading, setLoading] = useState([])
@@ -102,7 +102,7 @@ const EditContact = () => {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
+          <Button type='submit' variant='contained' color='success'>Edit</Button>
         </div>
       </form>}
     </>

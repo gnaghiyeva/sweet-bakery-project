@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { deleteLogo, getAllLogo } from '../../../api/requests'
+import { getAllLogo } from '../../../api/requests'
 import { Button, Card, CardActions, CardMedia, Grid } from '@mui/material'
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2'
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
 const AdminLogos = () => {
@@ -19,7 +18,7 @@ const AdminLogos = () => {
         <title>Admin Logo</title>
         <link rel="icon" type="image/x-icon" href={favicon} />
       </Helmet>
-      <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Logos</h1>
+      <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Logos</h1>
 
       <Grid container spacing={2} style={{ padding: '0 40px' }}>
         {logos && logos.map((logo) => {
@@ -31,31 +30,7 @@ const AdminLogos = () => {
                   image={logo.image}
                   title="green iguana"
                 />
-
                 <CardActions>
-                  <Button size="small" onClick={() => {
-                    Swal.fire({
-                      title: 'Are you sure?',
-                      text: "You won't be able to revert this!",
-                      icon: 'warning',
-                      showCancelButton: true,
-                      confirmButtonColor: '#3085d6',
-                      cancelButtonColor: '#d33',
-                      confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                      if (result.isConfirmed) {
-                        deleteLogo(logo._id).then((res) => {
-                          Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                          )
-
-                        })
-                        setLogos(logos.filter((x) => x._id !== logo._id))
-                      }
-                    })
-                  }}>Delete</Button>
                   <Button size="small"><Link style={{ textDecoration: 'none' }} to={`/admin/logo/edit/${logo._id}`}>Edit</Link></Button>
                 </CardActions>
               </Card>

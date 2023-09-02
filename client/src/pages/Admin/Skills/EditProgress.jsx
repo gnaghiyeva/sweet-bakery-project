@@ -9,7 +9,7 @@ import { progressSchema } from '../../../validation/progressSchema';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
 const EditProgress = () => {
-  const [progress, setProgress] = useProgressContext();
+  const [setProgress] = useProgressContext();
   const { id } = useParams()
   const navigate = useNavigate()
   const [prog, setProg] = useState({})
@@ -58,7 +58,7 @@ const EditProgress = () => {
         <title>Editing Progress</title>
         <link rel="icon" type="image/x-icon" href={favicon} />
       </Helmet>
-      <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Editing Progress</h1>
+      <h1 style={{ textAlign: 'center', fontFamily: 'Lobster' }}>Editing Progress</h1>
 
       {loading ? <div style={{ textAlign: 'center' }}><CircularProgress color="secondary" /></div> : <form onSubmit={formik.handleSubmit}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -72,7 +72,7 @@ const EditProgress = () => {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Button type='submit' variant='contained' color='success' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Edit</Button>
+          <Button type='submit' variant='contained' color='success'>Edit</Button>
         </div>
       </form>}
     </>
