@@ -4,6 +4,7 @@ import ContactData from './ContactData'
 import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet'
 const Contact = () => {
+  
   return (
     <>
       <Helmet>

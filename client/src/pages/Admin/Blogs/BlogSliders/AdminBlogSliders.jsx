@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { Grid } from '@mui/material';
 import favicon from '../../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
+
 const AdminBlogSliders = () => {
   const [sliders, setSliders] = useState([])
   useEffect(() => {
@@ -21,9 +22,9 @@ const AdminBlogSliders = () => {
         <link rel="icon" type="image/x-icon" href={favicon} />
       </Helmet>
       <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0 20px' }}>
+        <a class="navbar-brand" href="!#" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0 20px' }}>
           <img src="https://static.thenounproject.com/png/396915-200.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-          <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/blogs/slider/add-slider'>Add Slider</Link> <span class="sr-only"></span></a>
+          <a class="nav-item nav-link active" href="!#"  ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/blogs/slider/add-slider'>Add Slider</Link> <span class="sr-only"></span></a>
         </a>
       </nav>
       <Grid container spacing={2} style={{ padding: '30px 40px' }}>

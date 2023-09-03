@@ -9,7 +9,6 @@ import { Helmet } from 'react-helmet';
 import favicon from '../../../../assets/favicon-logo.png'
 const EditProductSlider = () => {
     const buttonRef = useRef()
-
     const [sliders, setSliders] = useProductSliderContext()
     const [loading, setLoading] = useState(true)
     const { id } = useParams()

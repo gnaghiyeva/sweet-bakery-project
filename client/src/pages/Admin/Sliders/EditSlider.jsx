@@ -8,9 +8,9 @@ import Swal from "sweetalert2";
 import { sliderSchema } from '../../../validation/sliderSchema'
 import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet'
+
 const EditSlider = () => {
   const buttonRef = useRef()
-
   const [sliders, setSliders] = useSliderContext()
   const [loading, setLoading] = useState(true)
   const { id } = useParams()

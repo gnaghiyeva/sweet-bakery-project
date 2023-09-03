@@ -25,9 +25,9 @@ const AdminContact = () => {
         <link rel="icon" type="image/x-icon" href={favicon} />
       </Helmet>
       <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0 20px' }}>
+        <a class="navbar-brand" href="!#" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0 20px' }}>
           <img src="https://static.thenounproject.com/png/396915-200.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-          <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/contact-slider'>Go to Slider</Link> <span class="sr-only"></span></a>
+          <a class="nav-item nav-link active" href='!#'><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/contact-slider'>Go to Slider</Link> <span class="sr-only"></span></a>
         </a>
       </nav>
 

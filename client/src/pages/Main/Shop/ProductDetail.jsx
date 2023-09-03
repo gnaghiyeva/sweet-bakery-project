@@ -16,7 +16,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import  '../../../style/productSlider.module.css'
+import '../../../style/productSlider.module.css'
 import textStyle from '../../../style/productSlider.module.css'
 import { Bounce } from "react-awesome-reveal";
 
@@ -25,7 +25,7 @@ const ProductDetail = () => {
     const [quantity, setQuantity] = useState(1);
     const [products, setProducts] = useState({})
     const [sliders, setSliders] = useState([]);
-  
+
     const { id } = useParams();
     useEffect(() => {
         getProductById(id).then((res) => {
@@ -39,25 +39,25 @@ const ProductDetail = () => {
             setComments(res.data)
         });
     }, [id]);
- 
-    
+
+
 
     useEffect(() => {
         getAllProductSliders().then((res) => {
-          setSliders(res.data)
-          console.log(res.data)
+            setSliders(res.data)
+            console.log(res.data)
         })
-      }, [])
+    }, [])
 
     const [user, setUser] = useUserContext()
     console.log(setUser)
     const navigate = useNavigate();
 
     const handleSubmit = async (values, actions) => {
-        if(user){
+        if (user) {
             values.productID = id;
             await postComment(values)
-            setComments([...comments,values])
+            setComments([...comments, values])
             actions.resetForm()
             navigate(`/shop/${products._id}`)
         }
@@ -78,25 +78,25 @@ const ProductDetail = () => {
     return (
         <>
 
-<Swiper
-      pagination={{
-        type: 'progressbar',
-      }}
-      navigation={true}
-      modules={[Pagination, Navigation]}
-      className="mySwiper"
-    >
-      {sliders && sliders.map((slider) => (
+            <Swiper
+                pagination={{
+                    type: 'progressbar',
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+            >
+                {sliders && sliders.map((slider) => (
 
-        <SwiperSlide key={slider._id} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${slider.image}) `, backgroundSize: 'cover', backgroundPosition: 'center', padding: '140px 0', width: '100%' }}>
-          <article className={textStyle.slider_text}>
-            <Bounce>
-              <h1 className={textStyle.slider_text_h1}>{slider.title}</h1>
-            </Bounce>
-          </article>
-        </SwiperSlide>
-      ))}
-     </Swiper>
+                    <SwiperSlide key={slider._id} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${slider.image}) `, backgroundSize: 'cover', backgroundPosition: 'center', padding: '140px 0', width: '100%' }}>
+                        <article className={textStyle.slider_text}>
+                            <Bounce>
+                                <h1 className={textStyle.slider_text_h1}>{slider.title}</h1>
+                            </Bounce>
+                        </article>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
 
             <Grid container spacing={10} style={{ padding: '50px 80px' }}>
 
@@ -162,7 +162,7 @@ const ProductDetail = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.rating}
                     />
-                     {formik.errors.rating && formik.touched.rating && (<Alert severity="warning">{formik.errors.rating}</Alert>)}
+                    {formik.errors.rating && formik.touched.rating && (<Alert severity="warning">{formik.errors.rating}</Alert>)}
 
                     <br />
                     <TextField name='review' type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.review} id="outlined-basic" label="Your comment" variant="outlined" /><br />
@@ -175,43 +175,43 @@ const ProductDetail = () => {
                     {formik.errors.email && formik.touched.email && (<Alert severity="warning">{formik.errors.email}</Alert>)}
 
 
-                    <Button style={{ width: '15%' }} variant='contained' color='success' type='submit' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0} onClick={()=>{
-                         if (!user) {
+                    <Button style={{ width: '15%' }} variant='contained' color='success' type='submit' disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0} onClick={() => {
+                        if (!user) {
                             toast.error("User is not logged in !")
-                          }
-                          else{
+                        }
+                        else {
                             toast.success("Comment posted succesfully !")
-                          }
+                        }
                     }}>Submit</Button>
                 </form>
             </Grid>
-           
+
             <div style={{ padding: '0 80px' }}>
-    <h4 style={{ color: 'gray', fontFamily: 'Lobster' }}>Reviews</h4>
-    {comments && comments.length > 0 ? (
-        comments.map((comment) => (
-            <div key={comment._id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div style={{ display: 'flex', gap: '15px' }}>
-                    <div>
-                        <img style={{ borderRadius: '50%' }} src='http://0.gravatar.com/avatar/0560077b462e533e17d42326550ba365?s=60&d=mm&r=g' alt="İstifadəçi Avatarı" />
-                    </div>
-                    <div>
-                        <h5>{comment.name}</h5>
-                        <p>{comment.review}</p>
-                    </div>
-                </div>
-                <div>
-                    <Rating readOnly name="rating" value={comment.rating} />
-                </div>
+                <h4 style={{ color: 'gray', fontFamily: 'Lobster' }}>Reviews</h4>
+                {comments && comments.length > 0 ? (
+                    comments.map((comment) => (
+                        <div key={comment._id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <div style={{ display: 'flex', gap: '15px' }}>
+                                <div>
+                                    <img style={{ borderRadius: '50%' }} src='http://0.gravatar.com/avatar/0560077b462e533e17d42326550ba365?s=60&d=mm&r=g' alt="İstifadəçi Avatarı" />
+                                </div>
+                                <div>
+                                    <h5>{comment.name}</h5>
+                                    <p>{comment.review}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <Rating readOnly name="rating" value={comment.rating} />
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <p>No comments available.</p>
+                )}
             </div>
-        ))
-    ) : (
-        <p>No comments available.</p>
-    )}
-</div>
 
         </>
-        
+
     )
 }
 

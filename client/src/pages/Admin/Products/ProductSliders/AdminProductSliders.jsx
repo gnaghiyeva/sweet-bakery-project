@@ -29,7 +29,6 @@ const AdminProductSliders = () => {
                                     <Card.Title>{slider.title}</Card.Title>
 
                                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-
                                         <button type="button" class="btn btn-outline-info"><Link style={{ textDecoration: 'none' }} to={`/admin/product-slider/edit/${slider._id}`}>Edit</Link></button>
                                     </div>
                                 </Card.Body>

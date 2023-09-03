@@ -13,6 +13,7 @@ import Swal from "sweetalert2";
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
+
 const AdminTeam = () => {
     const [teams, setTeams] = useState([])
     useEffect(() => {
@@ -28,9 +29,9 @@ const AdminTeam = () => {
             </Helmet>
 
             <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
-                <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <a class="navbar-brand" href="!#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img width={50} src="https://img.freepik.com/free-icon/user_318-460608.jpg" alt="" />
-                    <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-person'>Add Person</Link> <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active" href="!#" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-person'>Add Person</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
             <TableContainer component={Paper} style={{ width: '60%', margin: '0 auto' }}>
@@ -52,7 +53,7 @@ const AdminTeam = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell align="center">
-                                    <img style={{ width: '30%' }} src={person.image} />
+                                    <img style={{ width: '30%' }} src={person.image} alt='personImage'/>
                                 </TableCell>
                                 <TableCell align="center">{person.fullname}</TableCell>
                                 <TableCell align="center">{person.description}</TableCell>

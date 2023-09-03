@@ -7,6 +7,7 @@ import { Alert, Button, TextField } from '@mui/material';
 import { skillsSchema } from '../../../validation/skillSchema';
 import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
+
 const AddSkill = () => {
     const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)
@@ -52,7 +53,7 @@ const AddSkill = () => {
                 <title>Adding Skill</title>
                 <link rel="icon" type="image/x-icon" href={favicon} />
             </Helmet>
-            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Service</h1>
+            <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Add Service</h1>
             <form onSubmit={formik.handleSubmit} >
 
                 <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>

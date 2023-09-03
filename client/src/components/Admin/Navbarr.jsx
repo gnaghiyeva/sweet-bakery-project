@@ -24,6 +24,7 @@ import BookIcon from '@mui/icons-material/Book';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import CakeIcon from '@mui/icons-material/Cake';
+
 const Navbarr = () => {
   const [state, setState] = React.useState({
     left: false,
@@ -72,25 +73,14 @@ const Navbarr = () => {
       
     </Box>
   )
-  const pages = ['Products', 'Pricing', 'Blog'];
-  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+ 
+  const [setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
 
 
@@ -152,10 +142,3 @@ const Navbarr = () => {
 }
 
 export default Navbarr
-
-
-{/* <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src={user.image} />
-                            </IconButton>
-                        </Tooltip> */}

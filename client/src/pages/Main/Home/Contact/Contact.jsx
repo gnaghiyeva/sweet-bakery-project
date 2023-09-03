@@ -8,7 +8,6 @@ const Contact = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
-
         emailjs.sendForm('gmail', 'template_w5vn4y9', form.current, 'dSgJh36b-64n40_h0')
             .then((result) => {
                 console.log(result.text);

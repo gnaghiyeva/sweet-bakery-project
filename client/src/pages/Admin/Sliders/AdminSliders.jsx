@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { Grid } from '@mui/material';
 import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
+
 const AdminSliders = () => {
     const [sliders, setSliders] = useState([])
     useEffect(() => {

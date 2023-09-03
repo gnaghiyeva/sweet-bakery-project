@@ -9,23 +9,23 @@ import Footer from '../../components/Main/Footer'
 const MainRoot = () => {
   const [user] = useUserContext()
   return (
-<>
-    {/* <Navbarr/>
-    <Outlet/> */}
     <>
-   {
-    !user?.isAdmin ? (
+      {/* <Navbarr/>
+    <Outlet/> */}
       <>
-      <Navbar/>
-      <Outlet/>
-      <Footer/>
+        {
+          !user?.isAdmin ? (
+            <>
+              <Navbar />
+              <Outlet />
+              <Footer />
+            </>
+          ) : (
+            <UserLogin />
+          )
+        }
       </>
-    ) : (
-      <UserLogin/>
-    )
-   }
-   </>
-   </>
+    </>
   )
 }
 

@@ -13,7 +13,7 @@ const UserRegister = () => {
             'Good job!',
             'Account created succesfully!',
             'success'
-          )
+        )
         actions.resetForm()
         navigate('/login')
     }
@@ -22,7 +22,7 @@ const UserRegister = () => {
         initialValues: {
             username: '',
             email: '',
-            image:'',
+            image: '',
             password: ''
         },
 
@@ -37,15 +37,15 @@ const UserRegister = () => {
                     <br />
                     <TextField placeholder='email' onChange={formik.handleChange} onBlur={formik.handleBlur} name='email' type='email' value={formik.values.email} id="outlined-basic" label="email" variant="outlined" />
                     {formik.errors.email && formik.touched.email && (<Alert severity="warning">{formik.errors.email}</Alert>)}
-                    <br/>
+                    <br />
                     <TextField placeholder='image' onChange={formik.handleChange} onBlur={formik.handleBlur} name='image' type='text' value={formik.values.image} id="outlined-basic" label="image" variant="outlined" />
                     {formik.errors.image && formik.touched.image && (<Alert severity="warning">{formik.errors.image}</Alert>)}
-                    <br/>
+                    <br />
                     <TextField placeholder='password' onChange={formik.handleChange} onBlur={formik.handleBlur} name='password' type='password' value={formik.values.password} id="outlined-basic" label="password" variant="outlined" />
                     {formik.errors.password && formik.touched.password && (<Alert severity="warning">{formik.errors.password}</Alert>)}
-                    
+
                 </div> <br />
-                <Button  style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} type='submit' variant="contained" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Create Account</Button>
+                <Button style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '20%', margin: '0 auto' }} type='submit' variant="contained" disabled={formik.isSubmitting || Object.keys(formik.errors).length > 0}>Create Account</Button>
             </form>
         </>
     )

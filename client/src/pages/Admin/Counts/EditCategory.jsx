@@ -11,7 +11,6 @@ const EditCategory = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const [setCategories] = useCategoryContext();
-
   const [category, setCategory] = useState({})
   const [loading, setLoading] = useState([])
 

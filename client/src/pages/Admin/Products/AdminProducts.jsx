@@ -27,10 +27,10 @@ const AdminProducts = () => {
                 <link rel="icon" type="image/x-icon" href={favicon} />
             </Helmet>
             <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
-                <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <a class="navbar-brand" href="!#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-                    <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-product'>Add Product</Link> <span class="sr-only"></span></a>
-                    <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/product-slider'>Go to Sliders</Link> <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active"  href="!#" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-product'>Add Product</Link> <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active"  href="!#"><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/product-slider'>Go to Sliders</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
 
@@ -56,7 +56,7 @@ const AdminProducts = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell align="center" style={{ width: '15%' }}>
-                                    <img src={product.image} style={{ width: '100%' }} />
+                                    <img src={product.image} style={{ width: '100%' }} alt='productImage' />
                                 </TableCell>
                                 <TableCell align="center">{product.title}</TableCell>
                                 <TableCell align="center">{product.onSale ? 'yes' : 'no'}</TableCell>

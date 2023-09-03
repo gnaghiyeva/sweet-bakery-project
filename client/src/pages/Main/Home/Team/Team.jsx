@@ -30,7 +30,7 @@ const Team = () => {
                 {teams && teams.map((person) => {
                     return (
                         <Grid item sm={6} xs={12} md={3} style={{ padding: '40px 5px' }} >
-                            <Card style={{border:'3px solid #F1F1F1'}}>
+                            <Card style={{ border: '3px solid #F1F1F1' }}>
                                 <div className={teamStyle.team_card_img_container} >
                                     <Card.Img className={teamStyle.team_card_img} variant="top" src={person.image} />
                                 </div>
@@ -42,27 +42,27 @@ const Team = () => {
 
                                 </Card.Body>
                             </Card>
-                            <br/>
+                            <br />
 
                             <Card >
                                 <ListGroup variant="flush">
-                                    <ListGroup.Item style={{display:'flex', justifyContent:'center', gap:'6px'}}>
-                                       
-                                        <div style={{width:'15%'}}>
-                                           <img style={{width:'100%'}} src={FacebookLogo} alt='facebook'/>
+                                    <ListGroup.Item style={{ display: 'flex', justifyContent: 'center', gap: '6px' }}>
+
+                                        <div style={{ width: '15%' }}>
+                                            <img style={{ width: '100%' }} src={FacebookLogo} alt='facebook' />
                                         </div>
-                                        <div style={{width:'15%'}}>
-                                           <img style={{width:'100%'}} src={FlickerLogo} alt='flicker'/>
+                                        <div style={{ width: '15%' }}>
+                                            <img style={{ width: '100%' }} src={FlickerLogo} alt='flicker' />
                                         </div>
-                                        <div style={{width:'15%'}}>
-                                           <img style={{width:'100%'}} src={GoogleLogo} alt='google'/>
+                                        <div style={{ width: '15%' }}>
+                                            <img style={{ width: '100%' }} src={GoogleLogo} alt='google' />
                                         </div>
-                                        <div style={{width:'15%'}}>
-                                           <img style={{width:'100%'}} src={TwitterLogo} alt='twitter'/>
+                                        <div style={{ width: '15%' }}>
+                                            <img style={{ width: '100%' }} src={TwitterLogo} alt='twitter' />
                                         </div>
-                                        
+
                                     </ListGroup.Item>
-                                   
+
                                 </ListGroup>
                             </Card>
                         </Grid>

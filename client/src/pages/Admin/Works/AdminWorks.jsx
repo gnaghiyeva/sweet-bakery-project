@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
+
 const AdminWorks = () => {
     const [works, setWorks] = useState([]);
     useEffect(() => {

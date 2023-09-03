@@ -28,9 +28,9 @@ const AdminPrices = () => {
             </Helmet>
 
             <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
-                <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-                    <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-price'>Add Price Card</Link> <span class="sr-only"></span></a>
+                <a class="navbar-brand" href="!#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="pricesLogo" />
+                    <a class="nav-item nav-link active" href='!#' ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-price'>Add Price Card</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
             <TableContainer component={Paper} style={{ width: '60%', margin: '0 auto' }}>
@@ -54,7 +54,7 @@ const AdminPrices = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell align="center">
-                                    <img style={{ width: '30%' }} src={price.image} />
+                                    <img style={{ width: '30%' }} src={price.image} alt='priceImage' />
                                 </TableCell>
                                 <TableCell align="center">{price.name}</TableCell>
                                 <TableCell align="center">{price.price}</TableCell>

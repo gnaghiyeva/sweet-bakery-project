@@ -28,21 +28,13 @@ export const getUsers = async(token)=>{
 //************************************************************************ */
 
 //logo
-export const getAllLogo = async(title)=>{
-    let URL
+export const getAllLogo = async()=>{
     let globalData
 
-    if(!title){
-        URL = BASE_URL+ "/logo"
-    }
-    else{
-        URL = BASE_URL + "/logo/"+`?logo=${title}`
-    }
-
-    await axios.get(URL).then((res)=>{
-        globalData=res.data
+    await axios.get(`${BASE_URL}/logo`)
+    .then(res => {
+        globalData = res.data;
     })
-
     return globalData
 }
 
@@ -73,21 +65,13 @@ export const postLogo = (newLogo)=>{
 // ********************************
 
 
-export const getAllSliders = async(title)=>{
-    let URL
+export const getAllSliders = async()=>{
     let globalData
-
-    if(!title){
-        URL = BASE_URL+ "/sliders"
-    }
-    else{
-        URL = BASE_URL + "/sliders/"+`?title=${title}`
-    }
-
-    await axios.get(URL).then((res)=>{
+    await axios.get(`${BASE_URL}/sliders`)
+    .then(res =>{
         globalData=res.data
     })
-
+    
     return globalData
 }
 
@@ -119,21 +103,12 @@ export const postSlider = (newSlider)=>{
 //************************************************** */
 
 //services
-export const getAllServices = async(title)=>{
-    let URL
+export const getAllServices = async()=>{
     let globalData
-
-    if(!title){
-        URL = BASE_URL+ "/services"
-    }
-    else{
-        URL = BASE_URL + "/services/"+`?title=${title}`
-    }
-
-    await axios.get(URL).then((res)=>{
-        globalData=res.data
+    await axios.get(`${BASE_URL}/services`)
+    .then(res => {
+        globalData = res.data;
     })
-
     return globalData
 }
 
@@ -164,21 +139,12 @@ export const postService = (newService)=>{
 
 /******************************************* */
 //categories
-export const getAllCategories = async(name)=>{
-    let URL
+export const getAllCategories = async()=>{
     let globalData
-
-    if(!name){
-        URL = BASE_URL+ "/categories"
-    }
-    else{
-        URL = BASE_URL + "/categories/"+`?name=${name}`
-    }
-
-    await axios.get(URL).then((res)=>{
-        globalData=res.data
+    await axios.get(`${BASE_URL}/categories`)
+    .then(res => {
+        globalData = res.data;
     })
-
     return globalData
 }
 
@@ -210,21 +176,12 @@ export const postCategory = (newCategory)=>{
 
 /******************************************* */
 //categories
-export const getAllWorks = async(title)=>{
-    let URL
+export const getAllWorks = async()=>{
     let globalData
-
-    if(!title){
-        URL = BASE_URL+ "/works"
-    }
-    else{
-        URL = BASE_URL + "/works/"+`?title=${title}`
-    }
-
-    await axios.get(URL).then((res)=>{
-        globalData=res.data
+    await axios.get(`${BASE_URL}/works`)
+    .then(res => {
+        globalData = res.data;
     })
-
     return globalData
 }
 
@@ -255,21 +212,12 @@ export const postWork = (newWork)=>{
 
 /******************************************* */
 //prices
-export const getAllPrices = async(name)=>{
-    let URL
+export const getAllPrices = async()=>{
     let globalData
-
-    if(!name){
-        URL = BASE_URL+ "/prices"
-    }
-    else{
-        URL = BASE_URL + "/prices/"+`?name=${name}`
-    }
-
-    await axios.get(URL).then((res)=>{
-        globalData=res.data
+    await axios.get(`${BASE_URL}/prices`)
+    .then(res => {
+        globalData = res.data;
     })
-
     return globalData
 }
 
@@ -301,21 +249,12 @@ export const postPrice = (newPrice)=>{
 
 /******************************************* */
 //team
-export const getAllTeam = async(fullname)=>{
-    let URL
+export const getAllTeam = async()=>{
     let globalData
-
-    if(!fullname){
-        URL = BASE_URL+ "/team"
-    }
-    else{
-        URL = BASE_URL + "/team/"+`?fullname=${fullname}`
-    }
-
-    await axios.get(URL).then((res)=>{
-        globalData=res.data
+    await axios.get(`${BASE_URL}/team`)
+    .then(res => {
+        globalData = res.data;
     })
-
     return globalData
 }
 
@@ -347,19 +286,12 @@ export const postPerson = (newPerson)=>{
 
 /******************************************* */
 //skills
-export const getAllSkills = async(title)=>{
-    let URL
+export const getAllSkills = async()=>{
     let globalData
 
-    if(!title){
-        URL = BASE_URL+ "/skills"
-    }
-    else{
-        URL = BASE_URL + "/skills/"+`?title=${title}`
-    }
-
-    await axios.get(URL).then((res)=>{
-        globalData=res.data
+    await axios.get(`${BASE_URL}/skills`)
+    .then(res => {
+        globalData = res.data;
     })
 
     return globalData
@@ -394,21 +326,12 @@ export const postSkill = (newSkill)=>{
 
 /******************************************* */
 //progress
-export const getAllProgress = async(progressName)=>{
-    let URL
+export const getAllProgress = async()=>{
     let globalData
-
-    if(!progressName){
-        URL = BASE_URL+ "/progress"
-    }
-    else{
-        URL = BASE_URL + "/progress/"+`?progressName=${progressName}`
-    }
-
-    await axios.get(URL).then((res)=>{
-        globalData=res.data
+    await axios.get(`${BASE_URL}/progress`)
+    .then(res => {
+        globalData = res.data;
     })
-
     return globalData
 }
 

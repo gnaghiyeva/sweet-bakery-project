@@ -10,7 +10,6 @@ import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
 const EditService = () => {
   const buttonRef = useRef()
-
   const [services, setServices] = useServiceContext()
   const [loading, setLoading] = useState(true)
   const { id } = useParams()

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getBlogById } from '../../../../api/requests';
 import { useParams } from 'react-router-dom';
 import blogdetailStyle from '../../../../style/blogdetail.module.css'
+
 const MyBlogDetail = () => {
   const [blogdetails, setBlogDetails] = useState([])
   const { id } = useParams();
@@ -13,8 +14,6 @@ const MyBlogDetail = () => {
   return (
     <>
       <section className={blogdetailStyle.blog_detail_container}>
-
-       
           <>
             <div>
               <article>
@@ -45,11 +44,6 @@ const MyBlogDetail = () => {
               </article>
             </div>
           </>
-     
-
-
-
-
       </section>
     </>
   )

@@ -4,7 +4,6 @@ import { Divider, Grid, TextareaAutosize } from '@mui/material';
 import emailjs from '@emailjs/browser';
 import contactStyle from '../../../style/contact.module.css'
 import toast, { Toaster } from 'react-hot-toast';
-
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -22,7 +21,6 @@ const ContactData = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // Perform input validation here
     const nameInput = form.current.elements.name.value;
     const emailInput = form.current.elements.email.value;
     const subjectInput = form.current.elements.text.value;
@@ -106,14 +104,14 @@ const ContactData = () => {
 
                 <Grid item sm={12} xs={12} md={6} lg={6}>
                   <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                    <ListItem style={{display:'flex', gap:'70px'}}>
+                    <ListItem style={{ display: 'flex', gap: '70px' }}>
                       <ListItemText primary="Phone:" />
                       <ListItem button component="a" href={`tel:${data.phone}`}>
                         <ListItemText primary={data.phone} />
                       </ListItem>
                     </ListItem>
                     <Divider />
-                    <ListItem style={{display:'flex', gap:'70px'}}>
+                    <ListItem style={{ display: 'flex', gap: '70px' }}>
                       <ListItemText primary="Email:" />
                       <ListItem button component="a" href={`tel:${data.email}`}>
                         <ListItemText primary={data.email} />

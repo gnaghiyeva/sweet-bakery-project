@@ -1,11 +1,10 @@
 import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { postPrice, postProduct } from '../../../api/requests'
+import { postProduct } from '../../../api/requests'
 import Swal from "sweetalert2";
 import { Alert, Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import { productSchema } from '../../../validation/productSchema';
-
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -65,7 +64,7 @@ const AddProduct = () => {
                 <title>Adding product</title>
                 <link rel="icon" type="image/x-icon" href={favicon} />
             </Helmet>
-            <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Price</h1>
+            <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Add Price</h1>
             <form onSubmit={formik.handleSubmit} >
 
                 <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>

@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
 import favicon from '../../assets/favicon-logo.png'
 import userLogo from '../../assets/user-logo.png'
-import toast,{ Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 const UserLogin = () => {
   const [user, setUser] = useUserContext();
   console.log(user)
@@ -57,7 +57,7 @@ const UserLogin = () => {
         <Grid item sm={6} xs={12} md={6} style={{ backgroundColor: 'rgb(8,183,172)', textAlign: 'center' }}>
           <div >
             <div style={{ width: '100%' }}>
-              <img style={{ width: '60%' }} src={userLogo} alt='logo'/>
+              <img style={{ width: '60%' }} src={userLogo} alt='logo' />
             </div>
             <article style={{ color: 'white' }}>
               <h3>Bakery</h3>
@@ -104,18 +104,18 @@ const UserLogin = () => {
                 <br />
 
                 <button type="submit" style={{ backgroundColor: 'rgb(8,183,172)', border: 'none', padding: '6px 30px', color: 'white', width: '80%' }}
-                onClick={()=>{
-                  if(!user){
-                    toast.error("Username or Password is incorrect !")
-                  }
-                }}>
+                  onClick={() => {
+                    if (!user) {
+                      toast.error("Username or Password is incorrect !")
+                    }
+                  }}>
                   SIGN IN
                   <Toaster position="top-center" />
                 </button>
 
-                <div style={{display:'flex', justifyContent:'space-between', width: '80%'}}>
-                <p>Not logged in yet?</p>
-                <Link to={'/user-register'}>SIGN UP</Link>
+                <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%' }}>
+                  <p>Not logged in yet?</p>
+                  <Link to={'/user-register'}>SIGN UP</Link>
                 </div>
               </div>
             </div>

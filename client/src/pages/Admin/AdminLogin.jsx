@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { signIn } from '../../api/requests';
 import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
-import { Alert, Button, Grid, TextField } from '@mui/material';
-import LoginIcon from '@mui/icons-material/Login';
+import {Grid, TextField } from '@mui/material';
 import { useAdminContext } from '../../context/AdminContext';
 import { Helmet } from 'react-helmet';
 import favicon from '../../assets/favicon-logo.png'
 const AdminLogin = () => {
   const [admin, setAdmin] = useAdminContext();
+  console.log('admin',admin)
   const navigate = useNavigate();
 
   const handleSubmit = async (values, actions) => {

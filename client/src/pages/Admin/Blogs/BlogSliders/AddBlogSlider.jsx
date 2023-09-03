@@ -12,6 +12,7 @@ const AddBlogSlider = () => {
   const [selectedImages, setSelectedImages] = useState(null)
   const buttonRef = useRef()
 
+
   function handleSubmit(values, actions) {
     const formData = new FormData()
     formData.append("image", selectedImages)
@@ -50,7 +51,7 @@ const AddBlogSlider = () => {
         <title>Adding Slider</title>
         <link rel="icon" type="image/x-icon" href={favicon} />
       </Helmet>
-      <h1 style={{ fontFamily: 'sans-serif', textAlign: 'center', fontFamily: 'Lobster' }}>Add Slider</h1>
+      <h1 style={{textAlign: 'center', fontFamily: 'Lobster' }}>Add Slider</h1>
       <form onSubmit={formik.handleSubmit} >
 
         <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', width: '60%', margin: '0 auto' }}>

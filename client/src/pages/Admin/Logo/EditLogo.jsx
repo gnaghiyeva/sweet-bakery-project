@@ -9,7 +9,6 @@ import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
 const EditLogo = () => {
   const buttonRef = useRef();
-
   const [logos, setLogos] = useLogoContext();
   const [loading, setLoading] = useState(true);
   const { id } = useParams();

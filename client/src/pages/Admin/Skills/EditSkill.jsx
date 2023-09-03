@@ -9,10 +9,9 @@ import Swal from "sweetalert2";
 import { skillsSchema } from '../../../validation/skillSchema'
 import { Helmet } from 'react-helmet'
 import favicon from '../../../assets/favicon-logo.png'
+
 const EditSkill = () => {
-
   const buttonRef = useRef()
-
   const [skills, setSkills] = useSkillContext()
   const [loading, setLoading] = useState(true)
   const { id } = useParams()

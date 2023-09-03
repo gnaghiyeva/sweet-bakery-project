@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { progressSchema } from '../../../validation/progressSchema';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
+
 const EditProgress = () => {
   const [setProgress] = useProgressContext();
   const { id } = useParams()

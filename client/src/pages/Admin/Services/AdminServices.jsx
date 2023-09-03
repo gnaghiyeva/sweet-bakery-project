@@ -13,6 +13,7 @@ import Swal from "sweetalert2";
 import { Link } from 'react-router-dom';
 import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
+
 const AdminServices = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
@@ -28,9 +29,9 @@ const AdminServices = () => {
                 <link rel="icon" type="image/x-icon" href={favicon} />
             </Helmet>
             <nav class="navbar navbar-light bg-light" style={{ padding: '0 30px' }}>
-                <a class="navbar-brand" href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <a class="navbar-brand" href="!#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-                    <a class="nav-item nav-link active" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-service'>Add Service</Link> <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active" href="!#"><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-service'>Add Service</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
             <TableContainer component={Paper} style={{ width: '60%', margin: '0 auto' }}>
@@ -52,7 +53,7 @@ const AdminServices = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell align="center">
-                                    <img src={service.image} />
+                                    <img src={service.image} alt='serviceImage'/>
                                 </TableCell>
                                 <TableCell align="center">{service.title}</TableCell>
                                 <TableCell align="center">{service.description}</TableCell>

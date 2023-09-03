@@ -36,7 +36,7 @@ const Team = () => {
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell align="left" style={{ width: '10%' }}  >
-                                <img style={{ width: '60%' }}  src={person.image} />
+                                <img style={{ width: '60%' }}  src={person.image} alt='personImage' />
                             </TableCell>
                             <TableCell align="center">{person.fullname}</TableCell>
                             <TableCell align="center">{person.description}</TableCell>

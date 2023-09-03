@@ -21,7 +21,7 @@ const Basket = () => {
     //         }
     //         return count;
     //     }, 0);
-    // }
+    // } 
 
     function handleClearBasket() {
         const swalWithBootstrapButtons = Swal.mixin({

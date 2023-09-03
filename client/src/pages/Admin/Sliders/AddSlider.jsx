@@ -7,6 +7,7 @@ import { Alert, Button, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
+
 const AddSlider = () => {
     const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)

@@ -7,6 +7,7 @@ import { postWork } from '../../../api/requests';
 import { Alert, Button, TextField } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
+
 const AddWork = () => {
     const navigate = useNavigate()
     const [selectedImages, setSelectedImages] = useState(null)

@@ -4,17 +4,19 @@ import { Grid } from '@mui/material';
 import { getAllBlogs } from '../../../../api/requests';
 import blogStyle from '../../../../style/blog.module.css'
 import { Link } from 'react-router-dom';
+
 const MyBlogs = () => {
   const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
     getAllBlogs().then((res) => {
       setBlogs(res.data)
       console.log(res.data)
     })
   }, [])
+  
   return (
     <section>
-
       <Grid container spacing={4} style={{ padding: '50px 100px' }}>
         {blogs && blogs.map((blog) => {
           return (

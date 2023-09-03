@@ -8,9 +8,9 @@ import { Alert, Button, CircularProgress, TextField } from '@mui/material';
 import { personSchema } from '../../../validation/personSchema';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
+
 const EditPerson = () => {
     const buttonRef = useRef()
-
     const [teams, setTeams] = usePersonContext()
     const [loading, setLoading] = useState(true)
     const { id } = useParams()

@@ -11,12 +11,14 @@ import { Bounce } from "react-awesome-reveal";
 
 const BlogSlider = () => {
   const [sliders, setSliders] = useState([]);
+
   useEffect(() => {
     getAllBlogSliders().then((res) => {
       setSliders(res.data)
       console.log(res.data)
     })
   }, [])
+
   return (
     <Swiper
     pagination={{
@@ -36,9 +38,7 @@ const BlogSlider = () => {
       </article>
     </SwiperSlide>
     ))}
-    {/* <SwiperSlide>Slide 2</SwiperSlide>
-    <SwiperSlide>Slide 3</SwiperSlide> */}
-   
+     
   </Swiper>
   )
 }

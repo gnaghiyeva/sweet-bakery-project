@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { getAllBlogs, getAllComments, getAllProducts, getAllServices, getAllWorks } from '../../../api/requests';
+import { getAllBlogs, getAllComments, getAllServices, getAllWorks } from '../../../api/requests';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import BookIcon from '@mui/icons-material/Book';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import SmsIcon from '@mui/icons-material/Sms';
 import { Grid } from '@mui/material';
-import { Avatar, Card } from 'antd';
-const { Meta } = Card;
+import { Card } from 'antd';
 const Cards = () => {
     const [products, setProducts] = useState([])
     const [blogs, setBlogs] = useState([])

@@ -1,10 +1,10 @@
-import React,  { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import  '../../../style/productSlider.module.css'
+import '../../../style/productSlider.module.css'
 import textStyle from '../../../style/productSlider.module.css'
 import { Bounce } from "react-awesome-reveal";
 import { getAllProductSliders } from '../../../api/requests';

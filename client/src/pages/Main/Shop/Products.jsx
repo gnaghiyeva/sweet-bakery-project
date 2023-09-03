@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { getAllProducts } from '../../../api/requests';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -23,12 +23,12 @@ const Products = () => {
   const { basket, setBasket } = useBasketContext();
   return (
     <>
-    <div style={{margin:'50px auto', textAlign:'center'}}>
+      <div style={{ margin: '50px auto', textAlign: 'center' }}>
 
-      <Button variant="success" size="lg">
-       <Link style={{color:'white', textDecoration:'none', fontFamily:'Lobster'}} to={'/shop/favourites'}>Go to Favourites</Link> 
-      </Button>
-    </div>
+        <Button variant="success" size="lg">
+          <Link style={{ color: 'white', textDecoration: 'none', fontFamily: 'Lobster' }} to={'/shop/favourites'}>Go to Favourites</Link>
+        </Button>
+      </div>
 
       <Grid container spacing={2} style={{ padding: '50px 140px' }}>
         {products && products.map((product) => {
@@ -39,8 +39,8 @@ const Products = () => {
                 <Card style={{ border: 'none', boxShadow: 'none' }}>
                   <div className={productStyle.product_image_container}>
 
-                   <Link to={`/shop/${product._id}`}><Card.Img variant="top" src={product.image} /></Link> 
-                    <span style={{display: product.onSale ? 'block' : 'none'}} className={productStyle.product_image}>
+                    <Link to={`/shop/${product._id}`}><Card.Img variant="top" src={product.image} /></Link>
+                    <span style={{ display: product.onSale ? 'block' : 'none' }} className={productStyle.product_image}>
                       {product.onSale ? 'SALE !' : ''}
 
                     </span>

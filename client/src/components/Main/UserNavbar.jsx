@@ -14,8 +14,8 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { Avatar, IconButton, Menu, MenuItem } from '@mui/material';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Avatar} from '@mui/material';
+
 
 const UserNavbar = () => {
   const [user, setUser] = useUserContext()
@@ -84,7 +84,7 @@ const UserNavbar = () => {
         </ul>
 
         {logos && logos.map((logo) => (
-          <div style={{ width: '15%' }}><img className={mainNavbarStyle.main_nav_logo} src={logo.image} /></div>
+          <div style={{ width: '15%' }}><img className={mainNavbarStyle.main_nav_logo} src={logo.image} alt='logoImage' /></div>
 
         ))}
         <div className={mainNavbarStyle.logo_title}>Sweet Bakery</div>

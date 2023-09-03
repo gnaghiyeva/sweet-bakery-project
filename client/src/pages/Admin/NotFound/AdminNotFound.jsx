@@ -23,7 +23,7 @@ const AdminNotFound = () => {
           <p style={{ fontSize: '1em', color: 'gray' }}>We couldn′t find the page you are looking for.</p>
 
           <div style={{ width: '50%', margin: 'auto' }}>
-            <img style={{ width: '100%' }} src={errorimage} />
+            <img style={{ width: '100%' }} src={errorimage} alt='errorImage' />
           </div>
           <Button variant='contained'><Link style={{ color: 'white', textDecoration: 'none' }} to={'/admin'}>Go Admin Page</Link></Button>
         </article>

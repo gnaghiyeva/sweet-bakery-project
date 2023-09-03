@@ -10,7 +10,6 @@ import { Helmet } from 'react-helmet';
 import favicon from '../../../../assets/favicon-logo.png'
 const EditBlog = () => {
     const buttonRef = useRef()
-
     const [blogs, setBlogs] = useBlogContext()
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
