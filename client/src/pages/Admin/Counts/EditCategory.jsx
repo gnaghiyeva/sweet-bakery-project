@@ -7,10 +7,11 @@ import { useFormik } from 'formik';
 import { Alert, Button, CircularProgress, TextField } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
+import Swal from "sweetalert2";
 const EditCategory = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const [setCategories] = useCategoryContext();
+  const [categories, setCategories] = useCategoryContext();
   const [category, setCategory] = useState({})
   const [loading, setLoading] = useState([])
 
@@ -28,6 +29,13 @@ const EditCategory = () => {
   const handleEdit = async (values, actions) => {
     setCategories(values)
     await editCategory(id, values)
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: `category section successfully`,
+      showConfirmButton: false,
+      timer: 1500,
+  });
     navigate('/admin/categories')
     actions.resetForm()
   }

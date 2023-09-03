@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet';
 import favicon from '../../../assets/favicon-logo.png'
 
 const EditProgress = () => {
-  const [setProgress] = useProgressContext();
+  const [progress, setProgress] = useProgressContext();
   const { id } = useParams()
   const navigate = useNavigate()
   const [prog, setProg] = useState({})

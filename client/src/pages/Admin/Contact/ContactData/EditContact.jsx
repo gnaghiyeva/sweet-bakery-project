@@ -7,10 +7,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Alert, Button, CircularProgress, TextField } from '@mui/material';
 import favicon from '../../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet';
+import Swal from "sweetalert2";
 const EditContact = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const [setDatas] = useContactContext();
+  const [datas, setDatas] = useContactContext();
 
   const [data, setData] = useState({})
   const [loading, setLoading] = useState([])
@@ -37,6 +38,13 @@ const EditContact = () => {
   const handleEdit = async (values, actions) => {
     setDatas(values)
     await editData(id, values)
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: `contact data edited successfully`,
+      showConfirmButton: false,
+      timer: 1500,
+  });
     navigate('/admin/contact')
     actions.resetForm()
   }
@@ -96,8 +104,6 @@ const EditContact = () => {
           <br />
           <TextField type='text' onChange={formik.handleChange} onBlur={formik.handleBlur} name='phone' value={formik.values.phone} id="outlined-basic" label="phone" variant="outlined" /> <br />
           {formik.errors.phone && formik.touched.phone && (<Alert severity="warning">{formik.errors.phone}</Alert>)}
-
-          <br />
 
         </div>
 
