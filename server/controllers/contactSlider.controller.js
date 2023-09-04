@@ -39,6 +39,23 @@ const ContactSliderController = {
         })
     },
 
+    delete: async (req, res) => {
+      const id = req.params.id;
+      const deletedSlider = await ContactSliders.findByIdAndDelete(id);
+      const idx = deletedSlider.image.indexOf("images/")
+      const imageName = deletedSlider.image.substr(idx)
+  
+      fs.unlinkSync('./' + imageName)
+      if (deletedSlider === undefined) {
+        res.status(404).send("logo not found");
+      } else {
+        res.status(203).send({
+          data: deletedSlider,
+          message: "logo deleted successfully",
+        });
+      }
+    },
+
       edit: async (req, res) => {
         const id = req.params.id;
         const title = req.body.title;

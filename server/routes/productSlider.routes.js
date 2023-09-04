@@ -12,6 +12,8 @@ product_slider_router.get('/',ProductSliderController.getAll)
 //get Slider by ID
 product_slider_router.get('/:id',ProductSliderController.getById)
 
+//delete Slider
+product_slider_router.delete('/:id',ProductSliderController.delete)
 
 //edit Slider
 product_slider_router.put('/:id',upload.single('image'),ProductSliderController.edit)

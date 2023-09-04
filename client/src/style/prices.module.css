@@ -35,7 +35,7 @@
     align-items: center;
     gap: 5px;
   
-    background-image: url('http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/bgribbon.jpg');
+    background-image: url('../assets/bgribbon.jpg');
     background-repeat: repeat; 
     background-position: center; 
     background-size: contain; 

@@ -12,6 +12,8 @@ contact_slider_router.get('/',ContactSliderController.getAll)
 //get Slider by ID
 contact_slider_router.get('/:id',ContactSliderController.getById)
 
+//delete Slider
+contact_slider_router.delete('/:id',ContactSliderController.delete)
 
 //edit Slider
 contact_slider_router.put('/:id',upload.single('image'),ContactSliderController.edit)
