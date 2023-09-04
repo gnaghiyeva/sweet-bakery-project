@@ -7,11 +7,11 @@
 
 .contact_data_container{
     background-image: url('../assets/grey-bg.png');
-    padding: 40px 50px;
+    padding: 40px 10px;
 }
 
 .contact_form_container{
-    width: 40%;
+    width: 70%;
     margin: 0 auto;
     background-image: url('../assets/grey-bg.png') ;
     padding: 50px 70px;

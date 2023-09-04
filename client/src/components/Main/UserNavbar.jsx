@@ -14,13 +14,14 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { Avatar} from '@mui/material';
+import { Avatar } from '@mui/material';
 
 
 const UserNavbar = () => {
   const [user, setUser] = useUserContext()
 
   const [logos, setLogos] = useState([])
+  const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,6 +37,11 @@ const UserNavbar = () => {
     bottom: false,
     right: false,
   });
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    setShowMenu(false);
+  };
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -57,14 +63,23 @@ const UserNavbar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List >
-        {['Home', 'Shop', 'News', 'Contact'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
+        <ListItem button onClick={() => handleNavigation('/')}>
+          <Link to="/" style={{ color: 'black', textDecoration: 'none' }}>
+            <span style={{fontFamily:'Lobster'}}>HOME</span>
+          </Link>
+        </ListItem>
 
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem onClick={() => handleNavigation('/shop')}>
+          <span style={{fontFamily:'Lobster'}}>SHOP</span>
+        </ListItem>
+
+        <ListItem onClick={() => handleNavigation('/blog')}>
+          <span style={{fontFamily:'Lobster'}}>BLOG</span>
+        </ListItem>
+
+        <ListItem onClick={() => handleNavigation('/contact')}>
+          <span style={{fontFamily:'Lobster'}}>CONTACT</span>
+        </ListItem>
       </List>
       <Divider />
 
@@ -115,11 +130,11 @@ const UserNavbar = () => {
             <Button color="inherit"><Link style={{ color: 'black', textDecoration: 'none' }} to={'/login'}>Login</Link></Button>
           </> : <>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              
-                
-             
+
+
+
               <Navbar.Text>
-              <Avatar alt="Remy Sharp" src={user.image} />
+                <Avatar alt="Remy Sharp" src={user.image} />
                 <p>{user.username}</p>
               </Navbar.Text>
               <div style={{ marginTop: '-12px' }}>
