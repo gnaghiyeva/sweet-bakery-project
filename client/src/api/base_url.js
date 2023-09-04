@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://localhost:9292/api';
+export const BASE_URL = 'https://sweet-bakery-api.onrender.com/api';
