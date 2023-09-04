@@ -7,6 +7,7 @@ import GoogleIcon from '../../../../assets/logos/google.png'
 import FlickerIcon from '../../../../assets/logos/flicker.png'
 import InstagramIcon from '../../../../assets/logos/instagram.png'
 import VimeoIcon from '../../../../assets/logos/vimeo.png'
+import followsDivider from  '../../../../assets/dividers/divider-social.png' 
 const Follow = () => {
     return (
         <section className={followStyle.follow_container}>
@@ -14,7 +15,7 @@ const Follow = () => {
             <article>
                 <h1 className={followStyle.follow_title}>Follow Us</h1>
                 <div className={followStyle.follow_img_container}>
-                    <img className={followStyle.follow_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-social1200-1024x33.png' alt='follow'/>
+                    <img className={followStyle.follow_img} src={followsDivider} alt='follow'/>
                 </div>
             </article>
 

@@ -8,6 +8,7 @@ import FacebookLogo from '../../../../assets/logos/facebook.png'
 import FlickerLogo from '../../../../assets/logos/flicker.png'
 import GoogleLogo from '../../../../assets/logos/google.png'
 import TwitterLogo from '../../../../assets/logos/twitter.png'
+import teamDivider from  '../../../../assets/dividers/divider-team.png' 
 const Team = () => {
     const [teams, setTeams] = useState([]);
     useEffect(() => {
@@ -22,7 +23,7 @@ const Team = () => {
             <article>
                 <h1 className={teamStyle.team_title}>Our Team</h1>
                 <div className={teamStyle.team_img_container}>
-                    <img className={teamStyle.team_img} src='http://www.nicdarkthemes.com/themes/food/wp/demo/sweet-cake/wp-content/uploads/sites/2/2019/04/divider-team1200-1024x37.png' alt='teamImage' />
+                    <img className={teamStyle.team_img} src={teamDivider} alt='teamImage' />
                 </div>
             </article>
 
