@@ -10,5 +10,5 @@ admin_router.post('/register', upload.single('image'), adminController.postRegis
 admin_router.post('/login', adminController.postLogin)
 
 // admin_router.post('/admin/login', adminController.AdminPostLogin)
-// admin_router.delete('/users', adminController.deleteUser)
+admin_router.delete('/users/:id', adminController.deleteUser)
 module.exports = admin_router

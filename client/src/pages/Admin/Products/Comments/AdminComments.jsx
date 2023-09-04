@@ -10,9 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import Swal from "sweetalert2";
-import { Link } from 'react-router-dom';
 const AdminComments = () => {
     const [comments, setComments] = useState([]);
     useEffect(() => {

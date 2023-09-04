@@ -6,6 +6,7 @@ import Team from './Team'
 import Cards from './Cards'
 import favicon from '../../../assets/favicon-logo.png'
 import { Helmet } from 'react-helmet'
+import Users from './Users'
 const Dashboard = () => {
   return (
     <>
@@ -29,6 +30,14 @@ const Dashboard = () => {
         </Grid>
 
       </Grid>
+
+      <Grid container spacing={2} style={{ padding: '40px 30px', backgroundColor: 'rgb(244,245,250)' }}>
+        <Grid item xs={12} md={6} >
+          <Users />
+
+        </Grid>
+      </Grid>
+
 
     </>
   )

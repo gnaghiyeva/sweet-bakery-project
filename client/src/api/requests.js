@@ -13,17 +13,43 @@ export const signIn = async(payload)=>{
 }
 
 //users
-export const getUsers = async(token)=>{
-    let users;
-    await axios.get(`${BASE_URL}/users`,{
+export const getUsers = async (token) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/users`, {
         headers: {
-            'x-access-token': token
+          'x-access-token': token
         }
-    }).then((res)=>{
-        users = res.data;
-    })
-    return users;
-}
+      });
+
+      return response.data.users;
+    } catch (error) {
+      console.error('Kullanıcıları alma hatası:', error);
+      throw error;
+    }
+  };
+
+//   export const deleteUser = async (token, id) => {
+//     try {
+//       const response = await axios.delete(`${BASE_URL}/users/${id}`, {
+//         headers: {
+//           'x-access-token': token
+//         }
+//       });
+  
+//       if (response.status === 204) {
+//         // Başarılı bir şekilde silinmişse, başka bir şey döndürmeyin
+//         return;
+//       } else {
+//         // Başka bir durumdaysa veya hata olursa hata nesnesi fırlatın
+//         throw new Error('Kullanıcı silme hatası');
+//       }
+//     } catch (error) {
+//       console.error('Kullanıcı silme hatası:', error);
+//       throw error;
+//     }
+//   };
+
+ 
 
 //************************************************************************ */
 
