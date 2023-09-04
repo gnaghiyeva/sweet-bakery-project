@@ -22,6 +22,7 @@ import AdminPrices from "../pages/Admin/Prices/AdminPrices";
 import EditPrice from "../pages/Admin/Prices/EditPrice";
 import AddProduct from "../pages/Admin/Products/AddProduct";
 import AdminProducts from "../pages/Admin/Products/AdminProducts";
+import AdminComments from "../pages/Admin/Products/Comments/AdminComments";
 import EditProduct from "../pages/Admin/Products/EditProduct";
 import AdminProductSliders from "../pages/Admin/Products/ProductSliders/AdminProductSliders";
 import EditProductSlider from "../pages/Admin/Products/ProductSliders/EditProductSlider";
@@ -286,6 +287,10 @@ export const ROUTES = [
             {
                 path: 'contact-slider/edit/:id',
                 element: <EditContactSlider/>
+            },
+            {
+                path:'comments',
+                element:<AdminComments/>
             },
             {
                 path: '*',

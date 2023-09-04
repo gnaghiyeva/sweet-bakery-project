@@ -31,6 +31,7 @@ const AdminProducts = () => {
                     <img src="https://w7.pngwing.com/pngs/415/49/png-transparent-grass-area-symbol-brand-sign-add-logo-grass-desktop-wallpaper.png" width="30" height="30" class="d-inline-block align-top" alt="" />
                     <a class="nav-item nav-link active"  href="!#" ><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/add-product'>Add Product</Link> <span class="sr-only"></span></a>
                     <a class="nav-item nav-link active"  href="!#"><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/product-slider'>Go to Sliders</Link> <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active"  href="!#"><Link style={{ color: 'black', textDecoration: 'none' }} to='/admin/comments'>Go to Comments</Link> <span class="sr-only"></span></a>
                 </a>
             </nav>
 

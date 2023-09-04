@@ -48,5 +48,17 @@ const CakeCommentsController = {
             })
         }
     },
+
+    edit: async(req,res)=>{
+        const id = req.params.id;
+        const {name,email, rating,review} = req.body
+        const existedComment = await bizProModel.findByIdAndUpdate(id,{ name:name, email:email, rating:rating, review:review})
+        if(existedComment==undefined){
+          res.status(204).send('data not found')
+        }
+        else{
+          res.status(200).send('data edited succesfuly')
+        }
+    }
 }
 module.exports = CakeCommentsController
